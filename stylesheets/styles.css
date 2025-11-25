@@ -1,0 +1,1145 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); */
+
+/* ================================
+    VARIÁVEIS GERAIS (TEMA LIGHT MLEGATE)
+    Original: #f07e30 (Laranja), #17403d (Verde Petróleo Antigo)
+    Novo: #1F4545 (Verde Petróleo Ajustado)
+==================================*/
+:root {
+    /* Cores da MLEGATE */
+    --primary-color: #f07e30;
+    /* Laranja de destaque */
+    --secondary-color: #1F4545;
+    /* NOVO: Verde Petróleo MLEGATE (Texto Principal/Título) */
+
+    /* Paleta Light */
+    --color-background-light: #F9F9F9;
+    /* Fundo principal off-white */
+    --color-background-card: #FFFFFF;
+    /* Fundo de cards/blocos */
+    --color-text-dark: #333333;
+    /* Texto principal do corpo */
+    --color-text-subtle: #555555;
+    /* Texto secundário/sutil */
+    --color-border-light: #E0E0E0;
+    /* Borda clara */
+
+    /* Cores Antigas/Uteis */
+    --white-color-original: #848484;
+    /* Cinza claro/médio original do Dark */
+    --black-color: #000000;
+    --color-white: #ffffff;
+    --accent-orange: #f57c00;
+    /* Laranja da Morison/Texto */
+    --dark-blue-bg: #041626;
+    --dark-bg: #02070f;
+}
+
+/* ================================
+    ANIMAÇÕES (MANTIDAS DO ORIGINAL + NOVO SCROLL)
+==================================*/
+/* NOVO: Animação de Pulo Suave para o Botão "Saiba Mais" */
+
+/* NOVO: Animação de Aura Pulsante (Padrão) */
+@keyframes pulseAura {
+    0% {
+        box-shadow: 0 0 0px 0px rgba(240, 126, 48, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0px 8px rgba(240, 126, 48, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0px 0px rgba(240, 126, 48, 0.3);
+    }
+}
+
+/* NOVO: Animação de Impulso da Seta (no Hover) */
+@keyframes arrowImpulse {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateY(8px);
+        opacity: 0.8;
+    }
+
+    /* Desce mais */
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Volta */
+    75% {
+        transform: translateY(4px);
+        opacity: 0.9;
+    }
+
+    /* Desce um pouco menos */
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Volta */
+}
+
+@keyframes nudgeDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    /* Movimento para baixo de 10px */
+}
+
+/* NOVO: Animação de Movimento Lateral Suave (Nudge/Shake) */
+@keyframes shakeSubtle {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-4px);
+    }
+
+    /* Sobe 4px */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseRing {
+
+    /* Mantendo seus valores originais para o efeito Glass */
+    0% {
+        box-shadow: 0 0 28px rgba(240, 126, 48, 0.30), 0 0 0 4px rgba(240, 126, 48, 0.70) inset;
+    }
+
+    50% {
+        box-shadow: 0 0 38px rgba(240, 126, 48, 0.55), 0 0 0 4px rgba(240, 126, 48, 0.75) inset;
+    }
+
+    100% {
+        box-shadow: 0 0 28px rgba(240, 126, 48, 0.30), 0 0 0 4px rgba(240, 126, 48, 0.70) inset;
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(6px);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animatedGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* NOVO: Animação de entrada (Scroll Reveal) */
+/* NOVO: Animação de entrada (Scroll Reveal) */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+
+    /* NOVO: Usa a variável CSS --stagger-delay. Se a variável não existir (em outros elementos), usa 0s. */
+    transition:
+        opacity 0.8s ease-out var(--stagger-delay, 0s),
+        transform 0.8s ease-out var(--stagger-delay, 0s);
+}
+
+.scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+    BASE / GERAL / SCROLLBAR (TEMA LIGHT COM GRADIENTE SUAVE)
+==================================*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    /* REGRA PRINCIPAL: Aplica a maioria dos links e botões */
+    a,
+    button,
+    .cssbuttons-io-button,
+    .saiba-link,
+    /* NOVOS SELETORES ADICIONADOS: */
+    #back-to-top-link,
+    .back-to-top-btn {
+        cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"></path></svg>') 12 12, pointer;
+    }
+
+    /* REGRA EXTRA: Garante a prioridade para o botão Enviar Mensagem */
+    #contato2 .btn-videofinal {
+        cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"></path></svg>') 12 12, pointer !important;
+    }
+
+
+
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'),
+    default;
+    font-family: "Exo 2",
+    sans-serif;
+    /* NOVO: Fundo principal com Gradiente Branco para Laranja Suave */
+    background: linear-gradient(180deg,
+        #FFFFFF 0%,
+        /* Branco Puro no Topo */
+        #FFFFFF 60%,
+        /* Mantém Branco Puro até 60% da página */
+        rgba(240, 126, 48, 0.15) 100%
+        /* Laranja MLEGATE suave (15% de opacidade) na Base */
+    );
+    background-attachment: fixed;
+    /* Fixa o gradiente para cobrir toda a rolagem */
+    background-color: #FFFFFF;
+    /* Cor de fallback */
+    color: var(--color-text-dark);
+    /* Texto base escuro */
+
+    /* Removemos as regras de animação/background-size */
+    animation: none;
+    background-size: auto;
+}
+
+/* Scrollbar para tema Light (Track mais clara) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary-color);
+    /* Hover para verde petróleo */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-background-light);
+}
+
+/* Títulos / Textos Comuns (Ajuste de cores) */
+.section-title,
+.txt-title {
+    text-align: center;
+    color: var(--secondary-color);
+    /* Títulos principais em Verde Petróleo */
+    font-size: 2.5em;
+    padding-bottom: 5px;
+    text-shadow: none;
+}
+
+.txt-title {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    /* Títulos internos em Laranja */
+    text-shadow: none;
+}
+
+.txt-mlegate,
+.txt-span {
+    color: var(--primary-color);
+}
+
+.txt-svg {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+/* ================================
+    NAVBAR (RESTAURO DE ANIMAÇÕES E TEMA LIGHT)
+==================================*/
+.navbar.bg-body-tertiary {
+    /* REVERSÃO: Fundo transparente original */
+    background-color: transparent !important;
+
+    /* MANTIDO: Padding para acomodar o scale no hover (corrigindo o problema estrutural) */
+    padding-bottom: 25px;
+
+    /* REMOVIDO: Efeitos visuais do Glassmorphism */
+    backdrop-filter: none;
+    box-shadow: none;
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-toggler {
+    border-color: var(--secondary-color);
+    /* Borda escura para Light */
+}
+
+.navbar-toggler-icon {
+    filter: none;
+    /* Remove invert(1) que quebra no Light */
+}
+
+.nav-link {
+    position: relative;
+    color: var(--color-text-dark);
+    /* Cor de link escuro */
+    transition: 0.3s ease;
+    margin: 0 20px;
+}
+
+.icon-nav {
+    color: var(--secondary-color);
+    /* Ícones em Verde Petróleo */
+    transition: color 0.3s ease;
+    z-index: 20;
+}
+
+/* Efeitos Hover no Link (Mantido ORIGINAL e CORRIGIDO a cor) */
+/* Efeitos Hover no Link */
+.nav-link:hover {
+    color: var(--primary-color);
+    scale: 1.15;
+    /* AJUSTADO para 1.15 para manter a elegância profissional */
+    transition: 0.3s ease-in-out;
+
+    /* NOVO: Aplica a animação de shake sutil */
+    animation: shakeSubtle 0.6s infinite alternate;
+}
+
+.nav-link:hover .icon-nav {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 50px;
+    transition: 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 60%;
+}
+
+/* Texto Flutuante */
+.icon-text {
+    display: none;
+    position: absolute;
+    width: 120px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.nav-link:hover .icon-text {
+    display: block;
+    color: var(--secondary-color);
+}
+
+
+/* ================================
+    HERO (HOME COM VÍDEO RESTAURADO)
+==================================*/
+.hero-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* RESTAURADO: Fundo transparente para deixar o vídeo aparecer */
+    background: none;
+    animation: none;
+}
+
+.hero-video {
+    /* RESTAURADO: Propriedades para exibir e loop o vídeo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* Overlay Light sobre o vídeo, separando-o do body gradiente */
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.overlay-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+
+/* LOGO (ORIGINAL) */
+.logo-wrapper {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.icon-aphelios {
+    animation: fadeIn 6s forwards;
+    opacity: 0;
+    max-width: min(70vw, 720px);
+}
+
+/* BOTÃO SAIBA MAIS (RESTAURADO ESTÉTICA GLASS ORIGINAL) */
+.saiba-wrapper {
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+}
+
+.cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    margin-bottom: 30px;
+    /* Tamanho fixo para um círculo */
+    height: 65px;
+    border-radius: 50%;
+    /* Formato de círculo */
+    background: var(--color-background-card);
+    /* Fundo claro */
+    border: 2px solid var(--primary-color);
+    /* Borda laranja */
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+
+    /* Animações combinadas */
+    animation:
+        nudgeDown 2s infinite ease-in-out 1s,
+        /* Pulo */
+        pulseAura 2s infinite ease-in-out;
+    /* Aura pulsante */
+}
+
+/* Hover do Botão */
+.cssbuttons-io-button:hover {
+    background: var(--primary-color);
+    /* Fundo laranja no hover */
+    border-color: var(--primary-color);
+    /* Borda laranja mantida */
+    box-shadow: 0 0 0px 10px rgba(240, 126, 48, 0.3);
+    /* Sombra mais forte no hover */
+    transform: translateY(-5px);
+    /* Eleva um pouco no hover */
+    animation: none;
+    /* Desliga as animações padrão no hover para dar lugar à do hover */
+}
+
+/* Ícone da Seta */
+.cssbuttons-io-button .icon {
+    display: flex;
+    /* Para centralizar o SVG */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    /* Transição para o scale */
+}
+
+/* Seta SVG */
+.cssbuttons-io-button svg {
+    fill: var(--primary-color);
+    /* Seta laranja */
+    height: 1.6em;
+    width: 1.6em;
+    transition: fill 0.3s ease;
+    /* Transição para a cor da seta */
+}
+
+/* Efeitos no Hover */
+.cssbuttons-io-button:hover svg {
+    fill: white;
+    /* Seta branca no hover */
+    animation: arrowImpulse 0.8s infinite ease-in-out;
+    /* Seta pulsa no hover */
+}
+
+.cssbuttons-io-button:active {
+    transform: scale(0.95);
+}
+
+/* ================================
+    SEÇÃO: QUEM SOMOS NÓS (#sobre) (TEMA LIGHT + TRANSPARENTE)
+==================================*/
+/* ================================
+    SEÇÃO: QUEM SOMOS NÓS (#sobre) - VERSÃO REFINADA E CLEAN
+==================================*/
+.sobre-section {
+    padding: 6rem 0;
+    /* Espaçamento ajustado */
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.sobre-header {
+    text-align: center;
+    margin-bottom: 55px;
+    /* Mais espaço para o cabeçalho */
+}
+
+.sobre-header h5 {
+    color: var(--color-text-subtle);
+}
+
+.sobre-header p {
+    color: var(--color-text-subtle) !important;
+    max-width: 800px;
+    margin: 20px auto 0 auto;
+    font-size: 1.1rem;
+    /* Levemente maior para ler melhor */
+    line-height: 1.7;
+}
+
+.sobre-grid {
+    display: flex;
+    flex-direction: column;
+    /* Mantido o empilhamento vertical original */
+    gap: 35px;
+    /* Mais espaçamento entre os blocos */
+    max-width: 950px;
+    /* Limitando a largura para melhor leitura */
+    margin: 0 auto;
+}
+
+/* Blocos de conteúdo: Agora são Cards Elegantes */
+.sobre-block {
+    display: flex;
+    gap: 25px;
+    /* Mais espaço entre ícone e texto */
+    padding: 30px 40px;
+    /* Padding interno equilibrado */
+
+    background: var(--color-background-card);
+    border: 1px solid var(--color-border-light);
+    /* Borda muito clara */
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    /* Sombra sutil de levitação */
+    transition: all 0.4s ease-in-out;
+
+    /* Remoção de qualquer transformação 3D/perspective */
+    perspective: none;
+}
+
+/* Efeito Hover de Levitação e Borda Colorida */
+.sobre-block:hover {
+    transform: translateY(-5px);
+    /* Efeito de levitação suave */
+    border-color: var(--primary-color);
+    /* Borda Verde Petróleo para elegância */
+    box-shadow: var(--primary-color);
+    /* Sombra mais forte ao levantar */
+}
+
+
+.sobre-icon {
+    /* Ícone em sua própria coluna (flex-shrink: 0 é crucial) */
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    /* NOVO: Fundo sutil em Verde Petróleo com Borda Laranja */
+    background: rgba(31, 69, 69, 0.08);
+    /* Fundo muito leve */
+    border: 2px solid var(--primary-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+}
+
+.sobre-block:hover .sobre-icon {
+    /* NOVO: Gira o ícone levemente para dinamismo */
+    transform: rotate(5deg) scale(1.05);
+    border-color: var(--primary-color);
+    /* Inverte a cor da borda no hover */
+}
+
+.sobre-icon i {
+    font-size: 24px;
+    /* Ícones mais finos */
+    color: var(--primary-color);
+}
+
+.sobre-title {
+    font-size: 1.55rem;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+    /* Levemente mais ousado */
+}
+
+/* Conteúdo e links internos */
+.sobre-content p,
+.sobre-link-extra {
+    line-height: 1.6;
+}
+
+.sobre-block p {
+    color: var(--color-text-dark) !important;
+    font-size: 1.05rem;
+    /* Texto mais legível */
+}
+
+.sobre-link-extra {
+    margin-top: 10px;
+}
+
+.sobre-link-extra a {
+    color: var(--secondary-color);
+    /* Link principal no Verde Petróleo */
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.sobre-link-extra a:hover {
+    color: var(--primary-color);
+    /* Link hover Laranja */
+}
+
+/* Lista de Serviços (Refinada) */
+.lista-servicos {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.lista-servicos li {
+    font-size: 1rem;
+    color: var(--color-text-subtle);
+    margin-bottom: 4px;
+    position: relative;
+    padding-left: 18px;
+    transition: color 0.3s ease;
+}
+
+.lista-servicos li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.lista-servicos li:hover {
+    color: var(--color-text-dark);
+    /* Texto escurece no hover */
+}
+
+/* Mantenha o restante do CSS inalterado (embaixo deste bloco no seu arquivo) */
+
+/* ================================
+    SEÇÃO: NOSSO COMPROMISSO (#compromisso) (TEMA LIGHT + TRANSPARENTE)
+==================================*/
+/* ================================
+    SEÇÃO: NOSSO COMPROMISSO (#compromisso) - VERSÃO ENERGÉTICA
+==================================*/
+#compromisso {
+    padding: 0rem 0 0rem 0;
+    /* Mais espaçamento */
+    color: var(--color-text-dark);
+    background-color: transparent;
+    /* Herda o Gradiente do Body */
+
+    /* NOVO: Fundo em malha para dar profundidade e tecnologia */
+    background-image: radial-gradient(var(--color-border-light) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0;
+}
+
+.compromisso-wrapper {
+    max-width: 1200px;
+    /* Levemente mais largo para o grid */
+}
+
+.compromisso-title {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    /* Mantido: tamanho, peso e span */
+}
+
+
+
+.compromisso-subtitle,
+.compromisso-text {
+    color: var(--color-text-subtle);
+}
+
+
+
+
+.compromisso-cards {
+    margin-top: 4rem;
+    /* Mais espaçamento acima do grid */
+}
+
+/* --------------------
+   2. Card Individual (comp-card)
+   -------------------- */
+.comp-card {
+    background: var(--color-background-card);
+    border-radius: 12px;
+    border: 1px solid var(--color-border-light);
+    padding: 30px;
+    /* Aumentando o padding */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    /* Sombra mais sutil */
+
+    /* Novo: Efeito suave de levitação */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* hover dos cards: Efeito de Profundidade/Borda Ativa */
+.comp-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    /* Borda Laranja no hover */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(240, 126, 48, 0.35);
+    background: var(--color-background-card);
+}
+
+/* --------------------
+   3. Ícone e Título
+   -------------------- */
+.comp-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    /* Quadrado arredondado */
+
+    /* NOVO: Fundo mais vibrante e boxShadow "focado" */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-orange));
+    color: var(--color-white);
+    /* Ícone branco para contraste */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    /* Ícone maior */
+    margin-bottom: 15px;
+
+    box-shadow: 0 6px 15px rgba(240, 126, 48, 0.4);
+    transition: all 0.4s ease-in-out;
+}
+
+.comp-card:hover .comp-icon {
+    /* NOVO: Pulsa o ícone no hover */
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 8px 20px rgba(240, 126, 48, 0.6);
+}
+
+/* textos do card */
+.comp-card-title {
+    font-size: 1.25rem;
+    /* Título mais expressivo */
+    font-weight: 700;
+    /* Mais ousado */
+    color: var(--secondary-color);
+    /* Verde Petróleo */
+    margin: 4px 0 8px;
+}
+
+.comp-card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-subtle);
+}
+
+/* ================================
+    LISTA PERSONALIZADA (UL/LI CUSTOM)
+==================================*/
+.ul-custom {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.li-custom {
+    color: var(--color-text-dark);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding-left: 22px;
+    cursor: default;
+}
+
+/* bolinha laranja */
+.li-custom::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    flex-shrink: 0;
+}
+
+.li-custom span {
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
+/* linha animada embaixo do texto */
+.li-custom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-orange);
+    transition: width 0.3s ease;
+}
+
+.li-custom:hover::after {
+    width: 40%;
+}
+
+
+/* ================================
+    SEÇÃO: ENVIAR CURRÍCULO (#curriculo) (TEMA LIGHT + TRANSPARENTE)
+==================================*/
+#curriculo {
+    padding: 6rem 0;
+    /* NOVO: Fundo transparente para herdar o gradiente do body */
+    background-color: transparent;
+}
+
+.curriculo-card {
+    background: var(--color-background-card);
+    border: 1px solid var(--color-border-light);
+    padding: 3rem;
+    border-radius: 16px;
+    backdrop-filter: none;
+    max-width: 800px;
+    width: 90%;
+    margin-top: 4rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.curriculo-title {
+    font-size: 2.6rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.linha-title {
+    width: 120px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 14px auto 0 auto;
+    border-radius: 30px;
+}
+
+.curriculo-desc {
+    color: var(--color-text-subtle);
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.btn-curriculo {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: not-allowed;
+    opacity: 0.9;
+    transition: 0.3s ease;
+}
+
+.btn-curriculo:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* ================================
+    SEÇÃO: CONTATO (#contato2) (Fundo Sólido Verde Petróleo - MANTIDO)
+==================================*/
+#contato2 {
+    /* Fundo sólido para criar contraste no final da página */
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 4rem 0;
+    margin-bottom: 0rem;
+}
+
+#contato2 .container {
+    padding-bottom: 0 !important;
+}
+
+
+/* Labels e textos nesta seção devem ser brancos */
+#contato2 .text-white,
+#contato2 .emailLabel,
+#contato2 .texto1-video-final,
+#contato2 .texto2-video-final {
+    color: white !important;
+}
+
+#contato2 .btn-videofinal {
+    background: linear-gradient(135deg, #f89b4f, #f07e30);
+    border: none;
+    color: var(--secondary-color);
+    /* Corrigido para Verde Petróleo no botão */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 2.2rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    box-shadow:
+        0 0 18px rgba(240, 126, 48, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        filter 0.25s ease;
+}
+
+#contato2 .btn-videofinal:hover {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(1.05);
+    box-shadow:
+        0 0 26px rgba(240, 126, 48, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+#contato2 .btn-videofinal:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        0 0 12px rgba(240, 126, 48, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+#contato2 .btn-videofinal i {
+    font-size: 1.1rem;
+}
+
+/* Ajuste dos campos do formulário para ter fundo claro */
+#contato2 .form-control {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: var(--color-text-dark);
+}
+
+/* ================================
+    BOTÃO VOLTAR AO TOPO (RESTAURADO ESTILO ORIGINAL)
+==================================*/
+.Btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    /* Gradient do botão ORIGINAL */
+    background: radial-gradient(circle at 30% 0%, #ffc58f 0%, #f07e30 40%, #c5500f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 9999;
+
+    box-shadow:
+        0 0 18px rgba(240, 126, 48, 0.55),
+        0 6px 16px rgba(0, 0, 0, 0.5);
+
+    padding: 0;
+    outline: none;
+    border: none;
+    font-family: inherit;
+
+    opacity: 1;
+    visibility: visible;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        opacity 0.4s ease-in-out,
+        visibility 0.4s ease-in-out;
+}
+
+.Btn .arrow path {
+    fill: var(--color-white);
+}
+
+.Btn .text {
+    font-size: 0.72rem;
+    width: 100px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-text-dark);
+    text-align: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.Btn:hover {
+    transform: translateX(-0%) translateY(-10px) scale(1.04);
+    box-shadow:
+        0 0 26px rgba(240, 126, 48, 0.8),
+        0 10px 22px rgba(0, 0, 0, 0.65);
+}
+
+.Btn:hover .text {
+    opacity: 1;
+}
+
+.Btn:hover .arrow {
+    animation: slide-in-bottom 0.5s ease both;
+}
+
+/* Classe de ocultação (controlada por JS) */
+.back-to-top-btn.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+
+.back-to-top-btn.text {
+    color: var(--primary-color);
+}
+
+
+/* ================================
+    FOOTER
+==================================*/
+
+
+footer.bg-black {
+    /* Corrigimos aqui para garantir a união */
+    background-color: #000000;
+    padding: 0.5rem 0;
+    margin-top: 0 !important;
+    /* Garante que o footer grude em #contato2 */
+    border-top: none;
+}
+
+/* Override para garantir que o margin-top do container não desloque o texto */
+footer .container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Ajuste fino para a nota de copyright */
+.fiap-txt {
+    /* O HTML já tem a classe 'text-white', mas garantimos um cinza claro discreto */
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 300;
+    /* Texto leve para não parecer um título */
+}
+
+/* ================================
+    MEDIA QUERIES (MANTIDO)
+==================================*/
+@media (max-width: 768px) {
+    #compromisso {
+        padding-top: 4.5rem;
+    }
+
+    .compromisso-title {
+        font-size: 2.3rem;
+    }
+
+    .compromisso-text {
+        font-size: 0.98rem;
+    }
+}
+
+/* ================================
+    EASTER EGG (CRÉDITOS DO DESENVOLVEDOR)
+==================================*/
