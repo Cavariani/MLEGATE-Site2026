@@ -1374,11 +1374,13 @@ footer .container {
 /* ================================
     SELETOR DE IDIOMAS (FIXO - CANTO SUPERIOR DIREITO)
 ==================================*/
+/* ================================
+    SELETOR DE IDIOMAS (FIXO - CANTO SUPERIOR DIREITO)
+==================================*/
 #language-selector {
     position: fixed;
     top: 15px;
     right: 15px;
-    /* Alterado de 'left' para 'right' */
     z-index: 100;
     display: flex;
     gap: 10px;
@@ -1389,29 +1391,37 @@ footer .container {
     backdrop-filter: blur(4px);
 }
 
-#language-selector .flag-icon-container {
+/* Estilo dos links da bandeira */
+#language-selector a {
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     display: inline-block;
+    text-decoration: none;
+    /* Remove o sublinhado padrão do link */
+    opacity: 0.6;
+    /* Deixa as bandeiras inativas mais transparentes */
 }
 
-#language-selector .flag-icon-container:hover {
+/* Bandeira ativa (a que está selecionada/atual) */
+#language-selector .flag-active {
+    opacity: 1;
+    /* Bandeira atual é totalmente visível */
+    transform: scale(1.05);
+    /* Levemente maior */
+    pointer-events: none;
+    /* Impede clique na própria bandeira */
+}
+
+/* Efeito Hover nas bandeiras inativas */
+#language-selector a:not(.flag-active):hover {
+    opacity: 0.9;
     transform: scale(1.15);
-    opacity: 0.8;
 }
 
+/* Tamanho das bandeiras */
 #language-selector .fi {
     width: 38px;
-    /* Aumentado de 26px para 38px */
     height: 28.5px;
-    /* Proporcionalmente aumentado de 19.5px para 28.5px */
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
-    /* Para melhorar a qualidade em tamanhos maiores, se necessário, mas os ícones já são SVG e devem escalar bem */
-    image-rendering: -webkit-optimize-contrast;
-    /* Para navegadores WebKit */
-    image-rendering: crisp-edges;
-    /* Para navegadores modernos */
-    -ms-interpolation-mode: nearest-neighbor;
-    /* Para IE */
 }
