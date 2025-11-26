@@ -314,10 +314,25 @@
 
                 <p class="curriculo-desc mt-4">
                     Estamos sempre em busca de novos talentos. Invista em uma carreira que valoriza colaboração,
-                    aprendizado contínuo e exposição a projetos estratégicos.
+                    aprendizado
+                    contínuo e exposição a projetos estratégicos.
                 </p>
 
-                <button class="btn-curriculo mt-4" disabled>Em breve ⏳</button>
+                <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST" enctype="multipart/form-data"
+                    class="curriculo-form">
+
+                    <input type="text" name="Nome" placeholder="Seu Nome Completo" required class="form-control mb-3">
+
+                    <input type="file" name="Anexo" id="file-upload" accept="application/pdf" class="d-none" required>
+
+                    <label for="file-upload" class="btn-curriculo mt-4">
+                        Selecionar CV (.pdf)
+                    </label>
+
+                    <button type="submit" class="btn-curriculo-submit mt-3">
+                        Enviar Currículo <i class="bi bi-send"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </section>

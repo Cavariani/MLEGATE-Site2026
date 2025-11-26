@@ -973,6 +973,63 @@ body {
 }
 
 /* ================================
+    ESTILO DO BOTÃO DE UPLOAD (CURRÍCULO)
+==================================*/
+
+/* Garante que o LABEL (Selecionar CV) pareça um botão */
+.curriculo-form .btn-curriculo {
+    /* Mantém o estilo visual do seu botão original */
+    background: var(--primary-color);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.3s ease;
+    display: block;
+    /* Ocupa a largura total para melhor clique */
+    width: 100%;
+    max-width: 320px;
+    /* Alinha com o botão de envio */
+    margin: 20px auto 0 auto;
+    /* Centraliza */
+    text-align: center;
+}
+
+/* Efeito Hover para o LABEL */
+.curriculo-form .btn-curriculo:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* NOVO: Estilo do Botão de Envio (Abaixo do Selecionar CV) */
+.btn-curriculo-submit {
+    background: var(--secondary-color);
+    /* Usando o verde petróleo para destaque */
+    color: var(--color-white);
+    border: none;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 15px auto 0 auto;
+}
+
+.btn-curriculo-submit:hover {
+    opacity: 1;
+    transform: scale(1.03);
+    background: #113636;
+    /* Escurece um pouco o hover do verde petróleo */
+}
+
+/* ================================
     SEÇÃO: CONTATO (#contato2) (Fundo Sólido Verde Petróleo - MANTIDO)
 ==================================*/
 #contato2 {
