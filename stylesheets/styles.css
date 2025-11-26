@@ -40,7 +40,44 @@
 /* ================================
     ANIMAÇÕES (MANTIDAS DO ORIGINAL + NOVO SCROLL)
 ==================================*/
-/* NOVO: Animação de Pulo Suave para o Botão "Saiba Mais" */
+/* NOVO: Animação de Entrada Elástica/Saltitante */
+@keyframes jellyEntrance {
+    0% {
+        transform: translate(-50%, 100px) scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -10px) scale(1.05);
+    }
+
+    /* Salto leve para cima */
+    100% {
+        transform: translate(-50%, 0) scale(1.0);
+        opacity: 1;
+    }
+}
+
+
+/* NOVO: Animação de Entrada do Easter Egg (Deslize com Bounce) */
+@keyframes slideInRightBounce {
+    0% {
+        transform: translate(100px, 0);
+        opacity: 0;
+    }
+
+    /* Começa 100px para a direita */
+    80% {
+        transform: translate(-10px, 0);
+        opacity: 1;
+    }
+
+    /* Salta um pouco para trás */
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
 
 /* NOVO: Animação de Aura Pulsante (Padrão) */
 @keyframes pulseAura {
@@ -1143,3 +1180,181 @@ footer .container {
 /* ================================
     EASTER EGG (CRÉDITOS DO DESENVOLVEDOR)
 ==================================*/
+
+/* ================================
+    EASTER EGG (CRÉDITOS DO DESENVOLVEDOR)
+==================================*/
+/* ================================
+    EASTER EGG (CRÉDITOS: CENTRALIZADO E ENERGÉTICO)
+==================================*/
+#dev-credits-easter-egg {
+    position: fixed;
+    bottom: 50px;
+    /* Eleva a caixa 50px do fundo */
+    left: 50%;
+    /* Centralização horizontal */
+
+    /* NOVO TAMANHO E ESTILO */
+    padding: 18px 30px;
+    /* Maior padding */
+    min-width: 350px;
+    /* Largura mínima para ser notável */
+    background-color: var(--secondary-color);
+    /* Fundo Verde Petróleo */
+    color: var(--color-white);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    /* Fonte maior para melhor leitura */
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    /* Sombra mais forte */
+
+    z-index: 99999;
+
+    /* Estado inicial: Escondido e preparado para a centralização/animação */
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 0);
+    /* Centralização no eixo X */
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#dev-credits-easter-egg .txt-span {
+    color: var(--primary-color);
+    /* Adiciona a cor Laranja ao nome */
+    font-weight: 700;
+}
+
+#dev-credits-easter-egg.show {
+    visibility: visible;
+    pointer-events: all;
+
+    /* Ativa a nova animação centralizada */
+    animation: jellyEntrance 0.7s ease-out forwards;
+}
+
+/* ================================
+    SEÇÃO: SOCIAL CONNECT (LinkedIn)
+==================================*/
+#social-connect {
+    padding: 2rem 0 4rem 0;
+    /* Espaçamento entre Curriculo e Contato */
+    text-align: center;
+    background-color: transparent;
+    /* Herda o gradiente do body */
+}
+
+/* Estilo do Botão LinkedIn (Baseado no Uiverse, ajustado para classes) */
+.linkedin-btn {
+    background: transparent;
+    position: relative;
+    padding: 10px 25px;
+    /* Aumentei um pouco o padding */
+    display: inline-flex;
+    /* Usar inline-flex para centralizar melhor */
+    align-items: center;
+    font-size: 2.5rem;
+    /* Fonte maior */
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+
+    /* Cores LinkedIn */
+    --linkedin-blue: rgb(0, 119, 181);
+    border: 2px solid var(--linkedin-blue);
+    border-radius: 10px;
+    /* Mais arredondado */
+    outline: none;
+    overflow: hidden;
+    color: var(--linkedin-blue);
+    transition: color 0.3s 0.1s ease-out, transform 0.3s ease;
+    text-align: center;
+}
+
+.linkedin-btn span {
+    margin-left: 10px;
+}
+
+/* Pseudo-elemento para o efeito de preenchimento (Fill Effect) */
+.linkedin-btn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    left: -5em;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+}
+
+/* Hover: Efeito de preenchimento e elevação */
+.linkedin-btn:hover {
+    color: #fff;
+    border: 1px solid var(--linkedin-blue);
+    transform: translateY(-3px);
+    /* Leve elevação no hover */
+}
+
+.linkedin-btn:hover::before {
+    box-shadow: inset 0 0 0 10em var(--linkedin-blue);
+}
+
+/* Corrigir o ícone SVG para usar fill-current e garantir tamanho */
+.linkedin-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ================================
+    SELETOR DE IDIOMAS (FIXO - CANTO SUPERIOR DIREITO)
+==================================*/
+#language-selector {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    /* Alterado de 'left' para 'right' */
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+#language-selector .flag-icon-container {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: inline-block;
+}
+
+#language-selector .flag-icon-container:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+}
+
+#language-selector .fi {
+    width: 38px;
+    /* Aumentado de 26px para 38px */
+    height: 28.5px;
+    /* Proporcionalmente aumentado de 19.5px para 28.5px */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    /* Para melhorar a qualidade em tamanhos maiores, se necessário, mas os ícones já são SVG e devem escalar bem */
+    image-rendering: -webkit-optimize-contrast;
+    /* Para navegadores WebKit */
+    image-rendering: crisp-edges;
+    /* Para navegadores modernos */
+    -ms-interpolation-mode: nearest-neighbor;
+    /* Para IE */
+}

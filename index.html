@@ -13,12 +13,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+
     <link rel="stylesheet" href="./stylesheets/styles.css" />
     <link rel="stylesheet" href="./stylesheets/stylesSI.css" />
     <link rel="stylesheet" href="./stylesheets/mobiletweaks.css" />
 </head>
 
 <body>
+    <div id="language-selector">
+        <span class="flag-icon-container" data-lang="pt">
+            <span class="fi fi-br" role="button" aria-label="Português"></span>
+        </span>
+
+        <span class="flag-icon-container" data-lang="en">
+            <span class="fi fi-us" role="button" aria-label="English"></span>
+        </span>
+
+        <span class="flag-icon-container" data-lang="es">
+            <span class="fi fi-es" role="button" aria-label="Español"></span>
+        </span>
+    </div>
+
     <nav class="navbar navbar-expand-md bg-body-tertiary navbar-horizontal">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,17 +116,19 @@
         <div class="sobre-inner">
 
             <div class="sobre-header">
-                <h2 class="txt-title fw-bold fs-1 scroll-animate">Quem Somos Nós</h2>
+                <h2 class="txt-title fw-bold scroll-animate">Quem Somos Nós</h2>
 
-                <h5 class="text-secondary fs-4 scroll-animate">
+                <h5 class="text-secondary fs-3 scroll-animate">
                     Conheça a missão e os valores da
                     <span class="txt-mlegate fw-bold">MLEGATE</span>.
                 </h5>
 
-                <p class="text-white fs-5 scroll-animate">
-                    Somos uma firma de serviço completo (full-service), fundada em Setembro de 1995 e que cresceu para
-                    se tornar uma equipe multidisciplinar com mais de 100 profissionais. Nosso diferencial é a
-                    combinação de expertise com empatia, inovação e propósito.
+                <p class="text-white fs-4 scroll-animate">
+                    Somos uma consultoria full-service que atua desde 1995 em diversas frentes de contabilidade e
+                    recursos humanos. Hoje,
+                    com mais de 100 profissionais especializados, nos destacamos pela combinação da empatia com a
+                    expertise profissional,
+                    inovação e propósito.
                 </p>
             </div>
 
@@ -124,9 +142,9 @@
                     <div class="sobre-content">
                         <h3 class="sobre-title">Nossa Evolução</h3>
                         <p>
-                            Nossa história começou em São Paulo, com a fundação de três firmas especializadas
-                            em 1995, que se uniram em 2002. Crescemos através de expansão consistente e diversificação
-                            estratégica, sem depender de um único cliente ou linha de serviço.
+                            Nossa história começou em São Paulo, com a fundação de três empresas especializadas
+                            em 1995, que se uniram em 2002. A diversificação estratégica de mercados e setores garante
+                            nosso crescimento contínuo
                         </p>
                     </div>
                 </article>
@@ -145,8 +163,12 @@
 
                         <p class="sobre-link-extra">
                             Isso aprimora nossa credibilidade global e nos conecta com parceiros internacionais de
-                            confiança. <br> Saiba mais em:
-                            <a href="https://www.morisonglobal.com/" target="_blank">morisonglobal.com</a>
+                            confiança. A troca contínua com profissionais do mundo todo nos proporciona desenvolvimento
+                            técnico e comportamental que permite
+                            nossa atuação em empresas internacionais com o mesmo cuidado e profissionalismo que temos no
+                            atendimento de parceiros
+                            nacionais.
+                            <!-- <a href="https://www.morisonglobal.com/" target="_blank">morisonglobal.com</a> -->
                         </p>
                     </div>
                 </article>
@@ -300,6 +322,27 @@
         </div>
     </section>
 
+    <section id="social-connect" class="scroll-animate">
+        <div class="container text-center mb-5 pb-2">
+            <a href="https://www.linkedin.com/company/mlegate" target="_blank" class="linkedin-link">
+                <button class="linkedin-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-linkedin" viewBox="0 0 24 24">
+                        <path
+                            d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z">
+                        </path>
+                    </svg>
+                    <span>LinkedIn</span>
+                </button>
+            </a>
+        </div>
+    </section>
+
+
+
+
+
+
     <section id="contato2" class="contato-section">
         <div class="container py-5">
 
@@ -348,6 +391,11 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <div id="dev-credits-easter-egg">
+        Website desenvolvido por <span class="txt-span">Pedro R Cavariani</span> - 2025
+    </div>
 
 
     <footer class="bg-black text-white">
