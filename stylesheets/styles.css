@@ -918,7 +918,7 @@ body {
     SEÇÃO: ENVIAR CURRÍCULO (#curriculo) (TEMA LIGHT + TRANSPARENTE)
 ==================================*/
 #curriculo {
-    padding: 6rem 0;
+    padding: 0rem 0;
     /* NOVO: Fundo transparente para herdar o gradiente do body */
     background-color: transparent;
 }
@@ -1036,12 +1036,12 @@ body {
     /* Fundo sólido para criar contraste no final da página */
     background-color: var(--secondary-color);
     color: white;
-    padding: 4rem 0;
+    padding: 0rem 0;
     margin-bottom: 0rem;
 }
 
 #contato2 .container {
-    padding-bottom: 0 !important;
+    padding-bottom: 0.1 !important;
 }
 
 
@@ -1296,7 +1296,7 @@ footer .container {
     SEÇÃO: SOCIAL CONNECT (LinkedIn)
 ==================================*/
 #social-connect {
-    padding: 2rem 0 4rem 0;
+    /* padding: 2rem 0 4rem 0; */
     /* Espaçamento entre Curriculo e Contato */
     text-align: center;
     background-color: transparent;
@@ -1305,6 +1305,7 @@ footer .container {
 
 /* Estilo do Botão LinkedIn (Baseado no Uiverse, ajustado para classes) */
 .linkedin-btn {
+    margin-top: 3rem;
     background: transparent;
     position: relative;
     padding: 10px 25px;
@@ -1425,3 +1426,141 @@ footer .container {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
 }
+
+
+/* ================================
+    SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO)
+==================================*/
+
+/* 1. KEYFRAME DE SCROLL (Define o movimento) */
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Move para a esquerda metade do track */
+}
+
+#client-logos {
+    padding: 3rem 0;
+    /* Espaçamento vertical */
+    overflow: hidden;
+    /* Oculta as logos fora da tela */
+    background: var(--color-background-card);
+    /* Fundo branco sólido para contraste */
+}
+
+/* 2. Container principal */
+.marquee {
+    width: 100%;
+    white-space: nowrap;
+    /* Impede que os itens quebrem linha */
+}
+
+/* 3. A Pista de Rolagem (Deve ser duas vezes a largura do container) */
+.marquee-track {
+    display: flex;
+    width: 200%;
+    /* Duas vezes a largura para caber dois blocos de logos */
+    animation: scrollLogos 45s linear infinite;
+    /* 45s de duração, movimento linear, looping */
+}
+
+/* ================================
+    SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO - CSS PURO ROBUSTO)
+==================================*/
+
+/* ================================
+    SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO - CORREÇÃO FINAL)
+==================================*/
+
+/* 1. KEYFRAME DE SCROLL (Move 100% da largura de uma cópia) */
+
+
+#client-logos {
+    overflow: hidden;
+    padding: 3rem 0;
+    background-color: transparent;
+    background: transparent;
+    /* Remove white-space: nowrap daqui */
+    position: relative;
+}
+
+
+/* Slides individuais (Nossos itens de lista) */
+.swiper-slide {
+    display: inline-block;
+    /* Permite que o width:auto funcione */
+    flex-shrink: 0;
+    /* Impede que o slide se comprima */
+    margin: 0 20px;
+    /* Adiciona espaçamento entre as logos */
+    width: auto;
+}
+
+/* 4. Lista individual de Logos (Manter alinhamento) */
+/* ================================
+    CORREÇÃO DA SOBREPOSIÇÃO (CLIENT LOGO FIX)
+==================================*/
+
+/* 4. Lista individual de Logos */
+.logo-list {
+    display: flex;
+    /* Alinha ao início para evitar espaços invisíveis */
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    /* Deixa o conteúdo definir a largura */
+    padding: 0 80px;
+    /* Aumenta o padding lateral para margem de segurança */
+    flex-shrink: 0;
+}
+
+/* 5. Estilos das Logos (FORÇA TAMANHO E MAIOR ESPAÇAMENTO) */
+.client-logo {
+    /* CORREÇÃO CRÍTICA: Manter a altura uniforme, mas aumentar a largura máxima */
+    height: 60px;
+    /* Aumentamos a altura de 50px para 60px para melhor visualização */
+    width: auto;
+    max-width: 250px;
+    /* Aumentamos o limite para 250px para logos mais largas */
+
+    /* CORREÇÃO DE ESPAÇAMENTO: Aumentamos a margem de 60px para 80px */
+    margin: 0 80px;
+
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+    transition: transform 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+}
+
+/* TRACK ANIMADO (APLICAÇÃO DA LARGURA ABSOLUTA) */
+.marquee-track {
+    display: flex;
+    /* CORREÇÃO CRÍTICA: A largura deve ser 300% para as três cópias */
+    width: 300%;
+
+    /* APLICA A ANIMAÇÃO QUE FARÁ O LOOP */
+    animation: scrollLogos 45s infinite linear;
+}
+
+/* 1. KEYFRAME DE SCROLL (Move exatamente 1/3 da pista) */
+@keyframes scrollLogos {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* Move 33.3333% da largura total do track (300%) para completar um ciclo */
+        transform: translateX(-33.3333%);
+    }
+}
+
+

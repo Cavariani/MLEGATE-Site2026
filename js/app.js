@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     // Parâmetros de tempo para o efeito dramático:
     const fadeDuration = 1500; // 1.5 segundos de duração do fade
-    const elementDelay = 1500;  // 1.5 segundos de atraso entre os elementos
+    const elementDelay = 1500; 	// 1.5 segundos de atraso entre os elementos
 
     // Ocultar todos os elementos no início, caso o CSS não tenha feito
     $navbar.css('opacity', '0');
@@ -122,65 +122,65 @@ $(document).ready(function () {
     checkScrollAnimation();
 
 
-// ==========================================================
-// 4. NOVO: EASTER EGG (5 CLIQUES NO ÍCONE RAIO)
-// ==========================================================
+    // ==========================================================
+    // 4. NOVO: EASTER EGG (5 CLIQUES NO ÍCONE RAIO)
+    // ==========================================================
 
-let clickCountEE = 0; 
-const $lightningIcon = $('.comp-card .comp-icon i.bi-lightning-charge');
-const $creditsBox = $('#dev-credits-easter-egg');
-const requiredClicksEE = 5; 
+    let clickCountEE = 0;
+    const $lightningIcon = $('.comp-card .comp-icon i.bi-lightning-charge');
+    const $creditsBox = $('#dev-credits-easter-egg');
+    const requiredClicksEE = 5;
 
-$lightningIcon.css('cursor', 'help'); 
+    $lightningIcon.css('cursor', 'help');
 
-// Função de Handler para o clique (separada para poder ser religada)
-const easterEggClickHandler = function(e) {
-    e.preventDefault(); 
-    e.stopPropagation(); 
-    
-    clickCountEE++;
-    
-    // FEEDBACK VISUAL RÁPIDO
-    $(this).addClass('clicked');
-    setTimeout(() => {
-        $(this).removeClass('clicked');
-    }, 100); 
+    // Função handler para poder remover e readicionar o listener
+    const handleEasterEggClick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-    if (clickCountEE >= requiredClicksEE) {
-        $creditsBox.addClass('show');
-        
-        // Confirmação visual (ícone muda)
-        const $iconRef = $(this);
-        $iconRef.removeClass('bi-lightning-charge').addClass('bi-check-circle-fill').css('color', 'var(--secondary-color)');
-        
-        // Desativa temporariamente o clique e o contador
-        $lightningIcon.off('click', easterEggClickHandler);
+        clickCountEE++;
 
-        // NOVO CÓDIGO: TEMPORIZADOR DE 5 SEGUNDOS
+        // Efeito visual de clique rápido (feedback)
+        $(this).addClass('clicked');
         setTimeout(() => {
-            // 1. Esconde a caixa
-            $creditsBox.removeClass('show');
+            $(this).removeClass('clicked');
+        }, 100);
 
-            // 2. Restaura o ícone original
-            $iconRef.removeClass('bi-check-circle-fill').addClass('bi-lightning-charge').css('color', '');
+        if (clickCountEE >= requiredClicksEE) {
+            $creditsBox.addClass('show');
 
-            // 3. Reinicializa o contador e reativa o clique
-            clickCountEE = 0;
-            $lightningIcon.on('click', easterEggClickHandler);
-        }, 5000); // 5000 milissegundos = 5 segundos
-    }
-    
-    // Resetar o contador se houver um longo atraso (1 segundo)
-    clearTimeout(window.resetTimerEE);
-    window.resetTimerEE = setTimeout(() => {
-        if (clickCountEE < requiredClicksEE) {
-            clickCountEE = 0;
+            // Confirmação visual (ícone muda)
+            const $iconRef = $(this);
+            $iconRef.removeClass('bi-lightning-charge').addClass('bi-check-circle-fill').css('color', 'var(--secondary-color)');
+
+            // Desativa temporariamente o clique e o contador
+            $lightningIcon.off('click', handleEasterEggClick);
+
+            // LÓGICA PARA DESAPARECER APÓS 5 SEGUNDOS
+            setTimeout(() => {
+                // Esconde a caixa de créditos
+                $creditsBox.removeClass('show');
+
+                // Restaura o ícone original
+                $iconRef.removeClass('bi-check-circle-fill').addClass('bi-lightning-charge').css('color', '');
+
+                // Reinicializa o contador e reativa o clique
+                clickCountEE = 0;
+                $lightningIcon.on('click', handleEasterEggClick);
+            }, 8000); // 5000ms = 5 segundos
         }
-    }, 1000); 
-};
 
-// LIGA o evento de clique inicial (Deve estar fora do $(document).ready, mas mantido aqui para simplicidade)
-$lightningIcon.on('click', easterEggClickHandler);
+        // Resetar o contador se houver um longo atraso (1 segundo) entre os cliques
+        clearTimeout(window.resetTimerEE);
+        window.resetTimerEE = setTimeout(() => {
+            if (clickCountEE < requiredClicksEE) {
+                clickCountEE = 0;
+            }
+        }, 1000);
+    };
+
+    // Adiciona o listener inicial
+    $lightningIcon.on('click', handleEasterEggClick);
 
 
 });
