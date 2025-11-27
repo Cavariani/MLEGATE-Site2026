@@ -314,16 +314,12 @@ body {
     text-shadow: none;
 }
 
-.txt-title {
-    font-size: 2.3rem;
-    color: var(--primary-color);
-    /* Títulos internos em Laranja */
-    text-shadow: none;
-}
+
 
 .txt-mlegate,
 .txt-span {
     color: var(--primary-color);
+    font-weight: bold;
 }
 
 .txt-svg {
@@ -566,11 +562,9 @@ body {
 /* ================================
     SEÇÃO: QUEM SOMOS NÓS (#sobre) (TEMA LIGHT + TRANSPARENTE)
 ==================================*/
-/* ================================
-    SEÇÃO: QUEM SOMOS NÓS (#sobre) - VERSÃO REFINADA E CLEAN
-==================================*/
+
 .sobre-section {
-    padding: 6rem 0;
+    padding: 5rem 0;
     /* Espaçamento ajustado */
     background-color: transparent;
     box-shadow: none;
@@ -740,121 +734,181 @@ body {
 /* Mantenha o restante do CSS inalterado (embaixo deste bloco no seu arquivo) */
 
 /* ================================
-    SEÇÃO: NOSSO COMPROMISSO (#compromisso) (TEMA LIGHT + TRANSPARENTE)
-==================================*/
-/* ================================
-    SEÇÃO: NOSSO COMPROMISSO (#compromisso) - VERSÃO ENERGÉTICA
+    SEÇÃO: COMPROMISSO (MAGIC CARD STYLE)
 ==================================*/
 #compromisso {
-    padding: 0rem 0 0rem 0;
-    /* Mais espaçamento */
-    color: var(--color-text-dark);
+    padding: 0rem 0;
     background-color: transparent;
-    /* Herda o Gradiente do Body */
-
-    /* NOVO: Fundo em malha para dar profundidade e tecnologia */
-    background-image: radial-gradient(var(--color-border-light) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: 0 0;
 }
 
 .compromisso-wrapper {
     max-width: 1200px;
-    /* Levemente mais largo para o grid */
 }
 
 .compromisso-title {
+    text-align: center;
     color: var(--secondary-color);
-    font-size: 2rem;
-    /* Mantido: tamanho, peso e span */
+    /* Títulos principais em Verde Petróleo */
+    font-size: 2.5em;
+    padding-bottom: 5px;
+    text-shadow: none;
+    font-weight: bold;
 }
 
-
-
-.compromisso-subtitle,
-.compromisso-text {
+.compromisso-subtitle {
     color: var(--color-text-subtle);
 }
 
-
-
+/* TEXTO PRINCIPAL DA SEÇÃO */
+.compromisso-text {
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-subtle);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .compromisso-cards {
     margin-top: 4rem;
-    /* Mais espaçamento acima do grid */
 }
 
-/* --------------------
-   2. Card Individual (comp-card)
-   -------------------- */
+/* ------------------------------------------------
+   MAGIC CARD - ESTRUTURA BASE
+------------------------------------------------ */
 .comp-card {
-    background: var(--color-background-card);
-    border-radius: 12px;
-    border: 1px solid var(--color-border-light);
-    padding: 30px;
-    /* Aumentando o padding */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    /* Sombra mais sutil */
+    /* Definição do Gradiente da Borda e Fundo do Glow */
+    --card-gradient: linear-gradient(135deg, var(--primary-color) 0%, #ff9a5b 100%);
 
-    /* Novo: Efeito suave de levitação */
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Garante altura igual nas colunas */
+    padding: 3px;
+    /* Espessura da borda colorida */
+    border-radius: 1rem;
+
+    /* O fundo do card wrapper é o gradiente */
+    background: var(--card-gradient);
+
+    overflow: visible;
+    z-index: 1;
+    transition: transform 0.3s ease;
+
+    /* Remove estilos antigos */
+    box-shadow: none;
+    border: none;
 }
 
-/* hover dos cards: Efeito de Profundidade/Borda Ativa */
-.comp-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary-color);
-    /* Borda Laranja no hover */
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(240, 126, 48, 0.35);
-    background: var(--color-background-card);
+/* O BRILHO (GLOW) ATRÁS DO CARD */
+.comp-card::after {
+    position: absolute;
+    content: "";
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(25px);
+    background: var(--card-gradient);
+    opacity: 0.5;
+    /* Brilho inicial suave */
+    transition: opacity 0.5s;
 }
 
-/* --------------------
-   3. Ícone e Título
-   -------------------- */
-.comp-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    /* Quadrado arredondado */
-
-    /* NOVO: Fundo mais vibrante e boxShadow "focado" */
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-orange));
-    color: var(--color-white);
-    /* Ícone branco para contraste */
+/* CONTEÚDO INTERNO (FUNDO BRANCO) */
+.comp-card-inner {
+    background: var(--color-background-card);
+    /* Fundo Branco */
+    color: var(--color-text-dark);
+    width: 100%;
+    height: 100%;
+    border-radius: 0.8rem;
+    /* Um pouco menos que o pai para encaixar */
+    padding: 2rem 1.5rem;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    /* Ícone maior */
-    margin-bottom: 15px;
-
-    box-shadow: 0 6px 15px rgba(240, 126, 48, 0.4);
-    transition: all 0.4s ease-in-out;
+    /* Centraliza verticalmente antes do hover */
+    transition: justify-content 0.3s ease;
 }
 
-.comp-card:hover .comp-icon {
-    /* NOVO: Pulsa o ícone no hover */
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 8px 20px rgba(240, 126, 48, 0.6);
+/* ------------------------------------------------
+   CONTEÚDO E ANIMAÇÃO DE REVELAÇÃO (REVEAL)
+------------------------------------------------ */
+
+/* Ícone */
+.comp-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
-/* textos do card */
+/* Título */
 .comp-card-title {
     font-size: 1.25rem;
-    /* Título mais expressivo */
     font-weight: 700;
-    /* Mais ousado */
     color: var(--secondary-color);
-    /* Verde Petróleo */
-    margin: 4px 0 8px;
+    margin: 0;
+    transition: transform 0.3s ease;
+    text-align: center;
 }
 
-.comp-card-text {
-    font-size: 1rem;
-    line-height: 1.6;
+/* LISTA DE SERVIÇOS (ESCONDIDA POR PADRÃO) */
+.comp-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Estado Inicial: Altura 0 e Invisível */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.comp-card-list li {
+    font-size: 0.9rem;
     color: var(--color-text-subtle);
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ------------------------------------------------
+   HOVER EFFECTS
+------------------------------------------------ */
+
+/* Levanta o card */
+.comp-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Aumenta o brilho no hover */
+.comp-card:hover::after {
+    opacity: 0.8;
+    filter: blur(35px);
+}
+
+/* Revela o texto */
+.comp-card:hover .comp-card-list {
+    max-height: 200px;
+    /* Altura suficiente para o conteúdo */
+    opacity: 1;
+    margin-top: 20px;
+    /* Adiciona espaço entre título e texto */
+}
+
+/* Ajusta ícone e título para dar espaço */
+.comp-card:hover .comp-icon {
+    transform: scale(0.9);
 }
 
 /* ================================
@@ -1222,7 +1276,7 @@ footer .container {
 ==================================*/
 @media (max-width: 768px) {
     #compromisso {
-        padding-top: 4.5rem;
+        padding-top: 05rem;
     }
 
     .compromisso-title {
@@ -1295,48 +1349,56 @@ footer .container {
 /* ================================
     SEÇÃO: SOCIAL CONNECT (LinkedIn)
 ==================================*/
-#social-connect {
-    /* padding: 2rem 0 4rem 0; */
-    /* Espaçamento entre Curriculo e Contato */
-    text-align: center;
-    background-color: transparent;
-    /* Herda o gradiente do body */
+/* ================================
+    SEÇÃO: SOCIAL CONNECT (FIX: Restaura Contraste e Tamanho)
+==================================*/
+
+/* Container Flexbox */
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
 }
 
-/* Estilo do Botão LinkedIn (Baseado no Uiverse, ajustado para classes) */
-.linkedin-btn {
-    margin-top: 3rem;
+/* Estilo Base dos Botões Sociais */
+.social-btn {
     background: transparent;
     position: relative;
+
+    /* RESTAURAÇÃO DO TAMANHO ORIGINAL GRANDE (2.5rem) */
     padding: 10px 25px;
-    /* Aumentei um pouco o padding */
-    display: inline-flex;
-    /* Usar inline-flex para centralizar melhor */
-    align-items: center;
-    font-size: 2.5rem;
-    /* Fonte maior */
+    font-size: 2rem;
     font-weight: 600;
+
     text-decoration: none;
     cursor: pointer;
-
-    /* Cores LinkedIn */
-    --linkedin-blue: rgb(0, 119, 181);
-    border: 2px solid var(--linkedin-blue);
     border-radius: 10px;
-    /* Mais arredondado */
+
+    /* Borda Comum (2px) */
+    border: 2px solid;
+
     outline: none;
     overflow: hidden;
-    color: var(--linkedin-blue);
     transition: color 0.3s 0.1s ease-out, transform 0.3s ease;
     text-align: center;
 }
 
-.linkedin-btn span {
-    margin-left: 10px;
+.social-btn span {
+    margin-left: 15px;
+    transition: color 0.3s ease;
+    /* Adiciona transição na cor do texto */
+}
+
+/* Base SVG e Icon */
+.social-btn svg {
+    width: 30px;
+    height: 30px;
+    transition: fill 0.3s ease;
 }
 
 /* Pseudo-elemento para o efeito de preenchimento (Fill Effect) */
-.linkedin-btn::before {
+.social-btn::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -1349,27 +1411,52 @@ footer .container {
     width: 20em;
     height: 20em;
     left: -5em;
-    text-align: center;
     transition: box-shadow 0.5s ease-out;
     z-index: -1;
 }
 
 /* Hover: Efeito de preenchimento e elevação */
-.linkedin-btn:hover {
+.social-btn:hover {
     color: #fff;
-    border: 1px solid var(--linkedin-blue);
+    /* CRÍTICO: Garante que o texto genérico fique branco */
+    border: 1px solid var(--social-color);
+    /* A borda final fica 1px */
     transform: translateY(-3px);
-    /* Leve elevação no hover */
+}
+
+/* CRÍTICO: Garante que o texto e o ícone fiquem brancos no hover, 
+            e o texto volte à cor normal quando o hover sair. */
+.social-btn:hover span,
+.social-btn:hover svg {
+    fill: #fff;
+    color: #fff !important;
+    /* Força o texto para branco */
+}
+
+/* ================================
+    REGRAS ESPECÍFICAS DE COR (LINKEDIN E INSTAGRAM)
+==================================*/
+
+/* LINKEDIN (AZUL) */
+.linkedin-btn {
+    --social-color: rgb(0, 119, 181);
+    border-color: var(--social-color);
+    color: var(--social-color);
 }
 
 .linkedin-btn:hover::before {
-    box-shadow: inset 0 0 0 10em var(--linkedin-blue);
+    box-shadow: inset 0 0 0 10em var(--social-color);
 }
 
-/* Corrigir o ícone SVG para usar fill-current e garantir tamanho */
-.linkedin-btn svg {
-    width: 20px;
-    height: 20px;
+/* INSTAGRAM (ROXO/ROSA QUENTE) - COPIA EXATA DA ESTRUTURA LINKEDIN */
+.instagram-btn {
+    --social-color: #C13584;
+    border-color: var(--social-color);
+    color: var(--social-color);
+}
+
+.instagram-btn:hover::before {
+    box-shadow: inset 0 0 0 10em var(--social-color);
 }
 
 /* ================================
@@ -1562,5 +1649,3 @@ footer .container {
         transform: translateX(-33.3333%);
     }
 }
-
-
