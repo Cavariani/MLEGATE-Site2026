@@ -332,10 +332,11 @@ body {
 ==================================*/
 .navbar.bg-body-tertiary {
     /* REVERSÃO: Fundo transparente original */
-    background-color: transparent !important;
+    /* 50% de opacidade no fundo branco */
+    background-color: rgba(255, 255, 255, 0.95) !important;
 
     /* MANTIDO: Padding para acomodar o scale no hover (corrigindo o problema estrutural) */
-    padding-bottom: 25px;
+    padding-bottom: 15.5px;
 
     /* REMOVIDO: Efeitos visuais do Glassmorphism */
     backdrop-filter: none;
@@ -382,7 +383,7 @@ body {
     transition: 0.3s ease-in-out;
 
     /* NOVO: Aplica a animação de shake sutil */
-    animation: shakeSubtle 0.6s infinite alternate;
+    animation: shakeSubtle 0.5s infinite alternate;
 }
 
 .nav-link:hover .icon-nav {
@@ -392,7 +393,7 @@ body {
 .nav-link::after {
     content: "";
     position: absolute;
-    bottom: -20px;
+    bottom: -10px;
     left: 50%;
     width: 0;
     height: 2px;
@@ -411,7 +412,7 @@ body {
     display: none;
     position: absolute;
     width: 120px;
-    top: 50px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -420,6 +421,18 @@ body {
 .nav-link:hover .icon-text {
     display: block;
     color: var(--secondary-color);
+}
+
+/* ================================
+    ESTADO TRANSPARENTE DA NAVBAR (HERO)
+==================================*/
+.navbar.hero-mode {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    /* Remove o blur se tiver */
+    padding-bottom: 0;
+    /* Remove o padding extra se quiser que ela fique menor na home */
 }
 
 
@@ -734,10 +747,10 @@ body {
 /* Mantenha o restante do CSS inalterado (embaixo deste bloco no seu arquivo) */
 
 /* ================================
-    SEÇÃO: COMPROMISSO (MAGIC CARD STYLE)
+    SEÇÃO: COMPROMISSO (MAGIC CARD STYLE - FINAL)
 ==================================*/
 #compromisso {
-    padding: 0rem 0;
+    padding: 4rem 0;
     background-color: transparent;
 }
 
@@ -748,23 +761,18 @@ body {
 .compromisso-title {
     text-align: center;
     color: var(--secondary-color);
-    /* Títulos principais em Verde Petróleo */
-    font-size: 2.5em;
-    padding-bottom: 5px;
-    text-shadow: none;
-    font-weight: bold;
+    font-size: 2.3rem;
+    font-weight: 700;
 }
 
-.compromisso-subtitle {
+.compromisso-subtitle, .compromisso-text {
     color: var(--color-text-subtle);
 }
 
-/* TEXTO PRINCIPAL DA SEÇÃO */
 .compromisso-text {
     margin-top: 1.2rem;
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--color-text-subtle);
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
@@ -775,33 +783,30 @@ body {
 }
 
 /* ------------------------------------------------
-   MAGIC CARD - ESTRUTURA BASE
+   MAGIC CARD - ESTRUTURA BASE (Igual Uiverse)
 ------------------------------------------------ */
 .comp-card {
-    /* Definição do Gradiente da Borda e Fundo do Glow */
+    /* Gradiente Laranja MLEGATE */
     --card-gradient: linear-gradient(135deg, var(--primary-color) 0%, #ff9a5b 100%);
 
     position: relative;
     width: 100%;
     height: 100%;
-    /* Garante altura igual nas colunas */
-    padding: 3px;
-    /* Espessura da borda colorida */
+    padding: 4px;
+    /* Borda colorida */
     border-radius: 1rem;
 
-    /* O fundo do card wrapper é o gradiente */
     background: var(--card-gradient);
 
     overflow: visible;
     z-index: 1;
     transition: transform 0.3s ease;
 
-    /* Remove estilos antigos */
-    box-shadow: none;
     border: none;
+    box-shadow: none;
 }
 
-/* O BRILHO (GLOW) ATRÁS DO CARD */
+/* GLOW ATRÁS DO CARD */
 .comp-card::after {
     position: absolute;
     content: "";
@@ -815,34 +820,28 @@ body {
     filter: blur(25px);
     background: var(--card-gradient);
     opacity: 0.5;
-    /* Brilho inicial suave */
     transition: opacity 0.5s;
 }
 
 /* CONTEÚDO INTERNO (FUNDO BRANCO) */
 .comp-card-inner {
     background: var(--color-background-card);
-    /* Fundo Branco */
     color: var(--color-text-dark);
     width: 100%;
     height: 100%;
     border-radius: 0.8rem;
-    /* Um pouco menos que o pai para encaixar */
     padding: 2rem 1.5rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Centraliza verticalmente antes do hover */
     transition: justify-content 0.3s ease;
 }
 
 /* ------------------------------------------------
-   CONTEÚDO E ANIMAÇÃO DE REVELAÇÃO (REVEAL)
+   CONTEÚDO (ÍCONE, TÍTULO, LISTA)
 ------------------------------------------------ */
-
-/* Ícone */
 .comp-icon {
     font-size: 2.5rem;
     color: var(--primary-color);
@@ -850,28 +849,32 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Título */
 .comp-card-title {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--secondary-color);
     margin: 0;
-    transition: transform 0.3s ease;
     text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+    /* Adicionado transição de cor */
 }
 
-/* LISTA DE SERVIÇOS (ESCONDIDA POR PADRÃO) */
+/* LISTA (ESCONDIDA POR PADRÃO) */
+/* LISTA (ESCONDIDA POR PADRÃO) */
 .comp-card-list {
     list-style: none;
     padding: 0;
     margin: 0;
 
-    /* Estado Inicial: Altura 0 e Invisível */
+    /* Estado Inicial */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
 
-    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* AJUSTE DE VELOCIDADE AQUI: */
+    /* Mudamos de 0.5s para 0.8s para abrir mais devagar */
+    /* Mudamos de 'cubic-bezier...' para 'ease' para um movimento mais natural */
+    transition: all 1.5s ease;
 }
 
 .comp-card-list li {
@@ -879,36 +882,40 @@ body {
     color: var(--color-text-subtle);
     margin-bottom: 5px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    /* Bold leve */
 }
 
 /* ------------------------------------------------
    HOVER EFFECTS
 ------------------------------------------------ */
 
-/* Levanta o card */
+/* 1. Levanta o card */
 .comp-card:hover {
     transform: translateY(-5px);
 }
 
-/* Aumenta o brilho no hover */
+/* 2. Aumenta o brilho no hover (Como no Uiverse, pode ser opacity: 0 para sumir ou 0.8 para brilhar mais) */
 .comp-card:hover::after {
     opacity: 0.8;
     filter: blur(35px);
 }
 
-/* Revela o texto */
+/* 3. Revela o texto */
 .comp-card:hover .comp-card-list {
-    max-height: 200px;
-    /* Altura suficiente para o conteúdo */
+    max-height: 300px;
     opacity: 1;
     margin-top: 20px;
-    /* Adiciona espaço entre título e texto */
 }
 
-/* Ajusta ícone e título para dar espaço */
+/* 4. Ajusta ícone e muda COR DO TÍTULO para Laranja (Efeito Uiverse) */
 .comp-card:hover .comp-icon {
     transform: scale(0.9);
+}
+
+.comp-card:hover .comp-card-title {
+    color: var(--primary-color);
+    /* Título fica laranja no hover */
 }
 
 /* ================================
@@ -1088,7 +1095,7 @@ body {
 ==================================*/
 #contato2 {
     /* Fundo sólido para criar contraste no final da página */
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     color: white;
     padding: 0rem 0;
     margin-bottom: 0rem;
@@ -1104,7 +1111,7 @@ body {
 #contato2 .emailLabel,
 #contato2 .texto1-video-final,
 #contato2 .texto2-video-final {
-    color: white !important;
+    color: var(--secondary-color);
 }
 
 #contato2 .btn-videofinal {
@@ -1246,29 +1253,97 @@ body {
 ==================================*/
 
 
-footer.bg-black {
-    /* Corrigimos aqui para garantir a união */
-    background-color: #000000;
-    padding: 0.5rem 0;
+
+/* ================================
+    FOOTER PROFISSIONAL (MAPA E INFO)
+==================================*/
+.footer-section {
+    /* Fundo bem escuro para ser a base do site */
+    background-color: #0b1d1d;
+    /* Um tom quase preto do seu Verde Petróleo */
+    padding: 5rem 0 2rem 0;
+    /* Bastante espaço no topo */
+    color: #a0a0a0;
+    /* Texto cinza claro para leitura confortável */
+    position: relative;
     margin-top: 0 !important;
-    /* Garante que o footer grude em #contato2 */
-    border-top: none;
+    /* Garante a colagem na seção anterior */
 }
 
-/* Override para garantir que o margin-top do container não desloque o texto */
-footer .container {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+/* Títulos no Footer */
+.footer-section h3,
+.footer-section h5 {
+    color: #ffffff;
+    /* Títulos em branco */
+    font-weight: 700;
 }
 
-/* Ajuste fino para a nota de copyright */
-.fiap-txt {
-    /* O HTML já tem a classe 'text-white', mas garantimos um cinza claro discreto */
-    color: #cccccc;
+/* Texto de Contato */
+.footer-contact p {
+    margin-bottom: 0.8rem;
     font-size: 0.95rem;
-    line-height: 1.5;
-    font-weight: 300;
-    /* Texto leve para não parecer um título */
+}
+
+.footer-contact i {
+    /* Os ícones usarão a cor primária (laranja) definida pelo text-primary do Bootstrap
+       ou você pode forçar aqui: color: var(--primary-color); */
+    font-size: 1.1rem;
+}
+
+/* Texto Legal (Disclaimer) - Levemente menor */
+.footer-legal-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #7a8a8a;
+    /* Mais apagado para não brigar com a informação principal */
+    text-align: justify;
+}
+
+/* Container do Mapa */
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    /* Borda sutil */
+    height: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Filtro para deixar o mapa mais "Dark" (Opcional - deixa muito chique) */
+.map-container iframe {
+    /* filter: grayscale(100%) invert(90%) contrast(85%); */
+    /* Isso inverte as cores do mapa para parecer um mapa noturno. 
+       Se não gostar, remova a linha 'filter' */
+    transition: filter 0.5s ease;
+}
+
+/* Ao passar o mouse, o mapa ganha cor */
+*/
+
+/* .map-container:hover iframe {
+    filter: none;
+}
+
+/* Copyright e Linha Final */
+.footer-bottom {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    /* Linha divisória muito sutil */
+}
+
+.fiap-txt {
+    font-size: 0.85rem;
+    color: #5c6b6b;
+    /* Bem discreto */
+}
+
+.footer-txt {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+/* Garante que o text-primary use sua cor Laranja */
+.text-primary {
+    color: var(--primary-color) !important;
 }
 
 /* ================================
@@ -1298,52 +1373,50 @@ footer .container {
 /* ================================
     EASTER EGG (CRÉDITOS: CENTRALIZADO E ENERGÉTICO)
 ==================================*/
+/* ================================
+    EASTER EGG (CRÉDITOS: ANIMAÇÃO DIVERTIDA)
+==================================*/
 #dev-credits-easter-egg {
     position: fixed;
     bottom: 50px;
-    /* Eleva a caixa 50px do fundo */
     left: 50%;
-    /* Centralização horizontal */
-
-    /* NOVO TAMANHO E ESTILO */
-    padding: 18px 30px;
-    /* Maior padding */
-    min-width: 350px;
-    /* Largura mínima para ser notável */
-    background-color: var(--secondary-color);
-    /* Fundo Verde Petróleo */
-    color: var(--color-white);
-    border-radius: 12px;
-    font-size: 1.1rem;
-    /* Fonte maior para melhor leitura */
-    font-weight: 500;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    /* Sombra mais forte */
-
     z-index: 99999;
 
-    /* Estado inicial: Escondido e preparado para a centralização/animação */
+    /* Estilo Visual */
+    padding: 15px 25px;
+    min-width: 320px;
+    background-color: var(--secondary-color);
+    color: var(--color-white);
+    border-radius: 50px;
+    /* Mais arredondado = mais amigável */
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+
+    /* Sombra forte para destacar */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    /* ESTADO INICIAL (ESCONDIDO / SAÍDA) */
+    /* Ele começa pequeno, rodado e deslocado para baixo */
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, 0);
-    /* Centralização no eixo X */
-    transition: opacity 0.5s ease;
-    pointer-events: none;
+    transform: translate(-50%, 150%) scale(0.3) rotate(-15deg);
+
+    /* A MÁGICA: Transição elástica para entrada e saída */
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 #dev-credits-easter-egg .txt-span {
     color: var(--primary-color);
-    /* Adiciona a cor Laranja ao nome */
-    font-weight: 700;
+    font-weight: 800;
 }
 
+/* ESTADO FINAL (VISÍVEL / ENTRADA) */
 #dev-credits-easter-egg.show {
+    opacity: 1;
     visibility: visible;
-    pointer-events: all;
-
-    /* Ativa a nova animação centralizada */
-    animation: jellyEntrance 0.7s ease-out forwards;
+    /* Posição final correta e reta */
+    transform: translate(-50%, 0) scale(1) rotate(0deg);
 }
 
 /* ================================
@@ -1367,7 +1440,7 @@ footer .container {
     position: relative;
 
     /* RESTAURAÇÃO DO TAMANHO ORIGINAL GRANDE (2.5rem) */
-    padding: 10px 25px;
+    padding: 5px 25px;
     font-size: 2rem;
     font-weight: 600;
 
@@ -1393,7 +1466,7 @@ footer .container {
 /* Base SVG e Icon */
 .social-btn svg {
     width: 30px;
-    height: 30px;
+    height: 70px;
     transition: fill 0.3s ease;
 }
 
@@ -1462,20 +1535,18 @@ footer .container {
 /* ================================
     SELETOR DE IDIOMAS (FIXO - CANTO SUPERIOR DIREITO)
 ==================================*/
-/* ================================
-    SELETOR DE IDIOMAS (FIXO - CANTO SUPERIOR DIREITO)
-==================================*/
 #language-selector {
     position: fixed;
-    top: 15px;
+    top: 20px;
     right: 15px;
     z-index: 100;
     display: flex;
     gap: 10px;
-    background-color: rgba(255, 255, 255, 0.85);
+    /* background-color: rgba(255, 255, 255, 0.85); */
+    background-color: transparent;
     padding: 8px 12px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* border-radius: 8px; */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     backdrop-filter: blur(4px);
 }
 
@@ -1556,10 +1627,6 @@ footer .container {
     animation: scrollLogos 45s linear infinite;
     /* 45s de duração, movimento linear, looping */
 }
-
-/* ================================
-    SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO - CSS PURO ROBUSTO)
-==================================*/
 
 /* ================================
     SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO - CORREÇÃO FINAL)
