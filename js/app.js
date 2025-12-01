@@ -11,17 +11,12 @@ $(document).ready(function () {
 
     // 1. Estado Inicial: Trava Scroll e deixa Navbar Transparente
     document.body.style.overflow = 'hidden';
-    $navbar.addClass('hero-mode'); // Adiciona a transparência
+    $navbar.addClass('hero-mode');
 
     // 2. Evento de Clique no Botão "Descer"
     $saibaMaisLink.on('click', function () {
-        // Libera o scroll
         document.body.style.overflow = '';
-
-        // Remove a transparência da Navbar (ativa o fundo branco do CSS padrão)
         $navbar.removeClass('hero-mode');
-
-        // Esconde o botão "Voltar ao Topo" temporariamente pois estamos no topo
         if (backToTopLink) {
             backToTopLink.classList.add('hidden');
         }
@@ -32,10 +27,8 @@ $(document).ready(function () {
     // 1. LÓGICA DE FADE-IN NA CARGA (DRAMÁTICO)
     // ==========================================================
     
-    // Seletores da animação:
     const $logo = $('.logo-wrapper'); 
     const $saibaMaisBtn = $('.saiba-wrapper'); 
-    
     const fadeDuration = 1500; 
     const elementDelay = 1500; 
 
@@ -43,7 +36,6 @@ $(document).ready(function () {
     $logo.css('opacity', '0');
     $saibaMaisBtn.css('opacity', '0');
 
-    // Sequência:
     $logo.stop().animate({ opacity: '1' }, fadeDuration);
 
     setTimeout(function () {
@@ -65,15 +57,9 @@ $(document).ready(function () {
             
             if (scrollPosition > 100) {
                 backToTopLink.classList.remove('hidden');
-                
-                // SEGURANÇA EXTRA: Se o usuário rolar de volta para o topo (0px),
-                // garantimos que a navbar volte a ser transparente, caso ele não tenha clicado no botão.
                 $navbar.removeClass('hero-mode'); 
             } else {
                 backToTopLink.classList.add('hidden');
-                
-                // Se o usuário voltou para o topo absoluto, a navbar pode ficar transparente de novo
-                // (Opcional: se quiser que ela fique branca pra sempre depois do primeiro clique, remova a linha abaixo)
                 $navbar.addClass('hero-mode'); 
             }
         }
@@ -109,14 +95,18 @@ $(document).ready(function () {
 
 
     // ==========================================================
-    // 4. EASTER EGG (5 CLIQUES NO ÍCONE RAIO)
+    // 4. EASTER EGG (5 CLIQUES NO ÍCONE RAIO - CORRIGIDO)
     // ==========================================================
 
     let clickCountEE = 0;
-    const $lightningIcon = $('.comp-card .comp-icon i.bi-lightning-charge');
+    
+    // CORREÇÃO AQUI: Atualizado para .comp-icon-wrapper (nova classe do layout horizontal)
+    const $lightningIcon = $('.comp-icon-wrapper i.bi-lightning-charge'); 
+    
     const $creditsBox = $('#dev-credits-easter-egg');
     const requiredClicksEE = 5;
 
+    // Define cursor help para indicar interatividade sutil
     $lightningIcon.css('cursor', 'help');
 
     const handleEasterEggClick = function (e) {
@@ -124,13 +114,21 @@ $(document).ready(function () {
         e.stopPropagation();
 
         clickCountEE++;
+        
+        // Feedback visual de clique
+        // Nota: O feedback visual no CSS precisa estar apontando para o wrapper pai se quiser animar o quadrado,
+        // mas aqui estamos aplicando a classe ao ícone <i>. 
+        // Se quiser animar o quadrado, use $(this).parent().addClass...
         $(this).addClass('clicked');
         setTimeout(() => { $(this).removeClass('clicked'); }, 100);
 
         if (clickCountEE >= requiredClicksEE) {
             $creditsBox.addClass('show');
+            
+            // Muda o ícone para check
             const $iconRef = $(this);
             $iconRef.removeClass('bi-lightning-charge').addClass('bi-check-circle-fill').css('color', 'var(--secondary-color)');
+            
             $lightningIcon.off('click', handleEasterEggClick);
 
             setTimeout(() => {
@@ -138,7 +136,7 @@ $(document).ready(function () {
                 $iconRef.removeClass('bi-check-circle-fill').addClass('bi-lightning-charge').css('color', '');
                 clickCountEE = 0;
                 $lightningIcon.on('click', handleEasterEggClick);
-            }, 5000); 
+            }, 10000); 
         }
 
         clearTimeout(window.resetTimerEE);
@@ -146,14 +144,29 @@ $(document).ready(function () {
             if (clickCountEE < requiredClicksEE) {
                 clickCountEE = 0;
             }
-        }, 1000);
+        }, 3000);
     };
 
     $lightningIcon.on('click', handleEasterEggClick);
-    
-    // ==========================================================
-    // 5. INICIALIZAÇÃO DO CARROSSEL (Se houver lógica futura)
-    // ==========================================================
-    // (Código do Swiper removido conforme solicitado anteriormente)
+
+
+// VERSÃO 5: MAR MONOCROMÁTICO
+// if (window.VANTA) {
+//     VANTA.WAVES({
+//         el: "#inicio",
+//         color: 0x4d7575,        // COR DA ONDA: Teal mais claro
+//         mouseControls: false,
+//         touchControls: false,
+//         gyroControls: false,
+//         minHeight: 200.00,
+//         minWidth: 200.00,
+//         scale: 1.00,
+//         scaleMobile: 1.00,
+//         shininess: 38.00,
+//         waveHeight: 8.50,
+//         waveSpeed: 0.15,
+//         zoom: 0.88
+//     });
+// }
 
 });
