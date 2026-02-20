@@ -1,46 +1,30 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); */
-
 /* ================================
-    VARIÁVEIS GERAIS (TEMA LIGHT MLEGATE)
-    Original: #f07e30 (Laranja), #17403d (Verde Petróleo Antigo)
-    Novo: #1F4545 (Verde Petróleo Ajustado)
+   VARIÁVEIS GERAIS (TEMA LIGHT MLEGATE)
 ==================================*/
 :root {
     /* Cores da MLEGATE */
     --primary-color: #f07e30;
-    /* Laranja de destaque */
     --secondary-color: #1F4545;
-    /* NOVO: Verde Petróleo MLEGATE (Texto Principal/Título) */
 
     /* Paleta Light */
     --color-background-light: #F9F9F9;
-    /* Fundo principal off-white */
     --color-background-card: #FFFFFF;
-    /* Fundo de cards/blocos */
     --color-text-dark: #333333;
-    /* Texto principal do corpo */
     --color-text-subtle: #555555;
-    /* Texto secundário/sutil */
     --color-border-light: #E0E0E0;
-    /* Borda clara */
 
     /* Cores Antigas/Uteis */
     --white-color-original: #848484;
-    /* Cinza claro/médio original do Dark */
     --black-color: #000000;
     --color-white: #ffffff;
     --accent-orange: #f57c00;
-    /* Laranja da Morison/Texto */
     --dark-blue-bg: #041626;
     --dark-bg: #02070f;
 }
 
 /* ================================
-    ANIMAÇÕES (MANTIDAS DO ORIGINAL + NOVO SCROLL)
+   ANIMAÇÕES
 ==================================*/
-/* NOVO: Animação de Entrada Elástica/Saltitante */
 @keyframes jellyEntrance {
     0% {
         transform: translate(-50%, 100px) scale(0.8);
@@ -51,35 +35,29 @@
         transform: translate(-50%, -10px) scale(1.05);
     }
 
-    /* Salto leve para cima */
     100% {
         transform: translate(-50%, 0) scale(1.0);
         opacity: 1;
     }
 }
 
-
-/* NOVO: Animação de Entrada do Easter Egg (Deslize com Bounce) */
 @keyframes slideInRightBounce {
     0% {
         transform: translate(100px, 0);
         opacity: 0;
     }
 
-    /* Começa 100px para a direita */
     80% {
         transform: translate(-10px, 0);
         opacity: 1;
     }
 
-    /* Salta um pouco para trás */
     100% {
         transform: translate(0, 0);
         opacity: 1;
     }
 }
 
-/* NOVO: Animação de Aura Pulsante (Padrão) */
 @keyframes pulseAura {
     0% {
         box-shadow: 0 0 0px 0px rgba(240, 126, 48, 0.3);
@@ -94,7 +72,6 @@
     }
 }
 
-/* NOVO: Animação de Impulso da Seta (no Hover) */
 @keyframes arrowImpulse {
     0% {
         transform: translateY(0);
@@ -106,42 +83,32 @@
         opacity: 0.8;
     }
 
-    /* Desce mais */
     50% {
         transform: translateY(0);
         opacity: 1;
     }
 
-    /* Volta */
     75% {
         transform: translateY(4px);
         opacity: 0.9;
     }
 
-    /* Desce um pouco menos */
     100% {
         transform: translateY(0);
         opacity: 1;
     }
-
-    /* Volta */
 }
 
 @keyframes nudgeDown {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(10px);
     }
-
-    /* Movimento para baixo de 10px */
 }
 
-/* NOVO: Animação de Movimento Lateral Suave (Nudge/Shake) */
 @keyframes shakeSubtle {
     0% {
         transform: translateY(0);
@@ -150,8 +117,6 @@
     100% {
         transform: translateY(-4px);
     }
-
-    /* Sobe 4px */
 }
 
 @keyframes fadeIn {
@@ -171,22 +136,6 @@
     }
 }
 
-@keyframes pulseRing {
-
-    /* Mantendo seus valores originais para o efeito Glass */
-    0% {
-        box-shadow: 0 0 28px rgba(240, 126, 48, 0.30), 0 0 0 4px rgba(240, 126, 48, 0.70) inset;
-    }
-
-    50% {
-        box-shadow: 0 0 38px rgba(240, 126, 48, 0.55), 0 0 0 4px rgba(240, 126, 48, 0.75) inset;
-    }
-
-    100% {
-        box-shadow: 0 0 28px rgba(240, 126, 48, 0.30), 0 0 0 4px rgba(240, 126, 48, 0.70) inset;
-    }
-}
-
 @keyframes slide-in-bottom {
     0% {
         transform: translateY(6px);
@@ -199,32 +148,11 @@
     }
 }
 
-@keyframes animatedGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-
-/* NOVO: Animação de entrada (Scroll Reveal) */
-/* NOVO: Animação de entrada (Scroll Reveal) */
+/* Animação de entrada (Scroll Reveal) */
 .scroll-animate {
     opacity: 0;
     transform: translateY(30px);
-
-    /* NOVO: Usa a variável CSS --stagger-delay. Se a variável não existir (em outros elementos), usa 0s. */
-    transition:
-        opacity 0.8s ease-out var(--stagger-delay, 0s),
-        transform 0.8s ease-out var(--stagger-delay, 0s);
+    transition: opacity 0.8s ease-out var(--stagger-delay, 0s), transform 0.8s ease-out var(--stagger-delay, 0s);
 }
 
 .scroll-animate.in-view {
@@ -233,58 +161,29 @@
 }
 
 /* ================================
-    BASE / GERAL / SCROLLBAR (TEMA LIGHT COM GRADIENTE SUAVE)
+   BASE / GERAL / SCROLLBAR
 ==================================*/
 html {
     scroll-behavior: smooth;
 }
 
 body {
-
-    /* REGRA PRINCIPAL: Aplica a maioria dos links e botões */
-    a,
-    button,
-    .cssbuttons-io-button,
-    .saiba-link,
-    /* NOVOS SELETORES ADICIONADOS: */
-    #back-to-top-link,
-    .back-to-top-btn {
-        cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"></path></svg>') 12 12, pointer;
-    }
-
-    /* REGRA EXTRA: Garante a prioridade para o botão Enviar Mensagem */
-    #contato2 .btn-videofinal {
-        cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"></path></svg>') 12 12, pointer !important;
-    }
-
-
-
-    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'),
-    default;
-    font-family: "Exo 2",
-    sans-serif;
-    /* NOVO: Fundo principal com Gradiente Branco para Laranja Suave */
-    background: linear-gradient(180deg,
-        #FFFFFF 0%,
-        /* Branco Puro no Topo */
-        #FFFFFF 60%,
-        /* Mantém Branco Puro até 60% da página */
-        rgba(240, 126, 48, 0.15) 100%
-        /* Laranja MLEGATE suave (15% de opacidade) na Base */
-    );
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), default;
+    font-family: "Exo 2", sans-serif;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 60%, rgba(240, 126, 48, 0.15) 100%);
     background-attachment: fixed;
-    /* Fixa o gradiente para cobrir toda a rolagem */
     background-color: #FFFFFF;
-    /* Cor de fallback */
     color: var(--color-text-dark);
-    /* Texto base escuro */
-
-    /* Removemos as regras de animação/background-size */
-    animation: none;
-    background-size: auto;
 }
 
-/* Scrollbar para tema Light (Track mais clara) */
+a, button, .cssbuttons-io-button, .saiba-link, #back-to-top-link, .back-to-top-btn {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"></path></svg>') 12 12, pointer;
+}
+
+#contato2 .btn-videofinal {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"></path></svg>') 12 12, pointer !important;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -296,52 +195,30 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--secondary-color);
-    /* Hover para verde petróleo */
 }
 
 ::-webkit-scrollbar-track {
     background-color: var(--color-background-light);
 }
 
-/* Títulos / Textos Comuns (Ajuste de cores) */
-.section-title,
-.txt-title {
+.section-title, .txt-title {
     text-align: center;
     color: var(--secondary-color);
-    /* Títulos principais em Verde Petróleo */
     font-size: 2.5em;
     padding-bottom: 5px;
-    text-shadow: none;
 }
 
-
-
-.txt-mlegate,
-.txt-span {
+.txt-mlegate, .txt-span {
     color: var(--primary-color);
     font-weight: bold;
 }
 
-.txt-svg {
-    font-size: 4rem;
-    color: var(--primary-color);
-}
-
 /* ================================
-    NAVBAR (RESTAURO DE ANIMAÇÕES E TEMA LIGHT)
+   NAVBAR
 ==================================*/
 .navbar.bg-body-tertiary {
-    /* REVERSÃO: Fundo transparente original */
-    /* 50% de opacidade no fundo branco */
     background-color: rgba(255, 255, 255, 0.95) !important;
-
-    /* MANTIDO: Padding para acomodar o scale no hover (corrigindo o problema estrutural) */
     padding-bottom: 15.5px;
-
-    /* REMOVIDO: Efeitos visuais do Glassmorphism */
-    backdrop-filter: none;
-    box-shadow: none;
-
     position: fixed;
     width: 100%;
     top: 0;
@@ -351,38 +228,25 @@ body {
 
 .navbar-toggler {
     border-color: var(--secondary-color);
-    /* Borda escura para Light */
-}
-
-.navbar-toggler-icon {
-    filter: none;
-    /* Remove invert(1) que quebra no Light */
 }
 
 .nav-link {
     position: relative;
     color: var(--color-text-dark);
-    /* Cor de link escuro */
     transition: 0.3s ease;
     margin: 0 20px;
 }
 
 .icon-nav {
     color: var(--secondary-color);
-    /* Ícones em Verde Petróleo */
     transition: color 0.3s ease;
     z-index: 20;
 }
 
-/* Efeitos Hover no Link (Mantido ORIGINAL e CORRIGIDO a cor) */
-/* Efeitos Hover no Link */
 .nav-link:hover {
     color: var(--primary-color);
     scale: 1.15;
-    /* AJUSTADO para 1.15 para manter a elegância profissional */
     transition: 0.3s ease-in-out;
-
-    /* NOVO: Aplica a animação de shake sutil */
     animation: shakeSubtle 0.5s infinite alternate;
 }
 
@@ -407,7 +271,6 @@ body {
     width: 60%;
 }
 
-/* Texto Flutuante */
 .icon-text {
     display: none;
     position: absolute;
@@ -423,36 +286,24 @@ body {
     color: var(--secondary-color);
 }
 
-/* ================================
-    ESTADO TRANSPARENTE DA NAVBAR (HERO)
-==================================*/
 .navbar.hero-mode {
     background-color: transparent !important;
     box-shadow: none !important;
-    backdrop-filter: none !important;
-    /* Remove o blur se tiver */
     padding-bottom: 0;
-    /* Remove o padding extra se quiser que ela fique menor na home */
 }
 
-
 /* ================================
-    HERO (HOME COM VÍDEO RESTAURADO)
+   HERO / INICIO
 ==================================*/
 .hero-video-wrapper {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    /* RESTAURADO: Fundo transparente para deixar o vídeo aparecer */
-    background: none;
-    animation: none;
     background: transparent;
-    /* Garantia extra de transparência */
 }
 
 .hero-video {
-    /* RESTAURADO: Propriedades para exibir e loop o vídeo */
     position: absolute;
     top: 0;
     left: 0;
@@ -461,17 +312,14 @@ body {
     object-fit: cover;
     z-index: 1;
     display: none;
-    /* Oculto por padrão */
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 2;
-    /* Overlay Light sobre o vídeo, separando-o do body gradiente */
     background: rgba(255, 255, 255, 0.4);
     display: none;
-    /* Oculto por padrão */
 }
 
 .overlay-content {
@@ -481,7 +329,6 @@ body {
     height: 100%;
 }
 
-/* LOGO (ORIGINAL) */
 .logo-wrapper {
     position: absolute;
     top: 30%;
@@ -496,7 +343,6 @@ body {
     max-width: min(70vw, 720px);
 }
 
-/* BOTÃO SAIBA MAIS (RESTAURADO ESTÉTICA GLASS ORIGINAL) */
 .saiba-wrapper {
     position: absolute;
     bottom: 4%;
@@ -510,67 +356,39 @@ body {
     align-items: center;
     justify-content: center;
     width: 65px;
-    margin-bottom: 30px;
-    /* Tamanho fixo para um círculo */
     height: 65px;
+    margin-bottom: 30px;
     border-radius: 50%;
-    /* Formato de círculo */
     background: var(--color-background-card);
-    /* Fundo claro */
     border: 2px solid var(--primary-color);
-    /* Borda laranja */
-    cursor: pointer;
-    outline: none;
     transition: all 0.3s ease;
-
-    /* Animações combinadas */
-    animation:
-        nudgeDown 2s infinite ease-in-out 1s,
-        /* Pulo */
-        pulseAura 2s infinite ease-in-out;
-    /* Aura pulsante */
+    animation: nudgeDown 2s infinite ease-in-out 1s, pulseAura 2s infinite ease-in-out;
 }
 
-/* Hover do Botão */
 .cssbuttons-io-button:hover {
     background: var(--primary-color);
-    /* Fundo laranja no hover */
-    border-color: var(--primary-color);
-    /* Borda laranja mantida */
     box-shadow: 0 0 0px 10px rgba(240, 126, 48, 0.3);
-    /* Sombra mais forte no hover */
     transform: translateY(-5px);
-    /* Eleva um pouco no hover */
     animation: none;
-    /* Desliga as animações padrão no hover para dar lugar à do hover */
 }
 
-/* Ícone da Seta */
 .cssbuttons-io-button .icon {
     display: flex;
-    /* Para centralizar o SVG */
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
-    /* Transição para o scale */
 }
 
-/* Seta SVG */
 .cssbuttons-io-button svg {
     fill: var(--primary-color);
-    /* Seta laranja */
     height: 1.6em;
     width: 1.6em;
     transition: fill 0.3s ease;
-    /* Transição para a cor da seta */
 }
 
-/* Efeitos no Hover */
 .cssbuttons-io-button:hover svg {
     fill: white;
-    /* Seta branca no hover */
     animation: arrowImpulse 0.8s infinite ease-in-out;
-    /* Seta pulsa no hover */
 }
 
 .cssbuttons-io-button:active {
@@ -578,20 +396,16 @@ body {
 }
 
 /* ================================
-    SEÇÃO: QUEM SOMOS NÓS (#sobre) (TEMA LIGHT + TRANSPARENTE)
+   SOBRE NÓS
 ==================================*/
-
 .sobre-section {
     padding: 5rem 0;
-    /* Espaçamento ajustado */
     background-color: transparent;
-    box-shadow: none;
 }
 
 .sobre-header {
     text-align: center;
     margin-bottom: 55px;
-    /* Mais espaço para o cabeçalho */
 }
 
 .sobre-header h5 {
@@ -603,65 +417,41 @@ body {
     max-width: 800px;
     margin: 20px auto 0 auto;
     font-size: 1.1rem;
-    /* Levemente maior para ler melhor */
     line-height: 1.7;
 }
 
 .sobre-grid {
     display: flex;
     flex-direction: column;
-    /* Mantido o empilhamento vertical original */
     gap: 35px;
-    /* Mais espaçamento entre os blocos */
     max-width: 950px;
-    /* Limitando a largura para melhor leitura */
     margin: 0 auto;
 }
 
-/* Blocos de conteúdo: Agora são Cards Elegantes */
 .sobre-block {
     display: flex;
     gap: 25px;
-    /* Mais espaço entre ícone e texto */
     padding: 30px 40px;
-    /* Padding interno equilibrado */
-
     background: var(--color-background-card);
     border: 1px solid var(--color-border-light);
-    /* Borda muito clara */
     border-radius: 12px;
-
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-    /* Sombra sutil de levitação */
     transition: all 0.4s ease-in-out;
-
-    /* Remoção de qualquer transformação 3D/perspective */
-    perspective: none;
 }
 
-/* Efeito Hover de Levitação e Borda Colorida */
 .sobre-block:hover {
     transform: translateY(-5px);
-    /* Efeito de levitação suave */
     border-color: var(--primary-color);
-    /* Borda Verde Petróleo para elegância */
     box-shadow: var(--primary-color);
-    /* Sombra mais forte ao levantar */
 }
 
-
 .sobre-icon {
-    /* Ícone em sua própria coluna (flex-shrink: 0 é crucial) */
     flex-shrink: 0;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-
-    /* NOVO: Fundo sutil em Verde Petróleo com Borda Laranja */
     background: rgba(31, 69, 69, 0.08);
-    /* Fundo muito leve */
     border: 2px solid var(--primary-color);
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -669,15 +459,12 @@ body {
 }
 
 .sobre-block:hover .sobre-icon {
-    /* NOVO: Gira o ícone levemente para dinamismo */
     transform: rotate(5deg) scale(1.05);
     border-color: var(--primary-color);
-    /* Inverte a cor da borda no hover */
 }
 
 .sobre-icon i {
     font-size: 24px;
-    /* Ícones mais finos */
     color: var(--primary-color);
 }
 
@@ -686,19 +473,12 @@ body {
     color: var(--secondary-color);
     margin-bottom: 8px;
     font-weight: 600;
-    /* Levemente mais ousado */
-}
-
-/* Conteúdo e links internos */
-.sobre-content p,
-.sobre-link-extra {
-    line-height: 1.6;
 }
 
 .sobre-block p {
     color: var(--color-text-dark) !important;
     font-size: 1.05rem;
-    /* Texto mais legível */
+    line-height: 1.6;
 }
 
 .sobre-link-extra {
@@ -707,7 +487,6 @@ body {
 
 .sobre-link-extra a {
     color: var(--secondary-color);
-    /* Link principal no Verde Petróleo */
     font-weight: 600;
     text-decoration: underline;
     transition: color 0.3s ease;
@@ -715,44 +494,10 @@ body {
 
 .sobre-link-extra a:hover {
     color: var(--primary-color);
-    /* Link hover Laranja */
 }
-
-/* Lista de Serviços (Refinada) */
-.lista-servicos {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 10px;
-}
-
-.lista-servicos li {
-    font-size: 1rem;
-    color: var(--color-text-subtle);
-    margin-bottom: 4px;
-    position: relative;
-    padding-left: 18px;
-    transition: color 0.3s ease;
-}
-
-.lista-servicos li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1;
-}
-
-.lista-servicos li:hover {
-    color: var(--color-text-dark);
-    /* Texto escurece no hover */
-}
-
-/* Mantenha o restante do CSS inalterado (embaixo deste bloco no seu arquivo) */
 
 /* ================================
-    SEÇÃO: COMPROMISSO (LAYOUT HORIZONTAL WIDE)
+   COMPROMISSO
 ==================================*/
 #compromisso {
     padding: 4rem 0;
@@ -787,28 +532,19 @@ body {
     margin-top: 4rem;
 }
 
-/* ------------------------------------------------
-   CARD ESTRUTURA (MAGIC CARD)
------------------------------------------------- */
 .comp-card {
     --card-gradient: linear-gradient(135deg, var(--primary-color) 0%, #ff9a5b 100%);
-
     position: relative;
     width: 100%;
     height: 100%;
     padding: 3px;
-    /* Borda fina */
     border-radius: 16px;
-
-    /* Estado inicial: Borda Sutil */
     background: transparent;
     border: 1px solid var(--color-border-light);
-
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
 }
 
-/* GLOW (Aparece no Hover) */
 .comp-card::after {
     position: absolute;
     content: "";
@@ -822,39 +558,30 @@ body {
     transition: opacity 0.5s ease;
 }
 
-/* CONTEÚDO INTERNO (LAYOUT FLEX ROW) */
 .comp-card-inner {
     background: var(--color-background-card);
     width: 100%;
     height: 100%;
     border-radius: 13px;
     padding: 2rem;
-
-    /* MUDANÇA CRÍTICA: Alinhamento Horizontal */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    /* Alinha no topo */
     gap: 25px;
-    /* Espaço entre ícone e texto */
     text-align: left;
-    /* Texto alinhado à esquerda */
 }
 
-/* ÍCONE (Esquerda) */
 .comp-icon-wrapper {
     flex-shrink: 0;
-    /* Não deixa o ícone esmagar */
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background: rgba(240, 126, 48, 0.1);
-    /* Fundo laranja bem claro */
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary-color);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     transition: all 0.3s ease;
 }
 
@@ -862,7 +589,6 @@ body {
     line-height: 1;
 }
 
-/* ÁREA DE TEXTO (Direita) */
 .comp-content {
     flex-grow: 1;
 }
@@ -875,7 +601,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* LISTA (SEMPRE VISÍVEL) */
 .comp-card-list {
     list-style: none;
     padding: 0;
@@ -891,7 +616,6 @@ body {
     line-height: 1.4;
 }
 
-/* Marcador personalizado (Bullet) */
 .comp-card-list li::before {
     content: "";
     position: absolute;
@@ -904,21 +628,15 @@ body {
     opacity: 0.7;
 }
 
-/* ------------------------------------------------
-   HOVER EFFECTS ("FORÇA ADICIONAL")
------------------------------------------------- */
 .comp-card:hover {
     transform: translateY(-5px);
     border-color: transparent;
-    /* Remove borda cinza */
     background: var(--card-gradient);
-    /* Ativa borda gradiente */
     box-shadow: none;
 }
 
 .comp-card:hover::after {
     opacity: 0.5;
-    /* Ativa o Glow */
 }
 
 .comp-card:hover .comp-card-title {
@@ -928,11 +646,9 @@ body {
 .comp-card:hover .comp-icon-wrapper {
     background: var(--primary-color);
     color: white;
-    /* Inverte cor do ícone */
     transform: scale(1.1) rotate(-5deg);
 }
 
-/* Responsividade para Mobile (Volta para coluna se a tela for pequena) */
 @media (max-width: 576px) {
     .comp-card-inner {
         flex-direction: column;
@@ -942,23 +658,92 @@ body {
 
     .comp-card-list li {
         padding-left: 0;
-        /* Remove padding do marcador no mobile se centralizar */
         list-style-position: inside;
     }
 
     .comp-card-list li::before {
         display: none;
-        /* Oculta o bullet customizado no mobile para simplificar */
     }
 }
 
+/* ================================
+   SÓCIOS / EQUIPE
+==================================*/
+.socios-section {
+    padding: 5rem 0;
+    background-color: transparent;
+}
+
+.partner-card {
+    background: var(--color-background-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 16px;
+    padding: 20px 15px;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.partner-img-wrapper {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.partner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #eee;
+}
+
+.partner-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.partner-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.partner-role {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+.socio-txt {
+    font-size: 1rem;
+    color: var(--color-text-subtle);
+    font-weight: 500;
+    margin-top: 2px;
+}
 
 /* ================================
-    SEÇÃO: ENVIAR CURRÍCULO (#curriculo) (TEMA LIGHT + TRANSPARENTE)
+   CURRÍCULO
 ==================================*/
 #curriculo {
     padding: 0rem 0;
-    /* NOVO: Fundo transparente para herdar o gradiente do body */
     background-color: transparent;
 }
 
@@ -967,7 +752,6 @@ body {
     border: 1px solid var(--color-border-light);
     padding: 3rem;
     border-radius: 16px;
-    backdrop-filter: none;
     max-width: 800px;
     width: 90%;
     margin-top: 4rem;
@@ -994,30 +778,7 @@ body {
     line-height: 1.7;
 }
 
-.btn-curriculo {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 12px 35px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    cursor: not-allowed;
-    opacity: 0.9;
-    transition: 0.3s ease;
-}
-
-.btn-curriculo:hover {
-    opacity: 1;
-    transform: scale(1.03);
-}
-
-/* ================================
-    ESTILO DO BOTÃO DE UPLOAD (CURRÍCULO)
-==================================*/
-
-/* Garante que o LABEL (Selecionar CV) pareça um botão */
 .curriculo-form .btn-curriculo {
-    /* Mantém o estilo visual do seu botão original */
     background: var(--primary-color);
     color: var(--color-white);
     border: none;
@@ -1028,25 +789,19 @@ body {
     opacity: 0.9;
     transition: 0.3s ease;
     display: block;
-    /* Ocupa a largura total para melhor clique */
     width: 100%;
     max-width: 320px;
-    /* Alinha com o botão de envio */
     margin: 20px auto 0 auto;
-    /* Centraliza */
     text-align: center;
 }
 
-/* Efeito Hover para o LABEL */
 .curriculo-form .btn-curriculo:hover {
     opacity: 1;
     transform: scale(1.03);
 }
 
-/* NOVO: Estilo do Botão de Envio (Abaixo do Selecionar CV) */
 .btn-curriculo-submit {
     background: var(--secondary-color);
-    /* Usando o verde petróleo para destaque */
     color: var(--color-white);
     border: none;
     padding: 12px 35px;
@@ -1065,15 +820,12 @@ body {
     opacity: 1;
     transform: scale(1.03);
     background: #113636;
-    /* Escurece um pouco o hover do verde petróleo */
 }
 
 /* ================================
-    SEÇÃO: CONTATO (#contato2) (Fundo Sólido Verde Petróleo - MANTIDO)
+   CONTATO
 ==================================*/
 #contato2 {
-    /* Fundo sólido para criar contraste no final da página */
-    /* background-color: var(--secondary-color); */
     color: white;
     padding: 0rem 0;
     margin-bottom: 0rem;
@@ -1083,12 +835,7 @@ body {
     padding-bottom: 0.1 !important;
 }
 
-
-/* Labels e textos nesta seção devem ser brancos */
-#contato2 .text-white,
-#contato2 .emailLabel,
-#contato2 .texto1-video-final,
-#contato2 .texto2-video-final {
+#contato2 .text-white, #contato2 .emailLabel, #contato2 .texto1-video-final, #contato2 .texto2-video-final {
     color: var(--secondary-color);
 }
 
@@ -1096,7 +843,6 @@ body {
     background: linear-gradient(135deg, #f89b4f, #f07e30);
     border: none;
     color: var(--secondary-color);
-    /* Corrigido para Verde Petróleo no botão */
     font-weight: 600;
     font-size: 1rem;
     padding: 0.75rem 2.2rem;
@@ -1105,36 +851,25 @@ body {
     align-items: center;
     gap: 0.5rem;
     justify-content: center;
-    box-shadow:
-        0 0 18px rgba(240, 126, 48, 0.55),
-        0 0 0 1px rgba(255, 255, 255, 0.15);
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        filter 0.25s ease;
+    box-shadow: 0 0 18px rgba(240, 126, 48, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, filter 0.25s ease;
 }
 
 #contato2 .btn-videofinal:hover {
     transform: translateY(-2px) scale(1.02);
     filter: brightness(1.05);
-    box-shadow:
-        0 0 26px rgba(240, 126, 48, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 26px rgba(240, 126, 48, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 #contato2 .btn-videofinal:active {
     transform: translateY(0) scale(0.98);
-    box-shadow:
-        0 0 12px rgba(240, 126, 48, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 12px rgba(240, 126, 48, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 #contato2 .btn-videofinal i {
     font-size: 1.1rem;
 }
 
-/* Ajuste dos campos do formulário para ter fundo claro */
 #contato2 .form-control {
     background-color: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.15);
@@ -1142,269 +877,8 @@ body {
 }
 
 /* ================================
-    BOTÃO VOLTAR AO TOPO (RESTAURADO ESTILO ORIGINAL)
+   SOCIAL CONNECT
 ==================================*/
-.Btn {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    /* Gradient do botão ORIGINAL */
-    background: radial-gradient(circle at 30% 0%, #ffc58f 0%, #f07e30 40%, #c5500f 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-    position: fixed;
-    right: 28px;
-    bottom: 28px;
-    z-index: 9999;
-
-    box-shadow:
-        0 0 18px rgba(240, 126, 48, 0.55),
-        0 6px 16px rgba(0, 0, 0, 0.5);
-
-    padding: 0;
-    outline: none;
-    border: none;
-    font-family: inherit;
-
-    opacity: 1;
-    visibility: visible;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        opacity 0.4s ease-in-out,
-        visibility 0.4s ease-in-out;
-}
-
-.Btn .arrow path {
-    fill: var(--color-white);
-}
-
-.Btn .text {
-    font-size: 0.72rem;
-    width: 100px;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--color-text-dark);
-    text-align: center;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.Btn:hover {
-    transform: translateX(-0%) translateY(-10px) scale(1.04);
-    box-shadow:
-        0 0 26px rgba(240, 126, 48, 0.8),
-        0 10px 22px rgba(0, 0, 0, 0.65);
-}
-
-.Btn:hover .text {
-    opacity: 1;
-}
-
-.Btn:hover .arrow {
-    animation: slide-in-bottom 0.5s ease both;
-}
-
-/* Classe de ocultação (controlada por JS) */
-.back-to-top-btn.hidden {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-}
-
-
-.back-to-top-btn.text {
-    color: var(--primary-color);
-}
-
-
-/* ================================
-    FOOTER
-==================================*/
-
-
-
-/* ================================
-    FOOTER PROFISSIONAL (MAPA E INFO)
-==================================*/
-.footer-section {
-    /* Fundo bem escuro para ser a base do site */
-    background-color: #0b1d1d;
-    /* Um tom quase preto do seu Verde Petróleo */
-    padding: 5rem 0 2rem 0;
-    /* Bastante espaço no topo */
-    color: #a0a0a0;
-    /* Texto cinza claro para leitura confortável */
-    position: relative;
-    margin-top: 0 !important;
-    /* Garante a colagem na seção anterior */
-}
-
-/* Títulos no Footer */
-.footer-section h3,
-.footer-section h5 {
-    color: #ffffff;
-    /* Títulos em branco */
-    font-weight: 700;
-}
-
-/* Texto de Contato */
-.footer-contact p {
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-}
-
-.footer-contact i {
-    /* Os ícones usarão a cor primária (laranja) definida pelo text-primary do Bootstrap
-       ou você pode forçar aqui: color: var(--primary-color); */
-    font-size: 1.1rem;
-}
-
-/* Texto Legal (Disclaimer) - Levemente menor */
-.footer-legal-text {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: #7a8a8a;
-    /* Mais apagado para não brigar com a informação principal */
-    text-align: justify;
-}
-
-/* Container do Mapa */
-.map-container {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    /* Borda sutil */
-    height: 200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Filtro para deixar o mapa mais "Dark" (Opcional - deixa muito chique) */
-.map-container iframe {
-    /* filter: grayscale(100%) invert(90%) contrast(85%); */
-    /* Isso inverte as cores do mapa para parecer um mapa noturno. 
-       Se não gostar, remova a linha 'filter' */
-    transition: filter 0.5s ease;
-}
-
-/* Ao passar o mouse, o mapa ganha cor */
-*/
-
-/* .map-container:hover iframe {
-    filter: none;
-}
-
-/* Copyright e Linha Final */
-.footer-bottom {
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    /* Linha divisória muito sutil */
-}
-
-.fiap-txt {
-    font-size: 0.85rem;
-    color: #5c6b6b;
-    /* Bem discreto */
-}
-
-.footer-txt {
-    font-size: 0.85rem;
-    color: var(--primary-color);
-}
-
-/* Garante que o text-primary use sua cor Laranja */
-.text-primary {
-    color: var(--primary-color) !important;
-}
-
-/* ================================
-    MEDIA QUERIES (MANTIDO)
-==================================*/
-@media (max-width: 768px) {
-    #compromisso {
-        padding-top: 05rem;
-    }
-
-    .compromisso-title {
-        font-size: 2.3rem;
-    }
-
-    .compromisso-text {
-        font-size: 0.98rem;
-    }
-}
-
-/* ================================
-    EASTER EGG (CRÉDITOS DO DESENVOLVEDOR)
-==================================*/
-
-/* ================================
-    EASTER EGG (CRÉDITOS DO DESENVOLVEDOR)
-==================================*/
-/* ================================
-    EASTER EGG (CRÉDITOS: CENTRALIZADO E ENERGÉTICO)
-==================================*/
-/* ================================
-    EASTER EGG (CRÉDITOS: ANIMAÇÃO DIVERTIDA)
-==================================*/
-#dev-credits-easter-egg {
-    position: fixed;
-    bottom: 50px;
-    left: 50%;
-    z-index: 99999;
-
-    /* Estilo Visual */
-    padding: 15px 25px;
-    min-width: 320px;
-    background-color: var(--secondary-color);
-    color: var(--color-white);
-    border-radius: 50px;
-    /* Mais arredondado = mais amigável */
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-
-    /* Sombra forte para destacar */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-
-    /* ESTADO INICIAL (ESCONDIDO / SAÍDA) */
-    /* Ele começa pequeno, rodado e deslocado para baixo */
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, 150%) scale(0.3) rotate(-15deg);
-
-    /* A MÁGICA: Transição elástica para entrada e saída */
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-#dev-credits-easter-egg .txt-span {
-    color: var(--primary-color);
-    font-weight: 800;
-}
-
-/* ESTADO FINAL (VISÍVEL / ENTRADA) */
-#dev-credits-easter-egg.show {
-    opacity: 1;
-    visibility: visible;
-    /* Posição final correta e reta */
-    transform: translate(-50%, 0) scale(1) rotate(0deg);
-}
-
-/* ================================
-    SEÇÃO: SOCIAL CONNECT (LinkedIn)
-==================================*/
-/* ================================
-    SEÇÃO: SOCIAL CONNECT (FIX: Restaura Contraste e Tamanho)
-==================================*/
-
-/* Container Flexbox */
 .social-container {
     display: flex;
     justify-content: center;
@@ -1412,23 +886,22 @@ body {
     padding: 20px 0;
 }
 
-/* Estilo Base dos Botões Sociais */
+#social-connect {
+    margin-bottom: 80px;
+    /* Aumente ou diminua esse valor como achar melhor */
+}
+
+
 .social-btn {
     background: transparent;
     position: relative;
-
-    /* RESTAURAÇÃO DO TAMANHO ORIGINAL GRANDE (2.5rem) */
     padding: 5px 25px;
     font-size: 2rem;
     font-weight: 600;
-
     text-decoration: none;
     cursor: pointer;
     border-radius: 10px;
-
-    /* Borda Comum (2px) */
     border: 2px solid;
-
     outline: none;
     overflow: hidden;
     transition: color 0.3s 0.1s ease-out, transform 0.3s ease;
@@ -1438,17 +911,14 @@ body {
 .social-btn span {
     margin-left: 15px;
     transition: color 0.3s ease;
-    /* Adiciona transição na cor do texto */
 }
 
-/* Base SVG e Icon */
 .social-btn svg {
     width: 30px;
     height: 70px;
     transition: fill 0.3s ease;
 }
 
-/* Pseudo-elemento para o efeito de preenchimento (Fill Effect) */
 .social-btn::before {
     position: absolute;
     top: 0;
@@ -1466,29 +936,17 @@ body {
     z-index: -1;
 }
 
-/* Hover: Efeito de preenchimento e elevação */
 .social-btn:hover {
     color: #fff;
-    /* CRÍTICO: Garante que o texto genérico fique branco */
     border: 1px solid var(--social-color);
-    /* A borda final fica 1px */
     transform: translateY(-3px);
 }
 
-/* CRÍTICO: Garante que o texto e o ícone fiquem brancos no hover, 
-            e o texto volte à cor normal quando o hover sair. */
-.social-btn:hover span,
-.social-btn:hover svg {
+.social-btn:hover span, .social-btn:hover svg {
     fill: #fff;
     color: #fff !important;
-    /* Força o texto para branco */
 }
 
-/* ================================
-    REGRAS ESPECÍFICAS DE COR (LINKEDIN E INSTAGRAM)
-==================================*/
-
-/* LINKEDIN (AZUL) */
 .linkedin-btn {
     --social-color: rgb(0, 119, 181);
     border-color: var(--social-color);
@@ -1499,7 +957,6 @@ body {
     box-shadow: inset 0 0 0 10em var(--social-color);
 }
 
-/* INSTAGRAM (ROXO/ROSA QUENTE) - COPIA EXATA DA ESTRUTURA LINKEDIN */
 .instagram-btn {
     --social-color: #C13584;
     border-color: var(--social-color);
@@ -1511,7 +968,7 @@ body {
 }
 
 /* ================================
-    SELETOR DE IDIOMAS (FIXO - CANTO SUPERIOR DIREITO)
+   SELETOR DE IDIOMAS
 ==================================*/
 #language-selector {
     position: fixed;
@@ -1520,42 +977,30 @@ body {
     z-index: 100;
     display: flex;
     gap: 10px;
-    /* background-color: rgba(255, 255, 255, 0.85); */
     background-color: transparent;
     padding: 8px 12px;
-    /* border-radius: 8px; */
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     backdrop-filter: blur(4px);
 }
 
-/* Estilo dos links da bandeira */
 #language-selector a {
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     display: inline-block;
     text-decoration: none;
-    /* Remove o sublinhado padrão do link */
     opacity: 0.6;
-    /* Deixa as bandeiras inativas mais transparentes */
 }
 
-/* Bandeira ativa (a que está selecionada/atual) */
 #language-selector .flag-active {
     opacity: 1;
-    /* Bandeira atual é totalmente visível */
     transform: scale(1.05);
-    /* Levemente maior */
     pointer-events: none;
-    /* Impede clique na própria bandeira */
 }
 
-/* Efeito Hover nas bandeiras inativas */
 #language-selector a:not(.flag-active):hover {
     opacity: 0.9;
     transform: scale(1.15);
 }
 
-/* Tamanho das bandeiras */
 #language-selector .fi {
     width: 38px;
     height: 28.5px;
@@ -1563,459 +1008,226 @@ body {
     border-radius: 3px;
 }
 
-
 /* ================================
-    SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO)
+   FOOTER
 ==================================*/
-
-/* 1. KEYFRAME DE SCROLL (Define o movimento) */
-@keyframes scrollLogos {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-
-    /* Move para a esquerda metade do track */
-}
-
-#client-logos {
-    padding: 3rem 0;
-    /* Espaçamento vertical */
-    overflow: hidden;
-    /* Oculta as logos fora da tela */
-    background: var(--color-background-card);
-    /* Fundo branco sólido para contraste */
-}
-
-/* 2. Container principal */
-.marquee {
-    width: 100%;
-    white-space: nowrap;
-    /* Impede que os itens quebrem linha */
-}
-
-/* 3. A Pista de Rolagem (Deve ser duas vezes a largura do container) */
-.marquee-track {
-    display: flex;
-    width: 200%;
-    /* Duas vezes a largura para caber dois blocos de logos */
-    animation: scrollLogos 45s linear infinite;
-    /* 45s de duração, movimento linear, looping */
-}
-
-/* ================================
-    SEÇÃO: CLIENT LOGOS (MARQUEE CONTÍNUO - CORREÇÃO FINAL)
-==================================*/
-
-/* 1. KEYFRAME DE SCROLL (Move 100% da largura de uma cópia) */
-
-
-#client-logos {
-    overflow: hidden;
-    padding: 3rem 0;
-    background-color: transparent;
-    background: transparent;
-    /* Remove white-space: nowrap daqui */
+.footer-section {
+    background-color: #0b1d1d;
+    padding: 5rem 0 2rem 0;
+    color: #a0a0a0;
     position: relative;
+    margin-top: 0 !important;
 }
 
-
-/* Slides individuais (Nossos itens de lista) */
-.swiper-slide {
-    display: inline-block;
-    /* Permite que o width:auto funcione */
-    flex-shrink: 0;
-    /* Impede que o slide se comprima */
-    margin: 0 20px;
-    /* Adiciona espaçamento entre as logos */
-    width: auto;
+.footer-section h3, .footer-section h5 {
+    color: #ffffff;
+    font-weight: 700;
 }
 
-/* 4. Lista individual de Logos (Manter alinhamento) */
-/* ================================
-    CORREÇÃO DA SOBREPOSIÇÃO (CLIENT LOGO FIX)
-==================================*/
-
-/* 4. Lista individual de Logos */
-.logo-list {
-    display: flex;
-    /* Alinha ao início para evitar espaços invisíveis */
-    justify-content: flex-start;
-    align-items: center;
-    width: auto;
-    /* Deixa o conteúdo definir a largura */
-    padding: 0 80px;
-    /* Aumenta o padding lateral para margem de segurança */
-    flex-shrink: 0;
+.hover-primary {
+    transition: all 0.3s ease;
 }
 
-/* 5. Estilos das Logos (FORÇA TAMANHO E MAIOR ESPAÇAMENTO) */
-.client-logo {
-    /* CORREÇÃO CRÍTICA: Manter a altura uniforme, mas aumentar a largura máxima */
-    height: 60px;
-    /* Aumentamos a altura de 50px para 60px para melhor visualização */
-    width: auto;
-    max-width: 250px;
-    /* Aumentamos o limite para 250px para logos mais largas */
-
-    /* CORREÇÃO DE ESPAÇAMENTO: Aumentamos a margem de 60px para 80px */
-    margin: 0 80px;
-
-    filter: grayscale(0%) !important;
+.hover-primary:hover {
+    color: var(--primary-color) !important;
     opacity: 1 !important;
-    transition: transform 0.3s ease;
 }
 
-.client-logo:hover {
-    transform: scale(1.1);
-}
-
-/* TRACK ANIMADO (APLICAÇÃO DA LARGURA ABSOLUTA) */
-.marquee-track {
-    display: flex;
-    /* CORREÇÃO CRÍTICA: A largura deve ser 300% para as três cópias */
-    width: 300%;
-
-    /* APLICA A ANIMAÇÃO QUE FARÁ O LOOP */
-    animation: scrollLogos 45s infinite linear;
-}
-
-/* 1. KEYFRAME DE SCROLL (Move exatamente 1/3 da pista) */
-@keyframes scrollLogos {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        /* Move 33.3333% da largura total do track (300%) para completar um ciclo */
-        transform: translateX(-33.3333%);
-    }
-}
-
-
-
-/* ================================
-    SEÇÃO: SÓCIOS / EQUIPE
-==================================*/
-.socios-section {
-    padding: 5rem 0;
-    background-color: transparent;
-    /* Herda o gradiente do body */
-}
-
-/* CARD DO SÓCIO */
-.partner-card {
-    background: var(--color-background-card);
-    border: 1px solid var(--color-border-light);
-    border-radius: 16px;
-    padding: 25px;
-    height: 100%;
-    /* Garante altura igual */
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Efeito Hover no Card */
-.partner-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    /* Borda Laranja no Hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* --- HEADER DO CARD (FOTO + NOME) --- */
-.partner-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    /* Espaço entre a foto e o texto */
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding-bottom: 20px;
-}
-
-/* Wrapper da Imagem (Círculo) */
-.partner-img-wrapper {
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    padding: 3px;
-    /* Espaço para a borda colorida */
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    /* Borda Gradiente */
-}
-
-.partner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    /* Borda branca interna para separar do gradiente */
-    background-color: #eee;
-    /* Cor de fundo caso a imagem falhe */
-}
-
-/* Informações de Nome e Cargo */
-.partner-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.partner-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    /* Verde Petróleo */
-    margin: 0;
-    line-height: 1.2;
-}
-
-.partner-role {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    /* Laranja */
-    text-transform: uppercase;
-    margin-top: 5px;
-    letter-spacing: 0.5px;
-}
-
-/* --- CORPO DO CARD (TEXTO) --- */
-.partner-body {
-    color: var(--color-text-subtle);
-}
-
-.partner-quote {
+.footer-contact p {
+    margin-bottom: 0.8rem;
     font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-    font-style: italic;
-    /* Estilo de citação */
-    position: relative;
 }
 
-/* Detalhe visual de aspas (opcional, fica elegante) */
-.partner-quote::before {
-    content: "“";
-    font-size: 3rem;
-    color: rgba(240, 126, 48, 0.15);
-    /* Laranja bem claro */
-    position: absolute;
-    top: -25px;
-    left: -10px;
-    font-family: serif;
-    line-height: 1;
-}
-
-/* ================================
-    BOTÃO: CONHEÇA A EQUIPE
-==================================*/
-.btn-meet-team {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    /* Espaço entre texto e seta */
-
-    padding: 14px 38px;
+.footer-contact i {
     font-size: 1.1rem;
-    font-weight: 700;
-    /* text-transform: uppercase; */
-    letter-spacing: 0.5px;
-
-    /* Gradiente Laranja vibrante */
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff9a5b 100%);
-    color: white !important;
-    /* Força texto branco */
-
-    border-radius: 50px;
-    /* Formato Pílula */
-    border: none;
-    text-decoration: none;
-
-    /* Sombra suave laranja */
-    box-shadow: 0 4px 15px rgba(240, 126, 48, 0.3);
-    transition: all 0.3s ease;
 }
 
-/* Hover: Levanta e aumenta a sombra */
-.btn-meet-team:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(240, 126, 48, 0.5);
-    filter: brightness(1.05);
-}
-
-/* Animação da setinha no hover (vai para a direita) */
-.btn-meet-team i {
-    transition: transform 0.3s ease;
-}
-
-.btn-meet-team:hover i {
-    transform: translateX(5px);
-}
-
-
-
-
-
-
-
-
-
-
-/* ESTILOS DA PAGINA DEDICADA DA EQUIPE  */
-/* ================================
-    PÁGINA DE EQUIPE (DEDICADA)
-==================================*/
-
-/* Botão Flutuante de Voltar */
-.back-home-btn {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-border-light);
-    color: var(--secondary-color);
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.back-home-btn:hover {
-    transform: translateX(-5px);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* Header da Página de Equipe */
-.team-page-header {
-    padding: 8rem 0 4rem 0;
-    /* Espaço para o botão voltar */
-    background: linear-gradient(180deg, rgba(240, 126, 48, 0.05) 0%, transparent 100%);
-}
-
-/* Card de Membro Expandido */
-.team-member-card {
-    background: var(--color-background-card);
-    border: 1px solid var(--color-border-light);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.team-member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: var(--primary-color);
-}
-
-/* Foto do Membro (Retangular ou Quadrada Grande) */
-.member-photo-container {
-    width: 100%;
-    height: 300px;
-    /* Altura fixa para alinhar */
-    overflow: hidden;
-    position: relative;
-}
-
-.member-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    /* Foca no rosto */
-    transition: transform 0.5s ease;
-}
-
-.team-member-card:hover .member-photo {
-    transform: scale(1.05);
-}
-
-/* Corpo do Card */
-.member-info {
-    padding: 2rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.member-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 5px;
-}
-
-.member-role {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.member-bio {
-    color: var(--color-text-subtle);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    flex-grow: 1;
-    /* Empurra os botões para o final */
-}
-
-/* Ações do Card (Social + CV) */
-.member-actions {
-    border-top: 1px solid var(--color-border-light);
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.social-links a {
-    color: var(--secondary-color);
-    font-size: 1.2rem;
-    margin-right: 15px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-}
-
-.btn-cv {
-    background: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 8px 16px;
-    border-radius: 6px;
+.footer-legal-text {
     font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    line-height: 1.6;
+    color: #7a8a8a;
+    text-align: justify;
 }
 
-.btn-cv:hover {
-    background: var(--primary-color);
-    color: white;
+.map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.map-container iframe {
+    transition: filter 0.5s ease;
+}
+
+.footer-bottom {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.fiap-txt {
+    font-size: 0.85rem;
+    color: #5c6b6b;
+}
+
+.footer-txt {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Links do Footer (LGPD, etc) */
+.footer-legal-links li {
+    margin-bottom: 8px;
+}
+
+.footer-legal-links a.footer-link {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-legal-links a.footer-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ================================
+   BOTÃO VOLTAR AO TOPO
+==================================*/
+.Btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 0%, #ffc58f 0%, #f07e30 40%, #c5500f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 9999;
+    box-shadow: 0 0 18px rgba(240, 126, 48, 0.55), 0 6px 16px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    outline: none;
+    border: none;
+    font-family: inherit;
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.Btn .arrow path {
+    fill: var(--color-white);
+}
+
+.Btn .text {
+    font-size: 0.72rem;
+    width: 100px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-text-dark);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.Btn:hover {
+    transform: translateX(-0%) translateY(-10px) scale(1.04);
+    box-shadow: 0 0 26px rgba(240, 126, 48, 0.8), 0 10px 22px rgba(0, 0, 0, 0.65);
+}
+
+.Btn:hover .text {
+    opacity: 1;
+}
+
+.Btn:hover .arrow {
+    animation: slide-in-bottom 0.5s ease both;
+}
+
+.back-to-top-btn.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* ================================
+   EASTER EGG
+==================================*/
+#dev-credits-easter-egg {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    z-index: 99999;
+    padding: 15px 25px;
+    min-width: 320px;
+    background-color: var(--secondary-color);
+    color: var(--color-white);
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 150%) scale(0.3) rotate(-15deg);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#dev-credits-easter-egg .txt-span {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+#dev-credits-easter-egg.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1) rotate(0deg);
+}
+
+/* ==========================================================================
+   CORREÇÕES DE SCROLL E BANNER DE COOKIES (FLUTUANTE)
+========================================================================== */
+section[id] {
+    scroll-margin-top: 110px;
+}
+
+#contato2[id] {
+    scroll-margin-top: 160px;
+}
+
+.cookie-banner-floating {
+    position: fixed;
+    bottom: -150%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-width: 380px;
+    background-color: rgba(11, 29, 29, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(240, 126, 48, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    z-index: 99999;
+    transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.cookie-banner-floating.show {
+    bottom: 20px;
+}
+
+@media (max-width: 576px) {
+    .cookie-banner-floating {
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .cookie-banner-floating.show {
+        bottom: 10px;
+    }
 }

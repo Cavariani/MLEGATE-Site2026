@@ -1,3 +1,9 @@
+// FORÇAR SCROLL PARA O TOPO SEMPRE QUE A PÁGINA RECARREGAR
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 $(document).ready(function () {
 
     // ==========================================================
@@ -22,6 +28,41 @@ $(document).ready(function () {
         }
     });
 
+    // ==========================================================================
+    // SISTEMA DE BANNER DE COOKIES (FLUTUANTE) - SEMPRE APARECE
+    // ==========================================================================
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('btn-accept-cookies');
+    const rejectBtn = document.getElementById('btn-reject-cookies');
+
+    // Função para mostrar o banner com um pequeno delay (estilo toast)
+    function showBanner() {
+        setTimeout(() => {
+            if(cookieBanner) cookieBanner.classList.add('show');
+        }, 1500); // Aparece 1.5s após entrar na página
+    }
+
+    // Função para esconder o banner apenas visualmente nesta sessão
+    function hideBanner() {
+        if(cookieBanner) cookieBanner.classList.remove('show');
+    }
+
+    // FORÇA O BANNER A APARECER EM TODOS OS LOADS
+    showBanner();
+
+    // Evento do botão "Aceitar"
+    if(acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+            hideBanner(); // Apenas esconde a UI
+        });
+    }
+
+    // Evento do botão "Recusar"
+    if(rejectBtn) {
+        rejectBtn.addEventListener('click', function() {
+            hideBanner(); // Apenas esconde a UI
+        });
+    }
 
     // ==========================================================
     // 1. LÓGICA DE FADE-IN NA CARGA (DRAMÁTICO)
@@ -95,14 +136,13 @@ $(document).ready(function () {
 
 
     // ==========================================================
-    // 4. EASTER EGG (5 CLIQUES NO ÍCONE RAIO - CORRIGIDO)
+    // 4. EASTER EGG (5 CLIQUES NO ÍCONE RAIO)
     // ==========================================================
 
     let clickCountEE = 0;
     
-    // CORREÇÃO AQUI: Atualizado para .comp-icon-wrapper (nova classe do layout horizontal)
+    // Procura o ícone de raio dentro do card de Consultoria
     const $lightningIcon = $('.comp-icon-wrapper i.bi-lightning-charge'); 
-    
     const $creditsBox = $('#dev-credits-easter-egg');
     const requiredClicksEE = 5;
 
@@ -116,9 +156,6 @@ $(document).ready(function () {
         clickCountEE++;
         
         // Feedback visual de clique
-        // Nota: O feedback visual no CSS precisa estar apontando para o wrapper pai se quiser animar o quadrado,
-        // mas aqui estamos aplicando a classe ao ícone <i>. 
-        // Se quiser animar o quadrado, use $(this).parent().addClass...
         $(this).addClass('clicked');
         setTimeout(() => { $(this).removeClass('clicked'); }, 100);
 
@@ -149,24 +186,114 @@ $(document).ready(function () {
 
     $lightningIcon.on('click', handleEasterEggClick);
 
+    // ==========================================================
+    // 5. CANVAS INTERATIVO (REDE NEURAL / PARTÍCULAS)
+    // ==========================================================
+    const canvas = document.getElementById("network-canvas");
+    if (canvas) { // Verifica se o canvas existe antes de rodar
+        const ctx = canvas.getContext("2d");
+        
+        // Ajuste de tamanho
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
-// VERSÃO 5: MAR MONOCROMÁTICO
-// if (window.VANTA) {
-//     VANTA.WAVES({
-//         el: "#inicio",
-//         color: 0x4d7575,        // COR DA ONDA: Teal mais claro
-//         mouseControls: false,
-//         touchControls: false,
-//         gyroControls: false,
-//         minHeight: 200.00,
-//         minWidth: 200.00,
-//         scale: 1.00,
-//         scaleMobile: 1.00,
-//         shininess: 38.00,
-//         waveHeight: 8.50,
-//         waveSpeed: 0.15,
-//         zoom: 0.88
-//     });
-// }
+        let particlesArray = [];
+        let mouse = { x: null, y: null, radius: 150 };
 
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        // Corrigir posição do mouse ao rolar a página
+        window.addEventListener('scroll', (event) => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+                
+                // Mouse interaction
+                if (mouse.x !== null && mouse.y !== null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx*dx + dy*dy);
+                    if (distance < mouse.radius) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        // Força de empurrão suave
+                        const directionX = forceDirectionX * force * 3;
+                        const directionY = forceDirectionY * force * 3;
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    }
+                }
+            }
+            draw() {
+                ctx.fillStyle = '#f07e30'; // Pontos Laranjas
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            // Densidade ajustável: aumente o divisor para ter menos partículas
+            let numberOfParticles = (canvas.height * canvas.width) / 12000; 
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                for (let j = i; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    // Distância para conectar linhas
+                    if (distance < 120) { 
+                        ctx.beginPath();
+                        // Linhas em cinza/verde escuro sutil
+                        ctx.strokeStyle = `rgba(31, 69, 69, ${1 - distance/120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
+    }
 });

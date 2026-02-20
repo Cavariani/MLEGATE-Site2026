@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MLEGATE | Morison Global | 🇧🇷</title>
+    <link rel="icon" href="./images/Misc/favicon mle.ico" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mlegate-orange': '#f07e30',
+                        'mlegate-teal': '#1F4545',
+                        'mlegate-light': '#F9F9F9',
+                    },
+                    fontFamily: {
+                        sans: ['"Exo 2"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="./stylesheets/styles.css" />
+</head>
+
+<body class="bg-white text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <div id="language-selector"
+        class="fixed top-5 right-5 z-50 flex gap-3 bg-white/50 backdrop-blur-md px-3 py-2 rounded-lg border border-gray-200 shadow-sm transition-all hover:bg-white/80">
+        <a href="./index.html" class="opacity-100 scale-110 pointer-events-none transition-all"><span
+                class="fi fi-br rounded shadow-sm"></span></a>
+        <a href="./traducoes/en/index.html" class="opacity-60 hover:opacity-100 hover:scale-110 transition-all"><span
+                class="fi fi-gb rounded shadow-sm"></span></a>
+        <a href="./traducoes/es/index.html" class="opacity-60 hover:opacity-100 hover:scale-110 transition-all"><span
+                class="fi fi-es rounded shadow-sm"></span></a>
+    </div>
+
+    <nav
+        class="fixed w-full z-40 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="hidden md:block w-24"></div>
+
+            <ul
+                class="flex w-full md:w-auto justify-center gap-6 lg:gap-10 text-sm lg:text-base font-semibold text-mlegate-teal">
+                <li><a href="#sobre"
+                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
+                            class="bi bi-briefcase text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
+                            class="opacity-0 group-hover:opacity-100 transition-opacity">Sobre</span></a></li>
+                <li><a href="#compromisso"
+                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
+                            class="bi bi-lightbulb text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
+                            class="opacity-0 group-hover:opacity-100 transition-opacity">Compromisso</span></a></li>
+                <li><a href="#inicio"
+                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
+                            class="bi bi-house text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
+                            class="opacity-0 group-hover:opacity-100 transition-opacity">Início</span></a></li>
+                <li><a href="#curriculo"
+                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
+                            class="bi bi-envelope text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
+                            class="opacity-0 group-hover:opacity-100 transition-opacity">Carreiras</span></a></li>
+                <li><a href="http://51.81.167.10/timesheet/" target="_blank"
+                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
+                            class="bi bi-graph-up-arrow text-2xl group-hover:-translate-y-1 transition-transform"></i>
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity">FC</span></a></li>
+            </ul>
+
+            <div class="hidden md:block w-24"></div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline
+            preload="metadata">
+            <source src="./images/SI/Misc/VideoMLE.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-white/40 z-10"></div>
+
+        <div class="relative z-20 flex flex-col items-center justify-center text-center mt-20">
+            <img class="max-w-[70vw] lg:max-w-3xl animate-fade-in drop-shadow-xl"
+                src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="LOGO MLEGATE" />
+
+            <a href="#sobre" class="mt-24">
+                <button
+                    class="w-16 h-16 rounded-full bg-white border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange hover:bg-mlegate-orange hover:text-white transition-all shadow-[0_0_15px_rgba(240,126,48,0.3)] hover:shadow-[0_0_25px_rgba(240,126,48,0.6)] hover:-translate-y-1 group">
+                    <i class="bi bi-arrow-down text-2xl group-hover:animate-bounce"></i>
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-24 bg-gradient-to-b from-white to-mlegate-light/50">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-mlegate-teal mb-3">Quem Somos Nós</h2>
+                <h5 class="text-xl text-gray-500">Conheça a missão e os valores da <span
+                        class="text-mlegate-orange font-bold">MLEGATE</span>.</h5>
+
+                <p class="mt-8 text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Somos uma consultoria <span class="text-mlegate-orange font-bold">full-service</span> que, desde
+                    1995, oferece soluções completas em diversas frentes de contabilidade e gestão empresarial. Nosso
+                    diferencial está na combinação de expertise técnica, inovação e propósito, sempre com uma abordagem
+                    <span class="text-mlegate-orange font-bold">próxima e personalizada</span>.<br /><br />
+                    Com uma equipe altamente qualificada, transformamos desafios em oportunidades, ajudando empresas a
+                    crescer com <span class="text-mlegate-orange font-bold">segurança, eficiência e visão
+                        estratégica.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:border-mlegate-orange hover:shadow-lg transition-all group">
+                    <div
+                        class="w-14 h-14 rounded-full bg-mlegate-teal/5 border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange text-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-mlegate-teal mb-4">Nossa História</h3>
+                    <p class="text-gray-600 leading-relaxed">Nossa história começou em São Paulo, em 1995. Desde então,
+                        crescemos com uma estratégia sólida de diversificação, atuando em diferentes mercados e setores
+                        para garantir inovação e crescimento contínuo.</p>
+                </article>
+
+                <article
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:border-mlegate-orange hover:shadow-lg transition-all group">
+                    <div
+                        class="w-14 h-14 rounded-full bg-mlegate-teal/5 border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange text-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+                        <i class="bi bi-globe2"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-mlegate-teal mb-4">Morison Global</h3>
+                    <p class="text-gray-600 leading-relaxed">Somos membros independentes da Morison Global desde 2003,
+                        uma rede que conecta 108 firmas em mais de 65 países, reunindo líderes em auditoria,
+                        contabilidade e consultoria.</p>
+                    <a href="https://www.morisonglobal.com/" target="_blank"
+                        class="inline-block mt-4 text-mlegate-teal font-bold underline hover:text-mlegate-orange transition-colors">morisonglobal.com</a>
+                </article>
+
+                <article
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:border-mlegate-orange hover:shadow-lg transition-all group">
+                    <div
+                        class="w-14 h-14 rounded-full bg-mlegate-teal/5 border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange text-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-mlegate-teal mb-4">Clientes e Indústrias</h3>
+                    <p class="text-gray-600 leading-relaxed">Atuamos com empresas que buscam estratégia, inovação e
+                        confiança. Nossa experiência abrange comércio, serviços, indústria e organizações sem fins
+                        lucrativos.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="socios" class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-mlegate-teal mb-3">Equipe</h2>
+                <h5 class="text-xl text-gray-500">Liderança impulsionada por <span
+                        class="text-mlegate-orange font-bold">experiência e propósito</span>.</h5>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                <div
+                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
+                    <div
+                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
+                        <img src="./images/team/profilepic.webp" alt="João Garcia"
+                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                    </div>
+                    <h4 class="text-xl font-bold text-mlegate-teal">João Garcia</h4>
+                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócio</span>
+                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                </div>
+
+                <div
+                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
+                    <div
+                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
+                        <img src="./images/team/profilepic.webp" alt="Antonio Machado"
+                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                    </div>
+                    <h4 class="text-xl font-bold text-mlegate-teal">Antonio Machado</h4>
+                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócio</span>
+                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                </div>
+
+                <div
+                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
+                    <div
+                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
+                        <img src="./images/team/profilepic.webp" alt="Rubens Lopes"
+                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                    </div>
+                    <h4 class="text-xl font-bold text-mlegate-teal">Rubens Lopes</h4>
+                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócio</span>
+                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                </div>
+
+                <div
+                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
+                    <div
+                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
+                        <img src="./images/team/profilepic.webp" alt="Rosana Tessari"
+                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                    </div>
+                    <h4 class="text-xl font-bold text-mlegate-teal">Rosana Tessari</h4>
+                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócia</span>
+                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="equipe.html"
+                    class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-mlegate-orange to-[#ff9a5b] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group">
+                    Conheça nossa equipe completa <i
+                        class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="compromisso" class="py-24 bg-mlegate-light/50">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-mlegate-teal mb-3">Nosso <span
+                        class="text-mlegate-orange">Compromisso</span></h2>
+                <h5 class="text-xl text-gray-500">Por que escolher a <span
+                        class="text-mlegate-orange font-bold">MLEGATE</span>?</h5>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Acreditamos que a expertise sozinha não basta. Nosso
+                    diferencial é a combinação de excelência técnica com empatia, inovação e propósito. Construímos
+                    parcerias de longo prazo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="magic-card group">
+                    <div class="magic-card-inner">
+                        <div
+                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
+                                Auditoria e Asseguração</h3>
+                            <ul
+                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
+                                <li>Auditoria das Demonstrações Financeiras (CVM)</li>
+                                <li>Revisão Limitada das Demonstrações Financeiras</li>
+                                <li>Asseguração e Certificação</li>
+                                <li>Laudos de Avaliação Contábil</li>
+                                <li>Due Diligence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="magic-card group">
+                    <div class="magic-card-inner">
+                        <div
+                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
+                            <i class="bi bi-clipboard-data"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
+                                Perícias e Avaliações</h3>
+                            <ul
+                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
+                                <li>Perícias Judiciais e Extrajudiciais</li>
+                                <li>Perícias Arbitrais</li>
+                                <li>Avaliação Econômica de Empresas (Valuation)</li>
+                                <li>Purchase Price Allocation (PPA)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="magic-card group">
+                    <div class="magic-card-inner">
+                        <div
+                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
+                                Consultoria</h3>
+                            <ul
+                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
+                                <li>Contabilidade e Controladoria</li>
+                                <li>Tributária</li>
+                                <li>Recursos Humanos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="magic-card group">
+                    <div class="magic-card-inner">
+                        <div
+                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <div>
+                            <h3
+                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
+                                Outsourcing e BPO</h3>
+                            <ul
+                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
+                                <li>Contabilidade e Gestão de Controladoria</li>
+                                <li>Escrituração Fiscal</li>
+                                <li>Folha de Pagamento</li>
+                                <li>Faturamento e Finanças</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato2" class="py-24 bg-mlegate-teal text-white">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h1 class="text-4xl font-bold mb-2">Quer falar com a <span class="text-mlegate-orange">MLEGATE</span>?</h1>
+            <h2 class="text-xl text-gray-300 mb-10">Tem alguma dúvida ou sugestão?</h2>
+
+            <form class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 text-left">
+                <div class="mb-5">
+                    <label class="block text-gray-200 mb-2 font-semibold">Seu E-Mail:</label>
+                    <input type="email"
+                        class="w-full bg-white text-gray-800 p-3 rounded-lg border-none focus:ring-2 focus:ring-mlegate-orange outline-none"
+                        required />
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-200 mb-2 font-semibold">Sua Mensagem:</label>
+                    <textarea rows="4"
+                        class="w-full bg-white text-gray-800 p-3 rounded-lg border-none focus:ring-2 focus:ring-mlegate-orange outline-none"
+                        required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit"
+                        class="bg-gradient-to-r from-[#f89b4f] to-mlegate-orange text-mlegate-teal font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform shadow-[0_0_15px_rgba(240,126,48,0.5)]">
+                        Enviar Mensagem <i class="bi bi-send ml-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="curriculo" class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <div class="bg-white p-10 md:p-16 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50">
+                <h1 class="text-4xl font-bold text-mlegate-teal">Envie seu Currículo</h1>
+                <div class="w-24 h-1 bg-mlegate-orange mx-auto my-6 rounded-full"></div>
+                <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Estamos sempre em busca de novos talentos.
+                    Invista em uma carreira que valoriza colaboração, aprendizado contínuo e exposição a projetos
+                    estratégicos.</p>
+
+                <form class="max-w-md mx-auto flex flex-col gap-4">
+                    <input type="text" placeholder="Seu Nome Completo" required
+                        class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-mlegate-orange outline-none" />
+
+                    <input type="file" id="file-upload" accept="application/pdf" class="hidden" required />
+                    <label for="file-upload"
+                        class="w-full p-4 bg-mlegate-orange text-white font-bold rounded-xl cursor-pointer hover:bg-[#d66b22] transition-colors flex flex-col items-center justify-center gap-1 border-2 border-dashed border-white/40">
+                        <i class="bi bi-cloud-arrow-up text-2xl"></i>
+                        <span>Selecionar CV (.pdf ou .docx)</span>
+                    </label>
+
+                    <button type="submit"
+                        class="w-full p-4 bg-mlegate-teal text-white font-bold rounded-xl hover:bg-[#153030] transition-colors mt-2">
+                        Enviar Currículo <i class="bi bi-send ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0b1d1d] pt-20 pb-8 border-t-4 border-mlegate-secondary text-[#a0a0a0]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+
+                <div class="lg:col-span-4">
+                    <h3 class="text-white text-2xl font-bold mb-4">MLEGATE</h3>
+                    <p class="mb-6">Independent member <br /><span class="text-mlegate-orange font-bold">Morison
+                            Global</span></p>
+
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="bi bi-geo-alt-fill text-mlegate-orange mt-1"></i>
+                            <span>Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, SP</span>
+                        </div>
+                        <div>
+                            <a href="tel:+551150807500"
+                                class="hover:text-mlegate-orange transition-colors flex items-center gap-3"><i
+                                    class="bi bi-telephone-fill text-mlegate-orange"></i> +55 (11) 5080-7500</a>
+                        </div>
+                        <div>
+                            <a href="mailto:contato@mlegate.com"
+                                class="hover:text-mlegate-orange transition-colors flex items-center gap-3"><i
+                                    class="bi bi-envelope-fill text-mlegate-orange"></i> contato@mlegate.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4">
+                    <h5 class="text-white text-lg font-bold mb-4">Sobre a Associação</h5>
+                    <p class="text-sm leading-relaxed text-justify mb-4">A Morison Global é uma associação de firmas
+                        profissionais independentes. Os serviços profissionais são prestados pelas firmas-membro
+                        individuais.</p>
+                    <p class="text-sm leading-relaxed text-justify">A Morison Global não presta serviços profissionais
+                        por conta própria. Nenhuma firma-membro é responsável pelos atos ou omissões de qualquer outra
+                        firma-membro decorrentes de sua associação à Morison Global.</p>
+                </div>
+
+                <div class="lg:col-span-4">
+                    <div class="rounded-xl overflow-hidden border-2 border-white/10 h-[200px] shadow-xl">
+                        <iframe width="100%" height="100%" style="border: 0" loading="lazy" allowfullscreen
+                            src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-16 pt-6 text-center text-sm">
+                <p>© 2025 MLEGATE. Todos os direitos reservados. <br>
+                    <span class="text-white">website by pedroRC | <a href="https://pedrorc.com" target="_blank"
+                            class="text-mlegate-orange">pedrorc.com</a></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#inicio"
+        class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-t from-[#c5500f] via-mlegate-orange to-[#ffc58f] text-white flex items-center justify-center text-2xl shadow-lg hover:-translate-y-2 transition-transform z-50">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <div id="dev-credits-easter-egg" class="hidden"></div>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

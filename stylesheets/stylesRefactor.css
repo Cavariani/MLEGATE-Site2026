@@ -1,0 +1,86 @@
+/* ================================
+   CURSOR PERSONALIZADO MLEGATE
+==================================*/
+body, a, button, label {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23F07E30" stroke="%2317403D" stroke-width="0.75" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), default !important;
+}
+
+/* ================================
+   ANIMAÇÃO HERO (Logo Fade In)
+==================================*/
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInScale 2s ease-out forwards;
+}
+
+/* ================================
+   EFEITO "MAGIC CARD" (Seção Compromisso)
+==================================*/
+.magic-card {
+    --card-gradient: linear-gradient(135deg, #f07e30 0%, #ff9a5b 100%);
+    position: relative;
+    padding: 2px;
+    /* Borda fina */
+    border-radius: 16px;
+    background: transparent;
+    border: 1px solid #E0E0E0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* GLOW (Aparece no Hover do Card) */
+.magic-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 16px;
+    transform: scale(0.85);
+    filter: blur(25px);
+    background: var(--card-gradient);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.magic-card-inner {
+    background: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Hover do Box Inteiro */
+.magic-card:hover {
+    transform: translateY(-5px);
+    border-color: transparent;
+    background: var(--card-gradient);
+}
+
+.magic-card:hover::after {
+    opacity: 0.6;
+}
+
+/* Responsividade do Magic Card */
+@media (max-width: 576px) {
+    .magic-card-inner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}

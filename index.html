@@ -22,6 +22,8 @@
 </head>
 
 <body>
+
+
     <div id="language-selector">
         <a href="./index.html" class="flag-link-pt flag-active" data-lang="pt" aria-label="Português">
             <span class="fi fi-br" role="button"></span>
@@ -46,49 +48,53 @@
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item mt-2">
                     <a class="nav-link" href="#sobre">
-                        <i class="bi bi-briefcase fs-3 icon-nav"></i>
+                        <i class="bi bi-briefcase fs-4 icon-nav"></i>
                         <span class="icon-text">Sobre</span>
                     </a>
                 </li>
 
                 <li class="nav-item mt-2">
                     <a class="nav-link" href="#compromisso">
-                        <i class="bi bi-lightbulb fs-3 icon-nav"></i>
+                        <i class="bi bi-lightbulb fs-4 icon-nav"></i>
                         <span class="icon-text">Compromisso</span>
                     </a>
                 </li>
 
                 <li class="nav-item mt-2">
                     <a class="nav-link" href="#inicio">
-                        <i class="bi bi-house fs-3 icon-nav"></i>
+                        <i class="bi bi-house fs-4 icon-nav"></i>
                         <span class="icon-text">Início</span>
                     </a>
                 </li>
 
                 <li class="nav-item mt-2">
                     <a class="nav-link" href="#curriculo">
-                        <i class="bi bi-envelope fs-3 icon-nav"></i>
-                        <span class="icon-text">Contratação</span>
+                        <i class="bi bi-envelope fs-4 icon-nav"></i>
+                        <span class="icon-text">Carreiras</span>
                     </a>
                 </li>
 
                 <li class="nav-item mt-2">
-                    <a class="nav-link" href="http://51.81.167.10/timesheet/" id="link-fc">
-                        <i class="bi bi-graph-up-arrow fs-3 icon-nav"></i>
-                        <span class="icon-text">FC</span>
+                    <a class="nav-link" href="#contato2">
+                        <i class="bi bi-envelope-paper fs-4 icon-nav"></i>
+                        <span class="icon-text">Contato</span>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- SEÇÃO INICIO COM VIDEO DE BACKGROUND -->
-    <section id="inicio" class="hero-video-wrapper">
+    <section id="inicio" class="hero-video-wrapper" style="position: relative; background-color: #fafafa;">
+
+        <canvas id="network-canvas"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.1; pointer-events: none;"></canvas>
+
         <video class="hero-video" autoplay muted loop playsinline preload="metadata">
             <source src="./images/SI/Misc/VideoMLE.mp4" type="video/mp4" />
         </video>
-        <div class="hero-overlay"></div>
-        <div class="overlay-content">
+        <div class="hero-overlay" style="z-index: 1;"></div>
+
+        <div class="overlay-content" style="position: relative; z-index: 3;">
             <div class="logo-wrapper">
                 <img class="icon-aphelios img-fluid" src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="LOGO MLE" />
             </div>
@@ -163,12 +169,13 @@
                             líderes em auditoria, contabilidade e consultoria para oferecer
                             soluções com alcance global e qualidade excepcional.
                         </p>
-
+                        <p class="text-secondary mt-2">
+                            A Morison Global é uma associação de firmas profissionais independentes. Os serviços
+                            profissionais são prestados pelas firmas-membro individuais.
+                        </p>
                         <p class="sobre-link-extra">
                             Essa parceria nos insere em um ecossistema de inteligência
-                            internacional, tecnologia escalável e alianças estratégicas,
-                            garantindo acesso às melhores práticas e inovação para enfrentar
-                            um mercado em constante transformação. <br />
+                            internacional, tecnologia escalável e alianças estratégicas. <br />
                             Saiba mais em :
                             <a class="txt-span" href="https://www.morisonglobal.com/"
                                 target="_blank">morisonglobal.com</a>
@@ -183,7 +190,6 @@
 
                     <div class="sobre-content">
                         <h3 class="sobre-title">Clientes e Indústrias</h3>
-
                         <p class="text-white scroll-animate">
                             Atuamos com empresas que buscam estratégia, inovação e confiança
                             para enfrentar desafios e acelerar resultados. Nossa experiência
@@ -216,116 +222,113 @@
 
             <div class="row g-4 justify-content-center">
 
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="partner-card scroll-animate text-center">
                         <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/team/profilepic.webp" alt="João Garcia" class="partner-img">
+                            <img src="./images/diretores/machado.jpeg" alt="MACHADO" class="partner-img">
                         </div>
                         <div class="partner-info">
-                            <h4 class="partner-name">João Garcia</h4>
-                            <span class="partner-role">Managing Partner</span>
+                            <h4 class="partner-name">Antônio Machado</h4>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Contabilidade e Controladoria</h4>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="partner-card scroll-animate text-center">
                         <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/team/profilepic.webp" alt="Antonio Machado" class="partner-img">
+                            <img src="./images/diretores/" alt="CLOVIS" class="partner-img">
                         </div>
                         <div class="partner-info">
-                            <h4 class="partner-name">Antonio Machado</h4>
-                            <span class="partner-role">Partner</span>
+                            <h4 class="partner-name">Clóvis Patah</h4>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Fiscal</h4>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="partner-card scroll-animate text-center">
                         <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/team/profilepic.webp" alt="Rubens Lopes" class="partner-img">
+                            <img src="./images/diretores/enorAssis.jpeg" alt="ENOR" class="partner-img">
+                        </div>
+                        <div class="partner-info">
+                            <h4 class="partner-name">Enôr Assis</h4>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Recursos Humanos</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card scroll-animate text-center">
+                        <div class="partner-img-wrapper mx-auto mb-3">
+                            <img src="./images/diretores/Joao.jpeg" alt="JOAO" class="partner-img">
+                        </div>
+                        <div class="partner-info">
+                            <h4 class="partner-name">João Carlos Castilho Garcia</h4>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Perícia</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card scroll-animate text-center">
+                        <div class="partner-img-wrapper mx-auto mb-3">
+                            <img src="./images/diretores/" alt="Enôr Assis" class="partner-img">
+                        </div>
+                        <div class="partner-info">
+                            <h4 class="partner-name">Rosana Tessari</h4>
+                            <span class="partner-role">Sócia</span>
+                            <h4 class="socio-txt">Diretora de Recursos Humanos</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card scroll-animate text-center">
+                        <div class="partner-img-wrapper mx-auto mb-3">
+                            <img src="./images/diretores/Rubens.jpeg" alt="RUBENS" class="partner-img">
                         </div>
                         <div class="partner-info">
                             <h4 class="partner-name">Rubens Lopes</h4>
-                            <span class="partner-role">Partner</span>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Auditoria e Perícia</h4>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="partner-card scroll-animate text-center">
                         <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/team/profilepic.webp" alt="Rafaela Garcia" class="partner-img">
+                            <img src="./images/diretores/VagnerLira.jpeg" alt="VAGNER" class="partner-img">
                         </div>
                         <div class="partner-info">
-                            <h4 class="partner-name">Rafaela Garcia</h4>
-                            <span class="partner-role">Consultant</span>
+                            <h4 class="partner-name">Vagner Lira</h4>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Auditoria</h4>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="partner-card scroll-animate text-center">
                         <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/team/profilepic.webp" alt="Nome do Sócio" class="partner-img">
+                            <img src="./images/diretores/" alt="Sócio 8" class="partner-img">
                         </div>
                         <div class="partner-info">
-                            <h4 class="partner-name">Nome do Sócio</h4>
-                            <span class="partner-role">Diretor Tributário</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/team/profilepic.webp" alt="Nome do Sócio" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Nome do Sócio</h4>
-                            <span class="partner-role">Líder de Auditoria</span>
+                            <h4 class="partner-name">Wagner Scaglioni</h4>
+                            <span class="partner-role">Sócio</span>
+                            <h4 class="socio-txt">Diretor de Fiscal</h4>
                         </div>
                     </div>
                 </div>
 
             </div>
-
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <a href="equipe.html" class="btn-meet-team">
-                        Conheça nossa equipe completa <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <section id="compromisso">
         <div class="container compromisso-wrapper">
@@ -341,8 +344,7 @@
                     <p class="compromisso-text">
                         Acreditamos que a expertise sozinha não basta. Nosso diferencial é a combinação de excelência
                         técnica com empatia, inovação e propósito. Construímos parcerias de longo prazo, adaptando
-                        soluções
-                        com precisão.
+                        soluções com precisão.
                     </p>
                 </div>
             </div>
@@ -358,6 +360,7 @@
                             <div class="comp-content">
                                 <h3 class="comp-card-title">Auditoria e Asseguração</h3>
                                 <ul class="comp-card-list">
+                                    <li>Controles Internos</li>
                                     <li>Auditoria das Demonstrações Financeiras (CVM)</li>
                                     <li>Revisão Limitada das Demonstrações Financeiras</li>
                                     <li>Asseguração e Certificação</li>
@@ -465,16 +468,46 @@
         </div>
     </section>
 
+    <section id="curriculo">
+        <div class="container d-flex flex-column align-items-center mb-5">
+            <div class="curriculo-card text-center scroll-animate">
+                <h1 class="curriculo-title">Envie seu Currículo</h1>
+                <div class="linha-title"></div>
+
+                <p class="curriculo-desc">
+                    Estamos sempre em busca de novos talentos. Invista em uma carreira
+                    que valoriza colaboração, aprendizado contínuo e exposição a
+                    projetos estratégicos.
+                </p>
+
+                <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST" enctype="multipart/form-data"
+                    class="curriculo-form">
+                    <input type="text" name="Nome" placeholder="Seu Nome Completo" required class="form-control mb-3" />
+
+                    <input type="file" name="Anexo" id="file-upload" accept="application/pdf" class="d-none" required />
+
+                    <label for="file-upload" class="btn-curriculo mt-4">
+                        Selecionar CV <br />
+                        (.pdf ou .docx)
+                    </label>
+
+                    <button type="submit" class="btn-curriculo-submit mt-3">
+                        Enviar Currículo <i class="bi bi-send"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <section id="contato2" class="contato-section mt-5">
         <div class="container py-4 mt-5">
             <div class="text-center text-white scroll-animate">
-                <h1 class="texto1-video-final fw-bold">
+                <h1 class="texto1-video-final fw-bold display-5">
                     Quer falar com a <span class="txt-span fw-bold">MLEGATE</span>?
                 </h1>
-                <h2 class="texto2-video-final">Tem alguma dúvida ou sugestão?</h2>
             </div>
 
-            <div class="row justify-content-center mt-4 scroll-animate">
+            <div class="row justify-content-center mt-5 scroll-animate">
                 <div class="col-md-6">
                     <form>
                         <div class="mb-3">
@@ -524,36 +557,127 @@
         </div>
     </section>
 
-    <section id="curriculo">
-        <div class="container d-flex flex-column align-items-center mb-5">
-            <div class="curriculo-card text-center scroll-animate">
-                <h1 class="curriculo-title">Envie seu Currículo</h1>
-                <div class="linha-title"></div>
+    <div id="cookie-banner" class="cookie-banner-floating shadow-lg">
+        <div class="cookie-header mb-2 d-flex align-items-center gap-2">
+            <i class="bi bi-cookie text-primary fs-4"></i>
+            <h5 class="mb-0 fw-bold text-white fs-6">Privacidade</h5>
+        </div>
+        <p class="text-white-50 small mb-3">
+            Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa
+            <a href="#" class="text-primary text-decoration-none">Política de Privacidade</a>.
+        </p>
+        <div class="d-flex gap-2 w-100">
+            <button id="btn-reject-cookies"
+                class="btn btn-outline-secondary btn-sm flex-grow-1 text-white">Recusar</button>
+            <button id="btn-accept-cookies" class="btn btn-primary btn-sm flex-grow-1 fw-bold text-white border-0"
+                style="background-color: var(--primary-color);">Aceitar</button>
+        </div>
+    </div>
 
-                <p class="curriculo-desc">
-                    Estamos sempre em busca de novos talentos. Invista em uma carreira
-                    que valoriza colaboração, aprendizado contínuo e exposição a
-                    projetos estratégicos.
-                </p>
+    <div id="dev-credits-easter-egg">
+        Website desenvolvido por
+        <span class="txt-span">Pedro Ruvieri Cavariani</span><br />
+        Usando <span class="txt-span">HTML, CSS</span> e
+        <span class="txt-span">JavaScript</span> <br>
+        Visite: <span class="txt-span">pedrorc.com</span> para conhecer meu trabalho.
+    </div>
 
-                <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST" enctype="multipart/form-data"
-                    class="curriculo-form">
-                    <input type="text" name="Nome" placeholder="Seu Nome Completo" required class="form-control mb-3" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-                    <input type="file" name="Anexo" id="file-upload" accept="application/pdf" class="d-none" required />
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row gy-5 justify-content-between">
 
-                    <label for="file-upload" class="btn-curriculo mt-4">
-                        Selecionar CV <br />
-                        (.pdf ou .docx)
-                    </label>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand mb-4">
+                        <img src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo"
+                            class="img-fluid footer-logo mb-3">
 
-                    <button type="submit" class="btn-curriculo-submit mt-3">
-                        Enviar Currículo <i class="bi bi-send"></i>
-                    </button>
-                </form>
+                        <p class="text-white-50 small lh-base mt-2 mb-4 text-justify">
+                            Consultoria full-service em contabilidade e gestão empresarial, unindo expertise técnica,
+                            inovação e propósito desde 1995.
+                        </p>
+                    </div>
+
+                    <div class="footer-contact">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="bi bi-geo-alt-fill text-primary me-3 fs-5 mt-1"></i>
+                            <span class="text-white-50 small lh-sm">
+                                Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, SP
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-telephone-fill text-primary me-3 fs-5"></i>
+                            <a href="tel:+551150807500"
+                                class="text-white-50 small text-decoration-none hover-primary transition-all">
+                                +55 (11) 5080-7500
+                            </a>
+                        </div>
+                        <div class="d-flex align-items-center mb-0">
+                            <i class="bi bi-envelope-fill text-primary me-3 fs-5"></i>
+                            <a href="mailto:contato@mlegate.com"
+                                class="text-white-50 small text-decoration-none hover-primary transition-all">
+                                contato@mlegate.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="mb-5">
+                        <h5 class="text-white fw-bold mb-3 fs-6 text-uppercase tracking-wider">Parceria Global</h5>
+                        <p class="text-white-50 small mb-1">Independent member</p>
+                        <a href="https://www.morisonglobal.com/" target="_blank"
+                            class="text-primary fw-bold text-decoration-none fs-5 d-inline-block hover-primary transition-all">
+                            Morison Global
+                        </a>
+                    </div>
+
+                    <div class="mb-5">
+                        <h5 class="text-white fw-bold mb-3 fs-6 text-uppercase tracking-wider">Reconhecimentos</h5>
+                        <div class="d-flex align-items-center gap-4">
+                            <img src="./images/premios/SeloRotary.png" alt="Prêmio Rotary"
+                                class="img-fluid hover-scale transition-all" style="height: 60px; object-fit: contain;">
+                            <img src="./images/premios/SeloLeadersLeague.png" alt="Ranked Firm 2025"
+                                class="img-fluid hover-scale transition-all" style="height: 60px; object-fit: contain;">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="text-white fw-bold mb-3 fs-6 text-uppercase tracking-wider">Sobre a Associação</h5>
+                        <p class="text-white-50 small lh-lg mb-0 text-justify pe-lg-3">
+                            A Morison Global é uma associação de firmas profissionais independentes. Os serviços
+                            profissionais são prestados pelas firmas-membro individuais.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white fw-bold mb-4 fs-6 text-uppercase tracking-wider">Localização</h5>
+                    <div class="map-container rounded-4 shadow-lg overflow-hidden border border-secondary border-opacity-25 h-100"
+                        style="min-height: 280px;">
+                        <iframe width="100%" height="100%" style="border: 0; min-height: 280px;" loading="lazy"
+                            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-5 pt-4 border-top border-secondary border-opacity-25">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <p class="mb-0 text-white-50 small">
+                            © 2026 MLEGATE. Todos os direitos reservados.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </footer>
 
     <a id="back-to-top-link" class="Btn back-to-top-btn" aria-label="Voltar ao topo" href="#inicio">
         <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
@@ -564,99 +688,7 @@
         <span class="text">Voltar ao topo</span>
     </a>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <div id="dev-credits-easter-egg">
-        Website desenvolvido por
-        <span class="txt-span">Pedro Ruvieri Cavariani</span><br />
-        Usando <span class="txt-span">HTML, CSS</span> e
-        <span class="txt-span">JavaScript</span> <br>
-        Visite: <span class="txt-span">pedrorc.com</span> para conhecer meu trabalho.
-    </div>
-
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row gy-5">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-brand">
-                        <h3 class="text-white fw-bold mb-3">MLEGATE</h3>
-                        <p class="footer-text mb-4">
-                            Independent member <br />
-                            <span class="text-primary fw-bold">Morison Global</span>
-                        </p>
-
-                        <div class="footer-contact">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="bi bi-geo-alt-fill text-primary me-2 mt-1"></i>
-                                <span>
-                                    Rua Bela Cintra, 1200, 2º Andar<br />Jardim Paulista, SP
-                                </span>
-                            </div>
-
-                            <p class="mb-2">
-                                <a href="tel:+551150807500" class="footer-link">
-                                    <i class="bi bi-telephone-fill text-primary me-2"></i> +55 (11) 5080-7500
-                                </a>
-                            </p>
-
-                            <p class="mb-0">
-                                <a href="mailto:contato@mlegate.com" class="footer-link">
-                                    <i class="bi bi-envelope-fill text-primary me-2"></i> contato@mlegate.com
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-6">
-                    <h5 class="text-white mb-3">Sobre a Associação</h5>
-                    <p class="footer-legal-text">
-                        A Morison Global é uma associação de firmas profissionais independentes. Os serviços
-                        profissionais
-                        são prestados pelas firmas-membro individuais.
-                    </p>
-                    <p class="footer-legal-text mt-2">
-                        A Morison Global não presta serviços profissionais por conta própria. Nenhuma firma-membro é
-                        responsável pelos atos ou omissões de qualquer outra firma-membro decorrentes de sua associação
-                        à
-                        Morison Global.
-                    </p>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <div class="map-container">
-                        <iframe width="100%" height="200" style="border: 0" loading="lazy" allowfullscreen
-                            referrerpolicy="no-referrer-when-downgrade"
-                            src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom mt-5 pt-4 border-top border-secondary">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <p class="mb-0">
-                            © 2025 MLEGATE. Todos os direitos reservados. <br>
-                            <span class="text-white">
-                                website by pedroRC |
-                                <a href="https://pedrorc.com" target="_blank" class="txt-span"
-                                    style="text-decoration: none;">
-                                    pedrorc.com
-                                </a>
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/app.js"></script>
-
 </body>
 
 </html>
