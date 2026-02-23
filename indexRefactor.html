@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8" />
@@ -8,443 +8,652 @@
     <title>MLEGATE | Morison Global | 🇧🇷</title>
     <link rel="icon" href="./images/Misc/favicon mle.ico" type="image/png" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <!-- Flags -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'mlegate-orange': '#f07e30',
-                        'mlegate-teal': '#1F4545',
-                        'mlegate-light': '#F9F9F9',
-                    },
-                    fontFamily: {
-                        sans: ['"Exo 2"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="stylesheet" href="./stylesheets/styles.css" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./stylesheets/stylesRefactor.css" />
+    <!-- <link rel="stylesheet" href="./stylesheets/mobiletweaks.css" /> -->
 </head>
 
-<body class="bg-white text-gray-800 font-sans antialiased overflow-x-hidden">
+<body>
 
-    <div id="language-selector"
-        class="fixed top-5 right-5 z-50 flex gap-3 bg-white/50 backdrop-blur-md px-3 py-2 rounded-lg border border-gray-200 shadow-sm transition-all hover:bg-white/80">
-        <a href="./index.html" class="opacity-100 scale-110 pointer-events-none transition-all"><span
-                class="fi fi-br rounded shadow-sm"></span></a>
-        <a href="./traducoes/en/index.html" class="opacity-60 hover:opacity-100 hover:scale-110 transition-all"><span
-                class="fi fi-gb rounded shadow-sm"></span></a>
-        <a href="./traducoes/es/index.html" class="opacity-60 hover:opacity-100 hover:scale-110 transition-all"><span
-                class="fi fi-es rounded shadow-sm"></span></a>
+    <!-- ========== LOADING SCREEN ========== -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-bar"></div>
+            <span class="loader-text">MLEGATE</span>
+        </div>
     </div>
 
-    <nav
-        class="fixed w-full z-40 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="hidden md:block w-24"></div>
+    <!-- ========== LANGUAGE SELECTOR ========== -->
+    <div id="language-selector">
+        <a href="./index.html" class="flag-link-pt flag-active" data-lang="pt" aria-label="Português">
+            <span class="fi fi-br" role="button"></span>
+        </a>
+        <a href="./traducoes/en/index.html" class="flag-link-en" data-lang="en" aria-label="English">
+            <span class="fi fi-gb" role="button"></span>
+        </a>
+        <a href="./traducoes/es/index.html" class="flag-link-es" data-lang="es" aria-label="Español">
+            <span class="fi fi-es" role="button"></span>
+        </a>
+    </div>
 
-            <ul
-                class="flex w-full md:w-auto justify-center gap-6 lg:gap-10 text-sm lg:text-base font-semibold text-mlegate-teal">
-                <li><a href="#sobre"
-                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
-                            class="bi bi-briefcase text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
-                            class="opacity-0 group-hover:opacity-100 transition-opacity">Sobre</span></a></li>
-                <li><a href="#compromisso"
-                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
-                            class="bi bi-lightbulb text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
-                            class="opacity-0 group-hover:opacity-100 transition-opacity">Compromisso</span></a></li>
-                <li><a href="#inicio"
-                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
-                            class="bi bi-house text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
-                            class="opacity-0 group-hover:opacity-100 transition-opacity">Início</span></a></li>
-                <li><a href="#curriculo"
-                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
-                            class="bi bi-envelope text-2xl group-hover:-translate-y-1 transition-transform"></i> <span
-                            class="opacity-0 group-hover:opacity-100 transition-opacity">Carreiras</span></a></li>
-                <li><a href="http://51.81.167.10/timesheet/" target="_blank"
-                        class="hover:text-mlegate-orange transition-colors flex flex-col items-center gap-1 group"><i
-                            class="bi bi-graph-up-arrow text-2xl group-hover:-translate-y-1 transition-transform"></i>
-                        <span class="opacity-0 group-hover:opacity-100 transition-opacity">FC</span></a></li>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-md navbar-horizontal" id="mainNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio" data-nav>
+                        <span class="nav-label">Início</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre" data-nav>
+                        <span class="nav-label">Sobre</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#compromisso" data-nav>
+                        <span class="nav-label">Serviços</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#socios" data-nav>
+                        <span class="nav-label">Equipe</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#curriculo" data-nav>
+                        <span class="nav-label">Carreiras</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato2" data-nav>
+                        <span class="nav-label">Contato</span>
+                    </a>
+                </li>
             </ul>
-
-            <div class="hidden md:block w-24"></div>
         </div>
     </nav>
 
-    <section id="inicio" class="relative w-full h-screen overflow-hidden flex items-center justify-center">
-        <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline
-            preload="metadata">
-            <source src="./images/SI/Misc/VideoMLE.mp4" type="video/mp4" />
-        </video>
-        <div class="absolute inset-0 bg-white/40 z-10"></div>
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="hero-section">
+        <canvas id="network-canvas"></canvas>
 
-        <div class="relative z-20 flex flex-col items-center justify-center text-center mt-20">
-            <img class="max-w-[70vw] lg:max-w-3xl animate-fade-in drop-shadow-xl"
-                src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="LOGO MLEGATE" />
+        <div class="hero-content">
+            <div class="hero-badge reveal-hero" data-delay="0">
+                <span class="badge-dot"></span>
+                Membro Independente — Morison Global
+            </div>
+            <div class="hero-logo reveal-hero" data-delay="1">
+                <img class="hero-logo-img" src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo" />
+            </div>
+            <p class="hero-tagline reveal-hero" data-delay="2">
+                Consultoria <em>full-service</em> em contabilidade e gestão empresarial
+            </p>
+            <div class="hero-cta reveal-hero" data-delay="3">
+                <a href="#sobre" class="btn-hero-primary" id="heroEnterBtn">
+                    Explorar
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12l7 7 7-7" />
+                    </svg>
+                </a>
+                <a href="#contato2" class="btn-hero-secondary">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
 
-            <a href="#sobre" class="mt-24">
-                <button
-                    class="w-16 h-16 rounded-full bg-white border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange hover:bg-mlegate-orange hover:text-white transition-all shadow-[0_0_15px_rgba(240,126,48,0.3)] hover:shadow-[0_0_25px_rgba(240,126,48,0.6)] hover:-translate-y-1 group">
-                    <i class="bi bi-arrow-down text-2xl group-hover:animate-bounce"></i>
-                </button>
-            </a>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section id="sobre" class="py-24 bg-gradient-to-b from-white to-mlegate-light/50">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-mlegate-teal mb-3">Quem Somos Nós</h2>
-                <h5 class="text-xl text-gray-500">Conheça a missão e os valores da <span
-                        class="text-mlegate-orange font-bold">MLEGATE</span>.</h5>
+    <!-- ========== SOBRE NÓS ========== -->
+    <section id="sobre" class="sobre-section">
+        <div class="container-custom">
 
-                <p class="mt-8 text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                    Somos uma consultoria <span class="text-mlegate-orange font-bold">full-service</span> que, desde
-                    1995, oferece soluções completas em diversas frentes de contabilidade e gestão empresarial. Nosso
-                    diferencial está na combinação de expertise técnica, inovação e propósito, sempre com uma abordagem
-                    <span class="text-mlegate-orange font-bold">próxima e personalizada</span>.<br /><br />
-                    Com uma equipe altamente qualificada, transformamos desafios em oportunidades, ajudando empresas a
-                    crescer com <span class="text-mlegate-orange font-bold">segurança, eficiência e visão
-                        estratégica.</span>
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Sobre Nós</span>
+                <h2 class="section-title">
+                    Experiência que transforma<br />
+                    <span class="title-accent">resultados.</span>
+                </h2>
+                <p class="section-desc">
+                    Desde 1995, oferecemos soluções completas em contabilidade e gestão empresarial.
+                    Nosso diferencial está na combinação de expertise técnica, inovação e propósito,
+                    sempre com uma abordagem próxima e personalizada.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <article
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:border-mlegate-orange hover:shadow-lg transition-all group">
-                    <div
-                        class="w-14 h-14 rounded-full bg-mlegate-teal/5 border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange text-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+            <div class="sobre-grid">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-number">01</div>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-building"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-mlegate-teal mb-4">Nossa História</h3>
-                    <p class="text-gray-600 leading-relaxed">Nossa história começou em São Paulo, em 1995. Desde então,
-                        crescemos com uma estratégia sólida de diversificação, atuando em diferentes mercados e setores
-                        para garantir inovação e crescimento contínuo.</p>
+                    <h3 class="sobre-card-title">Nossa História</h3>
+                    <p class="sobre-card-text">
+                        Nossa história começou em São Paulo, em 1995, com três empresas especializadas
+                        que se uniram em 2002. Desde então, crescemos com uma estratégia sólida de
+                        diversificação, atuando em diferentes mercados e setores.
+                    </p>
                 </article>
 
-                <article
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:border-mlegate-orange hover:shadow-lg transition-all group">
-                    <div
-                        class="w-14 h-14 rounded-full bg-mlegate-teal/5 border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange text-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-number">02</div>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-globe2"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-mlegate-teal mb-4">Morison Global</h3>
-                    <p class="text-gray-600 leading-relaxed">Somos membros independentes da Morison Global desde 2003,
-                        uma rede que conecta 108 firmas em mais de 65 países, reunindo líderes em auditoria,
-                        contabilidade e consultoria.</p>
-                    <a href="https://www.morisonglobal.com/" target="_blank"
-                        class="inline-block mt-4 text-mlegate-teal font-bold underline hover:text-mlegate-orange transition-colors">morisonglobal.com</a>
+                    <h3 class="sobre-card-title">Morison Global</h3>
+                    <p class="sobre-card-text">
+                        Membros independentes da Morison Global desde 2003 — uma rede que conecta
+                        108 firmas em mais de 65 países, reunindo líderes em auditoria, contabilidade
+                        e consultoria com alcance global.
+                    </p>
+                    <a class="sobre-card-link" href="https://www.morisonglobal.com/" target="_blank">
+                        morisonglobal.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+                    <p class="sobre-card-disclaimer">
+                        A Morison Global é uma associação de firmas profissionais independentes.
+                        Os serviços profissionais são prestados pelas firmas-membro individuais.
+                    </p>
                 </article>
 
-                <article
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:border-mlegate-orange hover:shadow-lg transition-all group">
-                    <div
-                        class="w-14 h-14 rounded-full bg-mlegate-teal/5 border-2 border-mlegate-orange flex items-center justify-center text-mlegate-orange text-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-number">03</div>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-diagram-3"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-mlegate-teal mb-4">Clientes e Indústrias</h3>
-                    <p class="text-gray-600 leading-relaxed">Atuamos com empresas que buscam estratégia, inovação e
-                        confiança. Nossa experiência abrange comércio, serviços, indústria e organizações sem fins
-                        lucrativos.</p>
+                    <h3 class="sobre-card-title">Clientes e Indústrias</h3>
+                    <p class="sobre-card-text">
+                        Atuamos com empresas que buscam estratégia, inovação e confiança.
+                        Nossa experiência abrange comércio, serviços, indústria e organizações
+                        sem fins lucrativos, com soluções adaptadas a cada negócio.
+                    </p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="socios" class="py-24 bg-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-mlegate-teal mb-3">Equipe</h2>
-                <h5 class="text-xl text-gray-500">Liderança impulsionada por <span
-                        class="text-mlegate-orange font-bold">experiência e propósito</span>.</h5>
+    <!-- ========== MARQUEE DIVIDER ========== -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>Auditoria</span><span class="marquee-dot">◆</span>
+            <span>Perícia</span><span class="marquee-dot">◆</span>
+            <span>Consultoria</span><span class="marquee-dot">◆</span>
+            <span>Outsourcing</span><span class="marquee-dot">◆</span>
+            <span>Gestão Tributária</span><span class="marquee-dot">◆</span>
+            <span>Recursos Humanos</span><span class="marquee-dot">◆</span>
+            <span>Auditoria</span><span class="marquee-dot">◆</span>
+            <span>Perícia</span><span class="marquee-dot">◆</span>
+            <span>Consultoria</span><span class="marquee-dot">◆</span>
+            <span>Outsourcing</span><span class="marquee-dot">◆</span>
+            <span>Gestão Tributária</span><span class="marquee-dot">◆</span>
+            <span>Recursos Humanos</span><span class="marquee-dot">◆</span>
+        </div>
+    </div>
+
+    <!-- ========== SERVIÇOS / COMPROMISSO ========== -->
+    <section id="compromisso" class="servicos-section">
+        <div class="container-custom">
+
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Nossos Serviços</span>
+                <h2 class="section-title">
+                    Soluções que impulsionam<br />
+                    <span class="title-accent">o seu negócio.</span>
+                </h2>
+                <p class="section-desc">
+                    Acreditamos que a expertise sozinha não basta. Nosso diferencial é a combinação
+                    de excelência técnica com empatia, inovação e propósito.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-                <div
-                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
-                    <div
-                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
-                        <img src="./images/team/profilepic.webp" alt="João Garcia"
-                            class="w-full h-full object-cover rounded-full border-2 border-white">
+            <div class="servicos-grid">
+
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="servico-title">Auditoria e Asseguração</h3>
                     </div>
-                    <h4 class="text-xl font-bold text-mlegate-teal">João Garcia</h4>
-                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócio</span>
-                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                    <ul class="servico-list">
+                        <li>Controles Internos</li>
+                        <li>Auditoria das Demonstrações Financeiras (CVM)</li>
+                        <li>Revisão Limitada das Demonstrações Financeiras</li>
+                        <li>Asseguração e Certificação</li>
+                        <li>Laudos de Avaliação Contábil</li>
+                        <li>Due Diligence</li>
+                    </ul>
                 </div>
 
-                <div
-                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
-                    <div
-                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
-                        <img src="./images/team/profilepic.webp" alt="Antonio Machado"
-                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-clipboard-data"></i>
+                        </div>
+                        <h3 class="servico-title">Perícias e Avaliações</h3>
                     </div>
-                    <h4 class="text-xl font-bold text-mlegate-teal">Antonio Machado</h4>
-                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócio</span>
-                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                    <ul class="servico-list">
+                        <li>Perícias Judiciais e Extrajudiciais</li>
+                        <li>Perícias Arbitrais</li>
+                        <li>Avaliação Econômica de Empresas (Valuation)</li>
+                        <li>Purchase Price Allocation (PPA)</li>
+                    </ul>
                 </div>
 
-                <div
-                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
-                    <div
-                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
-                        <img src="./images/team/profilepic.webp" alt="Rubens Lopes"
-                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <h3 class="servico-title">Consultoria</h3>
                     </div>
-                    <h4 class="text-xl font-bold text-mlegate-teal">Rubens Lopes</h4>
-                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócio</span>
-                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                    <ul class="servico-list">
+                        <li>Contabilidade e Controladoria</li>
+                        <li>Tributária</li>
+                        <li>Recursos Humanos</li>
+                    </ul>
                 </div>
 
-                <div
-                    class="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-mlegate-orange transition-all text-center">
-                    <div
-                        class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-mlegate-orange to-mlegate-teal p-1 mb-4">
-                        <img src="./images/team/profilepic.webp" alt="Rosana Tessari"
-                            class="w-full h-full object-cover rounded-full border-2 border-white">
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <h3 class="servico-title">Outsourcing e BPO</h3>
                     </div>
-                    <h4 class="text-xl font-bold text-mlegate-teal">Rosana Tessari</h4>
-                    <span class="text-sm font-bold text-mlegate-orange uppercase tracking-wide">Sócia</span>
-                    <p class="text-gray-500 mt-1">Diretor de Perícia</p>
+                    <ul class="servico-list">
+                        <li>Contabilidade e Gestão de Controladoria</li>
+                        <li>Escrituração Fiscal</li>
+                        <li>Folha de Pagamento</li>
+                        <li>Faturamento e Finanças</li>
+                    </ul>
                 </div>
+
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+                        </div>
+                        <h3 class="servico-title">Gestão Tributária</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Revisão de Impostos Diretos e Indiretos</li>
+                        <li>Transfer Pricing</li>
+                        <li>Assessoria Tributária PF e PJ</li>
+                    </ul>
+                </div>
+
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3 class="servico-title">Recursos Humanos</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Cargos, Carreiras e Salários</li>
+                        <li>Pesquisa de Clima e Remuneração</li>
+                        <li>Recrutamento e Seleção Especializado</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EQUIPE / SÓCIOS ========== -->
+    <section id="socios" class="equipe-section">
+        <div class="container-custom">
+
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Equipe</span>
+                <h2 class="section-title">
+                    Liderança com<br />
+                    <span class="title-accent">experiência e propósito.</span>
+                </h2>
             </div>
 
-            <div class="mt-12 text-center">
-                <a href="equipe.html"
-                    class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-mlegate-orange to-[#ff9a5b] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    Conheça nossa equipe completa <i
-                        class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            <div class="equipe-grid">
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Contabilidade e Controladoria</div>
+                    <h4 class="equipe-card-name">Antônio Machado</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Fiscal</div>
+                    <h4 class="equipe-card-name">Clóvis Patah</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Recursos Humanos</div>
+                    <h4 class="equipe-card-name">Enôr Assis</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Perícia</div>
+                    <h4 class="equipe-card-name">João Carlos Castilho Garcia</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Recursos Humanos</div>
+                    <h4 class="equipe-card-name">Rosana Tessari</h4>
+                    <span class="equipe-card-role">Sócia Diretora</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Auditoria e Perícia</div>
+                    <h4 class="equipe-card-name">Rubens Lopes</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Auditoria</div>
+                    <h4 class="equipe-card-name">Vagner Lira</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Fiscal</div>
+                    <h4 class="equipe-card-name">Wagner Scaglioni</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CARREIRAS / CURRÍCULO ========== -->
+    <section id="curriculo" class="carreiras-section">
+        <div class="container-custom">
+            <div class="carreiras-wrapper" data-reveal>
+                <div class="carreiras-left">
+                    <span class="section-tag">Carreiras</span>
+                    <h2 class="carreiras-title">
+                        Faça parte da<br />
+                        <span class="title-accent">nossa equipe.</span>
+                    </h2>
+                    <p class="carreiras-desc">
+                        Estamos sempre em busca de novos talentos. Invista em uma carreira
+                        que valoriza colaboração, aprendizado contínuo e exposição a
+                        projetos estratégicos.
+                    </p>
+                </div>
+                <div class="carreiras-right">
+                    <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST"
+                        enctype="multipart/form-data" class="carreiras-form">
+                        <div class="form-group">
+                            <label for="carreiraName">Nome Completo</label>
+                            <input type="text" name="Nome" id="carreiraName" placeholder="Seu nome" required />
+                        </div>
+
+                        <input type="file" name="Anexo" id="file-upload" accept="application/pdf,.docx" class="d-none"
+                            required />
+
+                        <label for="file-upload" class="btn-file-upload">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <span>Selecionar CV (.pdf ou .docx)</span>
+                        </label>
+                        <span class="file-name-display" id="fileNameDisplay">Nenhum arquivo selecionado</span>
+
+                        <button type="submit" class="btn-submit-cv">
+                            Enviar Currículo
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
+    <section id="contato2" class="contato-section">
+        <div class="container-custom">
+            <div class="contato-wrapper" data-reveal>
+                <div class="contato-left">
+                    <span class="section-tag">Contato</span>
+                    <h2 class="contato-title">
+                        Vamos conversar sobre<br />
+                        <span class="title-accent">o seu próximo passo.</span>
+                    </h2>
+                    <div class="contato-info">
+                        <div class="contato-info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <strong>Endereço</strong>
+                                <span>Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, São Paulo — SP</span>
+                            </div>
+                        </div>
+                        <div class="contato-info-item">
+                            <i class="bi bi-telephone"></i>
+                            <div>
+                                <strong>Telefone</strong>
+                                <a href="tel:+551150807500">+55 (11) 5080-7500</a>
+                            </div>
+                        </div>
+                        <div class="contato-info-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <strong>E-Mail</strong>
+                                <a href="mailto:contato@mlegate.com">contato@mlegate.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato-right">
+                    <form class="contato-form" id="contatoForm">
+                        <div class="form-group">
+                            <label for="emailContato">Seu E-Mail</label>
+                            <input type="email" id="emailContato" placeholder="nome@empresa.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagemContato">Sua Mensagem</label>
+                            <textarea id="mensagemContato" rows="5" placeholder="Como podemos ajudar?"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-contact">
+                            Enviar Mensagem
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL ========== -->
+    <section id="social-connect" class="social-section" data-reveal>
+        <div class="container-custom text-center">
+            <p class="social-label">Acompanhe a MLEGATE</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/mlegate" target="_blank" class="social-link-btn"
+                    aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/mlegate_" target="_blank" class="social-link-btn"
+                    aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                    <span>Instagram</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="compromisso" class="py-24 bg-mlegate-light/50">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-mlegate-teal mb-3">Nosso <span
-                        class="text-mlegate-orange">Compromisso</span></h2>
-                <h5 class="text-xl text-gray-500">Por que escolher a <span
-                        class="text-mlegate-orange font-bold">MLEGATE</span>?</h5>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Acreditamos que a expertise sozinha não basta. Nosso
-                    diferencial é a combinação de excelência técnica com empatia, inovação e propósito. Construímos
-                    parcerias de longo prazo.</p>
+    <!-- ========== COOKIE BANNER ========== -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-inner">
+            <div class="cookie-text">
+                <i class="bi bi-shield-lock"></i>
+                <p>
+                    Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa
+                    <a href="#">Política de Privacidade</a>.
+                </p>
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="magic-card group">
-                    <div class="magic-card-inner">
-                        <div
-                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
-                                Auditoria e Asseguração</h3>
-                            <ul
-                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
-                                <li>Auditoria das Demonstrações Financeiras (CVM)</li>
-                                <li>Revisão Limitada das Demonstrações Financeiras</li>
-                                <li>Asseguração e Certificação</li>
-                                <li>Laudos de Avaliação Contábil</li>
-                                <li>Due Diligence</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="magic-card group">
-                    <div class="magic-card-inner">
-                        <div
-                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
-                            <i class="bi bi-clipboard-data"></i>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
-                                Perícias e Avaliações</h3>
-                            <ul
-                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
-                                <li>Perícias Judiciais e Extrajudiciais</li>
-                                <li>Perícias Arbitrais</li>
-                                <li>Avaliação Econômica de Empresas (Valuation)</li>
-                                <li>Purchase Price Allocation (PPA)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="magic-card group">
-                    <div class="magic-card-inner">
-                        <div
-                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
-                            <i class="bi bi-lightning-charge"></i>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
-                                Consultoria</h3>
-                            <ul
-                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
-                                <li>Contabilidade e Controladoria</li>
-                                <li>Tributária</li>
-                                <li>Recursos Humanos</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="magic-card group">
-                    <div class="magic-card-inner">
-                        <div
-                            class="w-16 h-16 shrink-0 bg-mlegate-orange/10 rounded-xl flex items-center justify-center text-mlegate-orange text-3xl group-hover:bg-mlegate-orange group-hover:text-white group-hover:rotate-[-5deg] transition-all">
-                            <i class="bi bi-diagram-3"></i>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-xl font-bold text-mlegate-teal mb-3 group-hover:text-mlegate-orange transition-colors">
-                                Outsourcing e BPO</h3>
-                            <ul
-                                class="text-gray-600 space-y-1 text-sm list-disc list-inside marker:text-mlegate-orange">
-                                <li>Contabilidade e Gestão de Controladoria</li>
-                                <li>Escrituração Fiscal</li>
-                                <li>Folha de Pagamento</li>
-                                <li>Faturamento e Finanças</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="cookie-actions">
+                <button id="btn-reject-cookies" class="cookie-btn cookie-btn-reject">Recusar</button>
+                <button id="btn-accept-cookies" class="cookie-btn cookie-btn-accept">Aceitar</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contato2" class="py-24 bg-mlegate-teal text-white">
-        <div class="container mx-auto px-4 max-w-3xl text-center">
-            <h1 class="text-4xl font-bold mb-2">Quer falar com a <span class="text-mlegate-orange">MLEGATE</span>?</h1>
-            <h2 class="text-xl text-gray-300 mb-10">Tem alguma dúvida ou sugestão?</h2>
+    <!-- ========== EASTER EGG ========== -->
+    <div id="dev-credits-easter-egg">
+        Website desenvolvido por
+        <span class="ee-highlight">Pedro Ruvieri Cavariani</span><br />
+        Usando <span class="ee-highlight">HTML, CSS</span> e
+        <span class="ee-highlight">JavaScript</span><br>
+        Visite: <span class="ee-highlight">pedrorc.com</span>
+    </div>
 
-            <form class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 text-left">
-                <div class="mb-5">
-                    <label class="block text-gray-200 mb-2 font-semibold">Seu E-Mail:</label>
-                    <input type="email"
-                        class="w-full bg-white text-gray-800 p-3 rounded-lg border-none focus:ring-2 focus:ring-mlegate-orange outline-none"
-                        required />
-                </div>
-                <div class="mb-6">
-                    <label class="block text-gray-200 mb-2 font-semibold">Sua Mensagem:</label>
-                    <textarea rows="4"
-                        class="w-full bg-white text-gray-800 p-3 rounded-lg border-none focus:ring-2 focus:ring-mlegate-orange outline-none"
-                        required></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit"
-                        class="bg-gradient-to-r from-[#f89b4f] to-mlegate-orange text-mlegate-teal font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform shadow-[0_0_15px_rgba(240,126,48,0.5)]">
-                        Enviar Mensagem <i class="bi bi-send ml-2"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer-section">
+        <div class="container-custom">
+            <div class="footer-grid">
 
-    <section id="curriculo" class="py-24 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <div class="bg-white p-10 md:p-16 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50">
-                <h1 class="text-4xl font-bold text-mlegate-teal">Envie seu Currículo</h1>
-                <div class="w-24 h-1 bg-mlegate-orange mx-auto my-6 rounded-full"></div>
-                <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Estamos sempre em busca de novos talentos.
-                    Invista em uma carreira que valoriza colaboração, aprendizado contínuo e exposição a projetos
-                    estratégicos.</p>
-
-                <form class="max-w-md mx-auto flex flex-col gap-4">
-                    <input type="text" placeholder="Seu Nome Completo" required
-                        class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-mlegate-orange outline-none" />
-
-                    <input type="file" id="file-upload" accept="application/pdf" class="hidden" required />
-                    <label for="file-upload"
-                        class="w-full p-4 bg-mlegate-orange text-white font-bold rounded-xl cursor-pointer hover:bg-[#d66b22] transition-colors flex flex-col items-center justify-center gap-1 border-2 border-dashed border-white/40">
-                        <i class="bi bi-cloud-arrow-up text-2xl"></i>
-                        <span>Selecionar CV (.pdf ou .docx)</span>
-                    </label>
-
-                    <button type="submit"
-                        class="w-full p-4 bg-mlegate-teal text-white font-bold rounded-xl hover:bg-[#153030] transition-colors mt-2">
-                        Enviar Currículo <i class="bi bi-send ml-2"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-[#0b1d1d] pt-20 pb-8 border-t-4 border-mlegate-secondary text-[#a0a0a0]">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-
-                <div class="lg:col-span-4">
-                    <h3 class="text-white text-2xl font-bold mb-4">MLEGATE</h3>
-                    <p class="mb-6">Independent member <br /><span class="text-mlegate-orange font-bold">Morison
-                            Global</span></p>
-
-                    <div class="space-y-3">
-                        <div class="flex items-start gap-3">
-                            <i class="bi bi-geo-alt-fill text-mlegate-orange mt-1"></i>
+                <div class="footer-col footer-brand-col">
+                    <img src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo" class="footer-logo" />
+                    <p class="footer-desc">
+                        Consultoria full-service em contabilidade e gestão empresarial, unindo expertise
+                        técnica, inovação e propósito desde 1995.
+                    </p>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
                             <span>Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, SP</span>
                         </div>
-                        <div>
-                            <a href="tel:+551150807500"
-                                class="hover:text-mlegate-orange transition-colors flex items-center gap-3"><i
-                                    class="bi bi-telephone-fill text-mlegate-orange"></i> +55 (11) 5080-7500</a>
+                        <div class="footer-contact-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <a href="tel:+551150807500">+55 (11) 5080-7500</a>
                         </div>
-                        <div>
-                            <a href="mailto:contato@mlegate.com"
-                                class="hover:text-mlegate-orange transition-colors flex items-center gap-3"><i
-                                    class="bi bi-envelope-fill text-mlegate-orange"></i> contato@mlegate.com</a>
+                        <div class="footer-contact-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a href="mailto:contato@mlegate.com">contato@mlegate.com</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-4">
-                    <h5 class="text-white text-lg font-bold mb-4">Sobre a Associação</h5>
-                    <p class="text-sm leading-relaxed text-justify mb-4">A Morison Global é uma associação de firmas
-                        profissionais independentes. Os serviços profissionais são prestados pelas firmas-membro
-                        individuais.</p>
-                    <p class="text-sm leading-relaxed text-justify">A Morison Global não presta serviços profissionais
-                        por conta própria. Nenhuma firma-membro é responsável pelos atos ou omissões de qualquer outra
-                        firma-membro decorrentes de sua associação à Morison Global.</p>
+                <div class="footer-col">
+                    <h5 class="footer-heading">Parceria Global</h5>
+                    <p class="footer-small">Independent member</p>
+                    <a href="https://www.morisonglobal.com/" target="_blank" class="footer-morison-link">
+                        Morison Global
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+
+                    <h5 class="footer-heading mt-4">Reconhecimentos</h5>
+                    <div class="footer-awards">
+                        <img src="./images/premios/SeloRotary.png" alt="Prêmio Rotary" />
+                        <img src="./images/premios/SeloLeadersLeague.png" alt="Ranked Firm 2025" />
+                    </div>
+
+                    <p class="footer-disclaimer">
+                        A Morison Global é uma associação de firmas profissionais independentes.
+                        Os serviços profissionais são prestados pelas firmas-membro individuais.
+                    </p>
                 </div>
 
-                <div class="lg:col-span-4">
-                    <div class="rounded-xl overflow-hidden border-2 border-white/10 h-[200px] shadow-xl">
-                        <iframe width="100%" height="100%" style="border: 0" loading="lazy" allowfullscreen
-                            src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                <div class="footer-col">
+                    <h5 class="footer-heading">Localização</h5>
+                    <div class="footer-map">
+                        <iframe width="100%" height="100%" style="border: 0;" loading="lazy" allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 mt-16 pt-6 text-center text-sm">
-                <p>© 2025 MLEGATE. Todos os direitos reservados. <br>
-                    <span class="text-white">website by pedroRC | <a href="https://pedrorc.com" target="_blank"
-                            class="text-mlegate-orange">pedrorc.com</a></span>
-                </p>
+            <div class="footer-bottom">
+                <p>© 2026 MLEGATE. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <a href="#inicio"
-        class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-t from-[#c5500f] via-mlegate-orange to-[#ffc58f] text-white flex items-center justify-center text-2xl shadow-lg hover:-translate-y-2 transition-transform z-50">
-        <i class="bi bi-arrow-up"></i>
+    <!-- ========== BACK TO TOP ========== -->
+    <a id="back-to-top-link" class="back-to-top-btn hidden" aria-label="Voltar ao topo" href="#inicio">
+        <svg height="20" width="20" viewBox="0 0 512 512" fill="currentColor">
+            <path
+                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+        </svg>
     </a>
 
-    <div id="dev-credits-easter-egg" class="hidden"></div>
-    <script src="./js/app.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jsRefactor.js"></script>
 </body>
 
 </html>
