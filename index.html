@@ -8,687 +8,652 @@
     <title>MLEGATE | Morison Global | 🇧🇷</title>
     <link rel="icon" href="./images/Misc/favicon mle.ico" type="image/png" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
+    <!-- Flags -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
 
-    <link rel="stylesheet" href="./stylesheets/styles.css" />
-    <link rel="stylesheet" href="./stylesheets/stylesSI.css" />
-    <link rel="stylesheet" href="./stylesheets/mobiletweaks.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./stylesheets/stylesRefactor.css" />
+    <!-- <link rel="stylesheet" href="./stylesheets/mobiletweaks.css" /> -->
 </head>
 
 <body>
 
+    <!-- ========== LOADING SCREEN ========== -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-bar"></div>
+            <span class="loader-text">MLEGATE</span>
+        </div>
+    </div>
 
+    <!-- ========== LANGUAGE SELECTOR ========== -->
     <div id="language-selector">
         <a href="./index.html" class="flag-link-pt flag-active" data-lang="pt" aria-label="Português">
             <span class="fi fi-br" role="button"></span>
         </a>
-
         <a href="./traducoes/en/index.html" class="flag-link-en" data-lang="en" aria-label="English">
             <span class="fi fi-gb" role="button"></span>
         </a>
-
         <a href="./traducoes/es/index.html" class="flag-link-es" data-lang="es" aria-label="Español">
             <span class="fi fi-es" role="button"></span>
         </a>
     </div>
 
-    <nav class="navbar navbar-expand-md bg-body-tertiary navbar-horizontal">
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-md navbar-horizontal" id="mainNav">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#sobre">
-                        <i class="bi bi-briefcase fs-4 icon-nav"></i>
-                        <span class="icon-text">Sobre</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio" data-nav>
+                        <span class="nav-label">Início</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#compromisso">
-                        <i class="bi bi-lightbulb fs-4 icon-nav"></i>
-                        <span class="icon-text">Compromisso</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre" data-nav>
+                        <span class="nav-label">Sobre</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#inicio">
-                        <i class="bi bi-house fs-4 icon-nav"></i>
-                        <span class="icon-text">Início</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#compromisso" data-nav>
+                        <span class="nav-label">Serviços</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#curriculo">
-                        <i class="bi bi-envelope fs-4 icon-nav"></i>
-                        <span class="icon-text">Carreiras</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#socios" data-nav>
+                        <span class="nav-label">Equipe</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#contato2">
-                        <i class="bi bi-envelope-paper fs-4 icon-nav"></i>
-                        <span class="icon-text">Contato</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#curriculo" data-nav>
+                        <span class="nav-label">Carreiras</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato2" data-nav>
+                        <span class="nav-label">Contato</span>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section id="inicio" class="hero-video-wrapper" style="position: relative; background-color: #fafafa;">
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="hero-section">
+        <canvas id="network-canvas"></canvas>
 
-        <canvas id="network-canvas"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.1; pointer-events: none;"></canvas>
-
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="./images/SI/Misc/VideoMLE.mp4" type="video/mp4" />
-        </video>
-        <div class="hero-overlay" style="z-index: 1;"></div>
-
-        <div class="overlay-content" style="position: relative; z-index: 3;">
-            <div class="logo-wrapper">
-                <img class="icon-aphelios img-fluid" src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="LOGO MLE" />
+        <div class="hero-content">
+            <div class="hero-badge reveal-hero" data-delay="0">
+                <span class="badge-dot"></span>
+                Membro Independente — Morison Global
             </div>
-            <div class="saiba-wrapper">
-                <a href="#sobre" class="saiba-link">
-                    <button class="cssbuttons-io-button">
-                        <div class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M12 20l-7-7 1.41-1.41L11 15.17V4h2v11.17l4.59-4.58L19 13z" fill="currentColor">
-                                </path>
-                            </svg>
-                        </div>
-                    </button>
+            <div class="hero-logo reveal-hero" data-delay="1">
+                <img class="hero-logo-img" src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo" />
+            </div>
+            <p class="hero-tagline reveal-hero" data-delay="2">
+                Consultoria <em>full-service</em> em contabilidade e gestão empresarial
+            </p>
+            <div class="hero-cta reveal-hero" data-delay="3">
+                <a href="#sobre" class="btn-hero-primary" id="heroEnterBtn">
+                    Explorar
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12l7 7 7-7" />
+                    </svg>
+                </a>
+                <a href="#contato2" class="btn-hero-secondary">
+                    Fale Conosco
                 </a>
             </div>
         </div>
+
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
     </section>
 
+    <!-- ========== SOBRE NÓS ========== -->
     <section id="sobre" class="sobre-section">
-        <div class="sobre-inner">
-            <div class="sobre-header">
-                <h2 class="txt-title fw-bold scroll-animate">Quem Somos Nós</h2>
+        <div class="container-custom">
 
-                <h5 class="text-secondary fs-3 scroll-animate">
-                    Conheça a missão e os valores da
-                    <span class="txt-mlegate fw-bold">MLEGATE</span>.
-                </h5>
-
-                <p class="text-white fs-5 scroll-animate">
-                    Somos uma consultoria
-                    <span class="txt-span">full-service</span> que, desde 1995, oferece
-                    soluções completas em diversas frentes de contabilidade e gestão
-                    empresarial. Nosso diferencial está na combinação de expertise
-                    técnica, inovação e propósito, sempre com uma abordagem
-                    <span class="txt-span">próxima e personalizada</span>.
-                    <br />
-                    Com uma equipe altamente qualificada, transformamos desafios em
-                    oportunidades, ajudando empresas a crescer com
-                    <span class="txt-span">segurança, eficiência e visão estratégica.</span>
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Sobre Nós</span>
+                <h2 class="section-title">
+                    Experiência que transforma<br />
+                    <span class="title-accent">resultados.</span>
+                </h2>
+                <p class="section-desc">
+                    Desde 1995, oferecemos soluções completas em contabilidade e gestão empresarial.
+                    Nosso diferencial está na combinação de expertise técnica, inovação e propósito,
+                    sempre com uma abordagem próxima e personalizada.
                 </p>
             </div>
 
             <div class="sobre-grid">
-                <article class="sobre-block scroll-animate">
-                    <div class="sobre-icon">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-number">01</div>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-building"></i>
                     </div>
-
-                    <div class="sobre-content">
-                        <h3 class="sobre-title">Nossa História</h3>
-                        <p>
-                            Nossa história começou em São Paulo, em 1995, com três empresas
-                            especializadas que se uniram em 2002. Desde então, crescemos com
-                            uma estratégia sólida de diversificação, atuando em diferentes
-                            mercados e setores para garantir inovação e crescimento
-                            contínuo.
-                        </p>
-                    </div>
+                    <h3 class="sobre-card-title">Nossa História</h3>
+                    <p class="sobre-card-text">
+                        Nossa história começou em São Paulo, em 1995, com três empresas especializadas
+                        que se uniram em 2002. Desde então, crescemos com uma estratégia sólida de
+                        diversificação, atuando em diferentes mercados e setores.
+                    </p>
                 </article>
 
-                <article class="sobre-block scroll-animate">
-                    <div class="sobre-icon">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-number">02</div>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-globe2"></i>
                     </div>
-
-                    <div class="sobre-content">
-                        <h3 class="sobre-title">Morison Global</h3>
-                        <p>
-                            Somos membros independentes da Morison Global desde 2003, uma
-                            rede que conecta 108 firmas em mais de 65 países, reunindo
-                            líderes em auditoria, contabilidade e consultoria para oferecer
-                            soluções com alcance global e qualidade excepcional.
-                        </p>
-                        <p class="text-secondary mt-2">
-                            A Morison Global é uma associação de firmas profissionais independentes. Os serviços
-                            profissionais são prestados pelas firmas-membro individuais.
-                        </p>
-                        <p class="sobre-link-extra">
-                            Essa parceria nos insere em um ecossistema de inteligência
-                            internacional, tecnologia escalável e alianças estratégicas. <br />
-                            Saiba mais em :
-                            <a class="txt-span" href="https://www.morisonglobal.com/"
-                                target="_blank">morisonglobal.com</a>
-                        </p>
-                    </div>
+                    <h3 class="sobre-card-title">Morison Global</h3>
+                    <p class="sobre-card-text">
+                        Membros independentes da Morison Global desde 2003 — uma rede que conecta
+                        108 firmas em mais de 65 países, reunindo líderes em auditoria, contabilidade
+                        e consultoria com alcance global.
+                    </p>
+                    <a class="sobre-card-link" href="https://www.morisonglobal.com/" target="_blank">
+                        morisonglobal.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+                    <p class="sobre-card-disclaimer">
+                        A Morison Global é uma associação de firmas profissionais independentes.
+                        Os serviços profissionais são prestados pelas firmas-membro individuais.
+                    </p>
                 </article>
 
-                <article class="sobre-block scroll-animate">
-                    <div class="sobre-icon">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-number">03</div>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-diagram-3"></i>
                     </div>
-
-                    <div class="sobre-content">
-                        <h3 class="sobre-title">Clientes e Indústrias</h3>
-                        <p class="text-white scroll-animate">
-                            Atuamos com empresas que buscam estratégia, inovação e confiança
-                            para enfrentar desafios e acelerar resultados. Nossa experiência
-                            abrange comércio, serviços, indústria e organizações sem fins
-                            lucrativos, oferecendo soluções que se adaptam às necessidades
-                            de cada negócio. <br />
-
-                            Combinamos profundidade técnica e visão estratégica para
-                            entregar serviços que impulsionam crescimento, eficiência e
-                            segurança — seja para empresas em expansão ou organizações
-                            consolidadas que desejam evoluir.
-                        </p>
-                    </div>
+                    <h3 class="sobre-card-title">Clientes e Indústrias</h3>
+                    <p class="sobre-card-text">
+                        Atuamos com empresas que buscam estratégia, inovação e confiança.
+                        Nossa experiência abrange comércio, serviços, indústria e organizações
+                        sem fins lucrativos, com soluções adaptadas a cada negócio.
+                    </p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="socios" class="socios-section">
-        <div class="container">
-
-            <div class="row justify-content-center text-center mb-5 scroll-animate">
-                <div class="col-lg-10">
-                    <h2 class="txt-title fw-bold">Equipe</h2>
-                    <h5 class="text-secondary fs-4">
-                        Liderança impulsionada por <span class="txt-span fw-bold">experiência e propósito</span>.
-                    </h5>
-                </div>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/machado.jpeg" alt="MACHADO" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Antônio Machado</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Contabilidade e Controladoria</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/" alt="CLOVIS" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Clóvis Patah</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Fiscal</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/enorAssis.jpeg" alt="ENOR" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Enôr Assis</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Recursos Humanos</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/Joao.jpeg" alt="JOAO" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">João Carlos Castilho Garcia</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Perícia</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/" alt="Enôr Assis" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Rosana Tessari</h4>
-                            <span class="partner-role">Sócia</span>
-                            <h4 class="socio-txt">Diretora de Recursos Humanos</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/Rubens.jpeg" alt="RUBENS" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Rubens Lopes</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Auditoria e Perícia</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/VagnerLira.jpeg" alt="VAGNER" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Vagner Lira</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Auditoria</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="partner-card scroll-animate text-center">
-                        <div class="partner-img-wrapper mx-auto mb-3">
-                            <img src="./images/diretores/" alt="Sócio 8" class="partner-img">
-                        </div>
-                        <div class="partner-info">
-                            <h4 class="partner-name">Wagner Scaglioni</h4>
-                            <span class="partner-role">Sócio</span>
-                            <h4 class="socio-txt">Diretor de Fiscal</h4>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <!-- ========== MARQUEE DIVIDER ========== -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>Auditoria</span><span class="marquee-dot">◆</span>
+            <span>Perícia</span><span class="marquee-dot">◆</span>
+            <span>Consultoria</span><span class="marquee-dot">◆</span>
+            <span>Outsourcing</span><span class="marquee-dot">◆</span>
+            <span>Gestão Tributária</span><span class="marquee-dot">◆</span>
+            <span>Recursos Humanos</span><span class="marquee-dot">◆</span>
+            <span>Auditoria</span><span class="marquee-dot">◆</span>
+            <span>Perícia</span><span class="marquee-dot">◆</span>
+            <span>Consultoria</span><span class="marquee-dot">◆</span>
+            <span>Outsourcing</span><span class="marquee-dot">◆</span>
+            <span>Gestão Tributária</span><span class="marquee-dot">◆</span>
+            <span>Recursos Humanos</span><span class="marquee-dot">◆</span>
         </div>
-    </section>
+    </div>
 
-    <section id="compromisso">
-        <div class="container compromisso-wrapper">
+    <!-- ========== SERVIÇOS / COMPROMISSO ========== -->
+    <section id="compromisso" class="servicos-section">
+        <div class="container-custom">
 
-            <div class="row justify-content-center text-center scroll-animate">
-                <div class="col-lg-10">
-                    <h2 class="compromisso-title">
-                        Nosso <span>Compromisso</span>
-                    </h2>
-                    <p class="compromisso-subtitle text-secondary fs-3">
-                        Por que escolher a <span class="txt-span">MLEGATE</span>?
-                    </p>
-                    <p class="compromisso-text">
-                        Acreditamos que a expertise sozinha não basta. Nosso diferencial é a combinação de excelência
-                        técnica com empatia, inovação e propósito. Construímos parcerias de longo prazo, adaptando
-                        soluções com precisão.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row g-4 compromisso-cards">
-
-                <div class="col-lg-6">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-card-inner">
-                            <div class="comp-icon-wrapper">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <div class="comp-content">
-                                <h3 class="comp-card-title">Auditoria e Asseguração</h3>
-                                <ul class="comp-card-list">
-                                    <li>Controles Internos</li>
-                                    <li>Auditoria das Demonstrações Financeiras (CVM)</li>
-                                    <li>Revisão Limitada das Demonstrações Financeiras</li>
-                                    <li>Asseguração e Certificação</li>
-                                    <li>Laudos de Avaliação Contábil</li>
-                                    <li>Due Diligence</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-card-inner">
-                            <div class="comp-icon-wrapper">
-                                <i class="bi bi-clipboard-data"></i>
-                            </div>
-                            <div class="comp-content">
-                                <h3 class="comp-card-title">Perícias e Avaliações</h3>
-                                <ul class="comp-card-list">
-                                    <li>Perícias Judiciais e Extrajudiciais</li>
-                                    <li>Perícias Arbitrais</li>
-                                    <li>Avaliação Econômica de Empresas (Valuation)</li>
-                                    <li>Purchase Price Allocation (PPA)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-card-inner">
-                            <div class="comp-icon-wrapper">
-                                <i class="bi bi-lightning-charge"></i>
-                            </div>
-                            <div class="comp-content">
-                                <h3 class="comp-card-title">Consultoria</h3>
-                                <ul class="comp-card-list">
-                                    <li>Contabilidade e Controladoria</li>
-                                    <li>Tributária</li>
-                                    <li>Recursos Humanos</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-card-inner">
-                            <div class="comp-icon-wrapper">
-                                <i class="bi bi-diagram-3"></i>
-                            </div>
-                            <div class="comp-content">
-                                <h3 class="comp-card-title">Outsourcing e BPO</h3>
-                                <ul class="comp-card-list">
-                                    <li>Contabilidade e Gestão de Controladoria</li>
-                                    <li>Escrituração Fiscal</li>
-                                    <li>Folha de Pagamento</li>
-                                    <li>Faturamento e Finanças</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-card-inner">
-                            <div class="comp-icon-wrapper">
-                                <i class="bi bi-file-earmark-bar-graph"></i>
-                            </div>
-                            <div class="comp-content">
-                                <h3 class="comp-card-title">Gestão Tributária</h3>
-                                <ul class="comp-card-list">
-                                    <li>Revisão de Impostos Diretos e Indiretos</li>
-                                    <li>Transfer Pricing</li>
-                                    <li>Assessoria Tributária PF e PJ</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-card-inner">
-                            <div class="comp-icon-wrapper">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <div class="comp-content">
-                                <h3 class="comp-card-title">Recursos Humanos</h3>
-                                <ul class="comp-card-list">
-                                    <li>Cargos, Carreiras e Salários</li>
-                                    <li>Pesquisa de Clima e Remuneração</li>
-                                    <li>Recrutamento e Seleção Especializado</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="curriculo">
-        <div class="container d-flex flex-column align-items-center mb-5">
-            <div class="curriculo-card text-center scroll-animate">
-                <h1 class="curriculo-title">Envie seu Currículo</h1>
-                <div class="linha-title"></div>
-
-                <p class="curriculo-desc">
-                    Estamos sempre em busca de novos talentos. Invista em uma carreira
-                    que valoriza colaboração, aprendizado contínuo e exposição a
-                    projetos estratégicos.
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Nossos Serviços</span>
+                <h2 class="section-title">
+                    Soluções que impulsionam<br />
+                    <span class="title-accent">o seu negócio.</span>
+                </h2>
+                <p class="section-desc">
+                    Acreditamos que a expertise sozinha não basta. Nosso diferencial é a combinação
+                    de excelência técnica com empatia, inovação e propósito.
                 </p>
+            </div>
 
-                <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST" enctype="multipart/form-data"
-                    class="curriculo-form">
-                    <input type="text" name="Nome" placeholder="Seu Nome Completo" required class="form-control mb-3" />
+            <div class="servicos-grid">
 
-                    <input type="file" name="Anexo" id="file-upload" accept="application/pdf" class="d-none" required />
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="servico-title">Auditoria e Asseguração</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Controles Internos</li>
+                        <li>Auditoria das Demonstrações Financeiras (CVM)</li>
+                        <li>Revisão Limitada das Demonstrações Financeiras</li>
+                        <li>Asseguração e Certificação</li>
+                        <li>Laudos de Avaliação Contábil</li>
+                        <li>Due Diligence</li>
+                    </ul>
+                </div>
 
-                    <label for="file-upload" class="btn-curriculo mt-4">
-                        Selecionar CV <br />
-                        (.pdf ou .docx)
-                    </label>
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-clipboard-data"></i>
+                        </div>
+                        <h3 class="servico-title">Perícias e Avaliações</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Perícias Judiciais e Extrajudiciais</li>
+                        <li>Perícias Arbitrais</li>
+                        <li>Avaliação Econômica de Empresas (Valuation)</li>
+                        <li>Purchase Price Allocation (PPA)</li>
+                    </ul>
+                </div>
 
-                    <button type="submit" class="btn-curriculo-submit mt-3">
-                        Enviar Currículo <i class="bi bi-send"></i>
-                    </button>
-                </form>
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <h3 class="servico-title">Consultoria</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Contabilidade e Controladoria</li>
+                        <li>Tributária</li>
+                        <li>Recursos Humanos</li>
+                    </ul>
+                </div>
+
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <h3 class="servico-title">Outsourcing e BPO</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Contabilidade e Gestão de Controladoria</li>
+                        <li>Escrituração Fiscal</li>
+                        <li>Folha de Pagamento</li>
+                        <li>Faturamento e Finanças</li>
+                    </ul>
+                </div>
+
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+                        </div>
+                        <h3 class="servico-title">Gestão Tributária</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Revisão de Impostos Diretos e Indiretos</li>
+                        <li>Transfer Pricing</li>
+                        <li>Assessoria Tributária PF e PJ</li>
+                    </ul>
+                </div>
+
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card-header">
+                        <div class="servico-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3 class="servico-title">Recursos Humanos</h3>
+                    </div>
+                    <ul class="servico-list">
+                        <li>Cargos, Carreiras e Salários</li>
+                        <li>Pesquisa de Clima e Remuneração</li>
+                        <li>Recrutamento e Seleção Especializado</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contato2" class="contato-section mt-5">
-        <div class="container py-4 mt-5">
-            <div class="text-center text-white scroll-animate">
-                <h1 class="texto1-video-final fw-bold display-5">
-                    Quer falar com a <span class="txt-span fw-bold">MLEGATE</span>?
-                </h1>
+    <!-- ========== EQUIPE / SÓCIOS ========== -->
+    <section id="socios" class="equipe-section">
+        <div class="container-custom">
+
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Equipe</span>
+                <h2 class="section-title">
+                    Liderança com<br />
+                    <span class="title-accent">experiência e propósito.</span>
+                </h2>
             </div>
 
-            <div class="row justify-content-center mt-5 scroll-animate">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="emailContato" class="form-label text-black emailLabel">Seu E-Mail:</label>
-                            <input type="email" class="form-control" id="emailContato" required />
+            <div class="equipe-grid">
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Contabilidade e Controladoria</div>
+                    <h4 class="equipe-card-name">Antônio Machado</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Fiscal</div>
+                    <h4 class="equipe-card-name">Clóvis Patah</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Recursos Humanos</div>
+                    <h4 class="equipe-card-name">Enôr Assis</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Perícia</div>
+                    <h4 class="equipe-card-name">João Carlos Castilho Garcia</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Recursos Humanos</div>
+                    <h4 class="equipe-card-name">Rosana Tessari</h4>
+                    <span class="equipe-card-role">Sócia Diretora</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Auditoria e Perícia</div>
+                    <h4 class="equipe-card-name">Rubens Lopes</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Auditoria</div>
+                    <h4 class="equipe-card-name">Vagner Lira</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Fiscal</div>
+                    <h4 class="equipe-card-name">Wagner Scaglioni</h4>
+                    <span class="equipe-card-role">Sócio Diretor</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contato
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CARREIRAS / CURRÍCULO ========== -->
+    <section id="curriculo" class="carreiras-section">
+        <div class="container-custom">
+            <div class="carreiras-wrapper" data-reveal>
+                <div class="carreiras-left">
+                    <span class="section-tag">Carreiras</span>
+                    <h2 class="carreiras-title">
+                        Faça parte da<br />
+                        <span class="title-accent">nossa equipe.</span>
+                    </h2>
+                    <p class="carreiras-desc">
+                        Estamos sempre em busca de novos talentos. Invista em uma carreira
+                        que valoriza colaboração, aprendizado contínuo e exposição a
+                        projetos estratégicos.
+                    </p>
+                </div>
+                <div class="carreiras-right">
+                    <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST"
+                        enctype="multipart/form-data" class="carreiras-form">
+                        <div class="form-group">
+                            <label for="carreiraName">Nome Completo</label>
+                            <input type="text" name="Nome" id="carreiraName" placeholder="Seu nome" required />
                         </div>
 
-                        <div class="mb-4">
-                            <label for="mensagemContato" class="form-label text-black">Sua Mensagem:</label>
-                            <textarea class="form-control" id="mensagemContato" rows="4" required></textarea>
-                        </div>
+                        <input type="file" name="Anexo" id="file-upload" accept="application/pdf,.docx" class="d-none"
+                            required />
 
-                        <div class="d-flex justify-content-center mt-3">
-                            <button type="submit" class="btn btn-primary btn-videofinal">
-                                Enviar Mensagem <i class="bi bi-send"></i>
-                            </button>
-                        </div>
+                        <label for="file-upload" class="btn-file-upload">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <span>Selecionar CV (.pdf ou .docx)</span>
+                        </label>
+                        <span class="file-name-display" id="fileNameDisplay">Nenhum arquivo selecionado</span>
+
+                        <button type="submit" class="btn-submit-cv">
+                            Enviar Currículo
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="social-connect" class="scroll-animate">
-        <div class="container text-center mt-5 social-container">
-            <a href="https://www.linkedin.com/company/mlegate" target="_blank" class="social-link">
-                <button class="social-btn linkedin-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                        class="bi bi-linkedin" viewBox="0 0 24 24">
-                        <path
-                            d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z">
-                        </path>
-                    </svg>
-                </button>
-            </a>
-
-            <a href="https://www.instagram.com/mlegate_" target="_blank" class="social-link">
-                <button class="social-btn instagram-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
-                        </path>
-                    </svg>
-                </button>
-            </a>
+    <!-- ========== CONTATO ========== -->
+    <section id="contato2" class="contato-section">
+        <div class="container-custom">
+            <div class="contato-wrapper" data-reveal>
+                <div class="contato-left">
+                    <span class="section-tag">Contato</span>
+                    <h2 class="contato-title">
+                        Vamos conversar sobre<br />
+                        <span class="title-accent">o seu próximo passo.</span>
+                    </h2>
+                    <div class="contato-info">
+                        <div class="contato-info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <strong>Endereço</strong>
+                                <span>Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, São Paulo — SP</span>
+                            </div>
+                        </div>
+                        <div class="contato-info-item">
+                            <i class="bi bi-telephone"></i>
+                            <div>
+                                <strong>Telefone</strong>
+                                <a href="tel:+551150807500">+55 (11) 5080-7500</a>
+                            </div>
+                        </div>
+                        <div class="contato-info-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <strong>E-Mail</strong>
+                                <a href="mailto:contato@mlegate.com">contato@mlegate.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato-right">
+                    <form class="contato-form" id="contatoForm">
+                        <div class="form-group">
+                            <label for="emailContato">Seu E-Mail</label>
+                            <input type="email" id="emailContato" placeholder="nome@empresa.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagemContato">Sua Mensagem</label>
+                            <textarea id="mensagemContato" rows="5" placeholder="Como podemos ajudar?"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-contact">
+                            Enviar Mensagem
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div id="cookie-banner" class="cookie-banner-floating shadow-lg">
-        <div class="cookie-header mb-2 d-flex align-items-center gap-2">
-            <i class="bi bi-cookie text-primary fs-4"></i>
-            <h5 class="mb-0 fw-bold text-white fs-6">Privacidade</h5>
+    <!-- ========== SOCIAL ========== -->
+    <section id="social-connect" class="social-section" data-reveal>
+        <div class="container-custom text-center">
+            <p class="social-label">Acompanhe a MLEGATE</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/mlegate" target="_blank" class="social-link-btn"
+                    aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/mlegate_" target="_blank" class="social-link-btn"
+                    aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
         </div>
-        <p class="text-white-50 small mb-3">
-            Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa
-            <a href="#" class="text-primary text-decoration-none">Política de Privacidade</a>.
-        </p>
-        <div class="d-flex gap-2 w-100">
-            <button id="btn-reject-cookies"
-                class="btn btn-outline-secondary btn-sm flex-grow-1 text-white">Recusar</button>
-            <button id="btn-accept-cookies" class="btn btn-primary btn-sm flex-grow-1 fw-bold text-white border-0"
-                style="background-color: var(--primary-color);">Aceitar</button>
+    </section>
+
+    <!-- ========== COOKIE BANNER ========== -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-inner">
+            <div class="cookie-text">
+                <i class="bi bi-shield-lock"></i>
+                <p>
+                    Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa
+                    <a href="#">Política de Privacidade</a>.
+                </p>
+            </div>
+            <div class="cookie-actions">
+                <button id="btn-reject-cookies" class="cookie-btn cookie-btn-reject">Recusar</button>
+                <button id="btn-accept-cookies" class="cookie-btn cookie-btn-accept">Aceitar</button>
+            </div>
         </div>
     </div>
 
+    <!-- ========== EASTER EGG ========== -->
     <div id="dev-credits-easter-egg">
         Website desenvolvido por
-        <span class="txt-span">Pedro Ruvieri Cavariani</span><br />
-        Usando <span class="txt-span">HTML, CSS</span> e
-        <span class="txt-span">JavaScript</span> <br>
-        Visite: <span class="txt-span">pedrorc.com</span> para conhecer meu trabalho.
+        <span class="ee-highlight">Pedro Ruvieri Cavariani</span><br />
+        Usando <span class="ee-highlight">HTML, CSS</span> e
+        <span class="ee-highlight">JavaScript</span><br>
+        Visite: <span class="ee-highlight">pedrorc.com</span>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- ========== FOOTER ========== -->
     <footer class="footer-section">
-        <div class="container">
-            <div class="row gy-5 justify-content-between">
+        <div class="container-custom">
+            <div class="footer-grid">
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-brand mb-4">
-                        <img src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo"
-                            class="img-fluid footer-logo mb-3">
-
-                        <p class="text-white-50 small lh-base mt-2 mb-4 text-justify">
-                            Consultoria full-service em contabilidade e gestão empresarial, unindo expertise técnica,
-                            inovação e propósito desde 1995.
-                        </p>
-                    </div>
-
-                    <div class="footer-contact">
-                        <div class="d-flex align-items-start mb-3">
-                            <i class="bi bi-geo-alt-fill text-primary me-3 fs-5 mt-1"></i>
-                            <span class="text-white-50 small lh-sm">
-                                Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, SP
-                            </span>
+                <div class="footer-col footer-brand-col">
+                    <img src="./images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo" class="footer-logo" />
+                    <p class="footer-desc">
+                        Consultoria full-service em contabilidade e gestão empresarial, unindo expertise
+                        técnica, inovação e propósito desde 1995.
+                    </p>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>Rua Bela Cintra, 1200, 2º Andar<br />Cerqueira César, SP</span>
                         </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="bi bi-telephone-fill text-primary me-3 fs-5"></i>
-                            <a href="tel:+551150807500"
-                                class="text-white-50 small text-decoration-none hover-primary transition-all">
-                                +55 (11) 5080-7500
-                            </a>
+                        <div class="footer-contact-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <a href="tel:+551150807500">+55 (11) 5080-7500</a>
                         </div>
-                        <div class="d-flex align-items-center mb-0">
-                            <i class="bi bi-envelope-fill text-primary me-3 fs-5"></i>
-                            <a href="mailto:contato@mlegate.com"
-                                class="text-white-50 small text-decoration-none hover-primary transition-all">
-                                contato@mlegate.com
-                            </a>
+                        <div class="footer-contact-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a href="mailto:contato@mlegate.com">contato@mlegate.com</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="footer-col">
+                    <h5 class="footer-heading">Parceria Global</h5>
+                    <p class="footer-small">Independent member</p>
+                    <a href="https://www.morisonglobal.com/" target="_blank" class="footer-morison-link">
+                        Morison Global
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
 
-                    <div class="mb-5">
-                        <h5 class="text-white fw-bold mb-3 fs-6 text-uppercase tracking-wider">Parceria Global</h5>
-                        <p class="text-white-50 small mb-1">Independent member</p>
-                        <a href="https://www.morisonglobal.com/" target="_blank"
-                            class="text-primary fw-bold text-decoration-none fs-5 d-inline-block hover-primary transition-all">
-                            Morison Global
-                        </a>
+                    <h5 class="footer-heading mt-4">Reconhecimentos</h5>
+                    <div class="footer-awards">
+                        <img src="./images/premios/SeloRotary.png" alt="Prêmio Rotary" />
+                        <img src="./images/premios/SeloLeadersLeague.png" alt="Ranked Firm 2025" />
                     </div>
 
-                    <div class="mb-5">
-                        <h5 class="text-white fw-bold mb-3 fs-6 text-uppercase tracking-wider">Reconhecimentos</h5>
-                        <div class="d-flex align-items-center gap-4">
-                            <img src="./images/premios/SeloRotary.png" alt="Prêmio Rotary"
-                                class="img-fluid hover-scale transition-all" style="height: 60px; object-fit: contain;">
-                            <img src="./images/premios/SeloLeadersLeague.png" alt="Ranked Firm 2025"
-                                class="img-fluid hover-scale transition-all" style="height: 60px; object-fit: contain;">
-                        </div>
-                    </div>
-
-                    <div>
-                        <h5 class="text-white fw-bold mb-3 fs-6 text-uppercase tracking-wider">Sobre a Associação</h5>
-                        <p class="text-white-50 small lh-lg mb-0 text-justify pe-lg-3">
-                            A Morison Global é uma associação de firmas profissionais independentes. Os serviços
-                            profissionais são prestados pelas firmas-membro individuais.
-                        </p>
-                    </div>
+                    <p class="footer-disclaimer">
+                        A Morison Global é uma associação de firmas profissionais independentes.
+                        Os serviços profissionais são prestados pelas firmas-membro individuais.
+                    </p>
                 </div>
 
-                <div class="col-lg-4 col-md-12">
-                    <h5 class="text-white fw-bold mb-4 fs-6 text-uppercase tracking-wider">Localização</h5>
-                    <div class="map-container rounded-4 shadow-lg overflow-hidden border border-secondary border-opacity-25 h-100"
-                        style="min-height: 280px;">
-                        <iframe width="100%" height="100%" style="border: 0; min-height: 280px;" loading="lazy"
-                            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                <div class="footer-col">
+                    <h5 class="footer-heading">Localização</h5>
+                    <div class="footer-map">
+                        <iframe width="100%" height="100%" style="border: 0;" loading="lazy" allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
                             src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed">
                         </iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-bottom mt-5 pt-4 border-top border-secondary border-opacity-25">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <p class="mb-0 text-white-50 small">
-                            © 2026 MLEGATE. Todos os direitos reservados.
-                        </p>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>© 2026 MLEGATE. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <a id="back-to-top-link" class="Btn back-to-top-btn" aria-label="Voltar ao topo" href="#inicio">
-        <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+    <!-- ========== BACK TO TOP ========== -->
+    <a id="back-to-top-link" class="back-to-top-btn hidden" aria-label="Voltar ao topo" href="#inicio">
+        <svg height="20" width="20" viewBox="0 0 512 512" fill="currentColor">
             <path
-                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z">
-            </path>
+                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
         </svg>
-        <span class="text">Voltar ao topo</span>
     </a>
 
-    <script src="./js/app.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jsRefactor.js"></script>
 </body>
 
 </html>
