@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 9. EASTER EGG (5 clicks on lightning icon in services)
     // ==========================================================
     let eeClickCount = 0;
-    const lightningIcon = document.querySelector('.servico-icon .bi-lightning-charge');
+    const lightningIcon = document.querySelector('.servico-item-icon .bi-lightning-charge');
     const creditsBox = document.getElementById('dev-credits-easter-egg');
 
     if (lightningIcon && creditsBox) {

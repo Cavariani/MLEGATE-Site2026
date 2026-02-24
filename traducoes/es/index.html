@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-ES">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
@@ -8,416 +8,729 @@
     <title>MLEGATE | Morison Global | 🇪🇸</title>
     <link rel="icon" href="../../images/Misc/favicon mle.ico" type="image/png" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
+    <!-- Flags -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
 
-    <link rel="stylesheet" href="../../stylesheets/styles.css" />
-    <link rel="stylesheet" href="../../stylesheets/stylesSI.css" />
-    <link rel="stylesheet" href="../../stylesheets/mobiletweaks.css" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../stylesheets/stylesRefactor.css" />
 </head>
 
 <body>
-    <div id="dev-credits-easter-egg">
-        Sitio web desarrollado por <span class="txt-span">Pedro R Cavariani</span> - 2025
+
+    <!-- ========== LOADING SCREEN ========== -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-bar"></div>
+            <span class="loader-text">MLEGATE</span>
+        </div>
     </div>
 
+    <!-- ========== LANGUAGE SELECTOR ========== -->
     <div id="language-selector">
-        <a href="../../index.html" class="flag-link-pt" data-lang="pt" aria-label="Portugués">
+        <a href="../../index.html" class="flag-link-pt" data-lang="pt" aria-label="Português">
             <span class="fi fi-br" role="button"></span>
         </a>
-
         <a href="../en/index.html" class="flag-link-en" data-lang="en" aria-label="English">
-            <span class="fi fi-us" role="button"></span>
+            <span class="fi fi-gb" role="button"></span>
         </a>
-
         <a href="./index.html" class="flag-link-es flag-active" data-lang="es" aria-label="Español">
             <span class="fi fi-es" role="button"></span>
         </a>
     </div>
 
-    <nav class="navbar navbar-expand-md bg-body-tertiary navbar-horizontal">
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-md navbar-horizontal" id="mainNav">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#sobre">
-                        <i class="bi bi-briefcase fs-3 icon-nav"></i>
-                        <span class="icon-text">Nosotros</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio" data-nav>
+                        <span class="nav-label">Inicio</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#compromisso">
-                        <i class="bi bi-lightbulb fs-3 icon-nav"></i>
-                        <span class="icon-text">Compromiso</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre" data-nav>
+                        <span class="nav-label">Sobre Nosotros</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#inicio">
-                        <i class="bi bi-house fs-3 icon-nav"></i>
-                        <span class="icon-text">Inicio</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#compromisso" data-nav>
+                        <span class="nav-label">Servicios</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="#curriculo">
-                        <i class="bi bi-envelope fs-3 icon-nav"></i>
-                        <span class="icon-text">Contratación</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#socios" data-nav>
+                        <span class="nav-label">Equipo</span>
                     </a>
                 </li>
-
-                <li class="nav-item mt-2">
-                    <a class="nav-link" href="http://51.81.167.10/timesheet/" id="link-fc">
-                        <i class="bi bi-graph-up-arrow fs-3 icon-nav"></i>
-                        <span class="icon-text">FC</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#curriculo" data-nav>
+                        <span class="nav-label">Carreras</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato2" data-nav>
+                        <span class="nav-label">Contacto</span>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section id="inicio" class="hero-video-wrapper">
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="hero-section">
+        <canvas id="network-canvas"></canvas>
 
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="../../images/SI/Misc/1124.mp4" type="video/mp4">
-        </video>
-
-        <div class="hero-overlay"></div>
-
-        <div class="overlay-content">
-            <div class="logo-wrapper">
-                <img class="icon-aphelios img-fluid" src="../../images/Misc/LOGO MLE SEM FUNDO.png" alt="LOGO MLE" />
+        <div class="hero-content">
+            <div class="hero-badge reveal-hero" data-delay="0">
+                <span class="badge-dot"></span>
+                Miembro Independiente — Morison Global
             </div>
-
-            <div class="saiba-wrapper">
-                <a href="#sobre" class="saiba-link">
-                    <button class="cssbuttons-io-button">
-                        <div class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M12 20l-7-7 1.41-1.41L11 15.17V4h2v11.17l4.59-4.58L19 13z" fill="currentColor">
-                                </path>
-                            </svg>
-                        </div>
-                    </button>
+            <div class="hero-logo reveal-hero" data-delay="1">
+                <img class="hero-logo-img" src="../../images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo" />
+            </div>
+            <p class="hero-tagline reveal-hero" data-delay="2">
+                Consultoría <em>full-service</em> en contabilidad y gestión empresarial
+            </p>
+            <div class="hero-cta reveal-hero" data-delay="3">
+                <a href="#sobre" class="btn-hero-primary" id="heroEnterBtn">
+                    Explorar
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12l7 7 7-7" />
+                    </svg>
                 </a>
+                <!-- <a href="#contato2" class="btn-hero-secondary">
+                    Contáctenos
+                </a> -->
             </div>
         </div>
 
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
     </section>
 
-
+    <!-- ========== SOBRE NOSOTROS ========== -->
     <section id="sobre" class="sobre-section">
-        <div class="sobre-inner">
+        <div class="container-custom">
 
-            <div class="sobre-header">
-                <h2 class="txt-title fw-bold scroll-animate">Quiénes Somos</h2>
-
-                <h5 class="text-secondary fs-3 scroll-animate">
-                    Descubra la misión y los valores de
-                    <span class="txt-mlegate fw-bold">MLEGATE</span>.
-                </h5>
-
-                <p class="text-white fs-4 scroll-animate">
-                    Somos una consultora full-service que opera desde 1995 en diversas áreas de contabilidad y recursos
-                    humanos. Hoy, con más de 100 profesionales especializados, nos destacamos por la combinación de
-                    empatía, expertise profesional, innovación y propósito.
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Sobre Nosotros</span>
+                <h2 class="section-title">
+                    Experiencia que transforma<br />
+                    <span class="title-accent">resultados.</span>
+                </h2>
+                <p class="section-desc">
+                    Desde 1995, ofrecemos soluciones completas en contabilidad y gestión empresarial.
+                    Nuestra diferencia radica en la combinación de experiencia técnica, innovación y propósito,
+                    siempre con un enfoque cercano y personalizado.
                 </p>
             </div>
 
             <div class="sobre-grid">
-
-                <article class="sobre-block scroll-animate">
-                    <div class="sobre-icon">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-building"></i>
                     </div>
-
-                    <div class="sobre-content">
-                        <h3 class="sobre-title">Nuestra Evolución</h3>
-                        <p>
-                            Nuestra historia comenzó en São Paulo con la fundación de tres empresas especializadas en
-                            1995, que se unieron en 2002. La diversificación estratégica de mercados y sectores
-                            garantiza nuestro crecimiento continuo.
-                        </p>
-                    </div>
+                    <h3 class="sobre-card-title">Nuestra Historia</h3>
+                    <p class="sobre-card-text">
+                        Nuestra historia comenzó en São Paulo en 1995, con tres empresas especializadas
+                        que se fusionaron en 2002. Desde entonces, hemos crecido con una sólida estrategia
+                        de diversificación, operando en diferentes mercados y sectores.
+                    </p>
                 </article>
 
-                <article class="sobre-block scroll-animate">
-                    <div class="sobre-icon">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-globe2"></i>
                     </div>
-
-                    <div class="sobre-content">
-                        <h3 class="sobre-title">Morison Global</h3>
-                        <p>
-                            Somos miembro independiente de Morison Global desde 2003, una asociación presente en más de
-                            85 países que conecta oficinas de auditoría, contabilidad y consultoría en todo el mundo.
-                        </p>
-
-                        <p class="sobre-link-extra">
-                            Esto mejora nuestra credibilidad global y nos conecta con socios internacionales de
-                            confianza. El intercambio continuo con profesionales de todo el mundo nos proporciona
-                            desarrollo técnico y de comportamiento que permite nuestra actuación en empresas
-                            internacionales con el mismo cuidado y profesionalismo que ofrecemos a nuestros socios
-                            nacionales.
-                        </p>
-                    </div>
+                    <h3 class="sobre-card-title">Morison Global</h3>
+                    <p class="sobre-card-text">
+                        Miembros independientes de Morison Global desde 2003 — una red que conecta
+                        108 firmas en más de 65 países, reuniendo líderes en auditoría, contabilidad
+                        y consultoría con alcance global.
+                    </p>
+                    <a class="sobre-card-link" href="https://www.morisonglobal.com/" target="_blank">
+                        morisonglobal.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+                    <p class="sobre-card-disclaimer">
+                        Morison Global es una asociación de firmas profesionales independientes.
+                        Los servicios profesionales son prestados por las firmas miembro individuales.
+                    </p>
                 </article>
 
-                <article class="sobre-block scroll-animate">
-                    <div class="sobre-icon">
+                <article class="sobre-card" data-reveal>
+                    <div class="sobre-card-icon">
                         <i class="bi bi-diagram-3"></i>
                     </div>
-
-                    <div class="sobre-content">
-                        <h3 class="sobre-title">Clientes e Industrias</h3>
-
-                        <p>Trabajamos con medianas y grandes empresas que buscan soporte estratégico para navegar en
-                            desafíos complejos y acelerar el crecimiento. Atendemos comercio, servicios, industria y
-                            organizaciones sin fines de lucro.</p>
-
-                        <ul class="lista-servicos">
-                            <li>Para grandes empresas: Soluciones especializadas de alto impacto.</li>
-                            <li>Para medianas empresas: Servicios continuos e integrados que impulsan la escalabilidad.
-                            </li>
-                        </ul>
-                    </div>
+                    <h3 class="sobre-card-title">Clientes e Industrias</h3>
+                    <p class="sobre-card-text">
+                        Trabajamos con empresas que buscan estrategia, innovación y confianza.
+                        Nuestra experiencia abarca comercio, servicios, industria y organizaciones
+                        sin fines de lucro, con soluciones adaptadas a cada negocio.
+                    </p>
                 </article>
-
             </div>
         </div>
     </section>
 
+    <!-- ========== MARQUEE DIVIDER ========== -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>Auditoría</span><span class="marquee-dot">◆</span>
+            <span>Peritajes</span><span class="marquee-dot">◆</span>
+            <span>Consultoría</span><span class="marquee-dot">◆</span>
+            <span>Outsourcing</span><span class="marquee-dot">◆</span>
+            <span>Gestión Tributaria</span><span class="marquee-dot">◆</span>
+            <span>Recursos Humanos</span><span class="marquee-dot">◆</span>
+            <span>Auditoría</span><span class="marquee-dot">◆</span>
+            <span>Peritajes</span><span class="marquee-dot">◆</span>
+            <span>Consultoría</span><span class="marquee-dot">◆</span>
+            <span>Outsourcing</span><span class="marquee-dot">◆</span>
+            <span>Gestión Tributaria</span><span class="marquee-dot">◆</span>
+            <span>Recursos Humanos</span><span class="marquee-dot">◆</span>
+        </div>
+    </div>
 
-    <section id="compromisso">
-        <div class="container compromisso-wrapper">
+    <!-- ========== SERVICIOS ========== -->
+    <section id="compromisso" class="servicos-section">
+        <div class="container-custom">
 
-            <div class="row justify-content-center text-center scroll-animate">
-                <div class="col-lg-10">
-                    <h2 class="txt-title fw-bold fs-1 scroll-animate">
-                        Nuestro <span>Compromiso</span>
-                    </h2>
-
-                    <p class="text-secondary fs-4 scroll-animate">
-                        ¿Por qué elegir a <span class="txt-span">MLEGATE</span>?
-                    </p>
-
-                    <p class="fs-5 scroll-animate">
-                        Creemos que la expertise por sí sola no es suficiente. Nuestro diferencial es la combinación de
-                        excelencia técnica con empatía, innovación y propósito. Construimos alianzas a largo plazo, con
-                        un compromiso genuino de impulsar el crecimiento del cliente, respetando su cultura y adaptando
-                        soluciones con precisión.
-                    </p>
-                </div>
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Nuestros Servicios</span>
+                <h2 class="section-title">
+                    Soluciones que impulsan<br />
+                    <span class="title-accent">su negocio.</span>
+                </h2>
+                <p class="section-desc">
+                    Creemos que la experiencia sola no es suficiente. Nuestro diferencial es la combinación
+                    de excelencia técnica con empatía, innovación y propósito.
+                </p>
             </div>
 
-            <div class="row g-4 compromisso-cards">
+            <div class="servicos-grid-novo">
 
-                <div class="col-md-4">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-icon">
-                            <i class="bi bi-diagram-3"></i>
-                        </div>
-                        <h3 class="comp-card-title">BPO y Servicios Subcontratados</h3>
-                        <p class="comp-card-text">
-                            Estructura completa para asumir rutinas críticas de Contabilidad, Fiscal y RR.HH., liberando
-                            al equipo interno para decisiones estratégicas. Incluye BPO y Gestión de Nómina.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-icon">
+                <a class="servico-item" data-reveal>
+                    <div class="servico-item-header">
+                        <div class="servico-item-icon">
                             <i class="bi bi-shield-check"></i>
                         </div>
-                        <h3 class="comp-card-title">Auditoría y Aseguramiento</h3>
-                        <p class="comp-card-text">
-                            Foco en Gobernanza, control y transparencia. Incluye Auditoría Financiera, Informes
-                            Financieros y Due Diligence para apoyar a consejos e inversores.
-                        </p>
+                        <h3 class="servico-item-title">Auditoría y Aseguramiento</h3>
                     </div>
-                </div>
+                    <ul class="servico-item-tags">
+                        <li>Controles Internos</li>
+                        <li>Auditoría de Estados Financieros (CVM)</li>
+                        <li>Revisión Limitada de Estados Financieros</li>
+                        <li>Aseguramiento y Certificación</li>
+                        <li>Informes de Valoración Contable</li>
+                        <li>Due Diligence</li>
+                    </ul>
+                </a>
 
-                <div class="col-md-4">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-icon">
-                            <i class="bi bi-people"></i>
-                        </div>
-                        <h3 class="comp-card-title">Recursos Humanos y Asesoría</h3>
-                        <p class="comp-card-text">
-                            Gestión de Nómina, beneficios y obligaciones laborales, enfocada en el cumplimiento y la
-                            experiencia del colaborador. Ofrecemos Asesoría especializada en RR.HH.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-icon">
+                <a class="servico-item" data-reveal>
+                    <div class="servico-item-header">
+                        <div class="servico-item-icon">
                             <i class="bi bi-clipboard-data"></i>
                         </div>
-                        <h3 class="comp-card-title">Contabilidad Forense y Valoración</h3>
-                        <p class="comp-card-text">
-                            Soporte técnico en disputas y procesos que requieren análisis financiero especializado.
-                            Incluye Contabilidad Forense y servicios de Valoración.
-                        </p>
+                        <h3 class="servico-item-title">Peritajes y Valuaciones</h3>
                     </div>
-                </div>
+                    <ul class="servico-item-tags">
+                        <li>Peritajes Judiciales y Extrajudiciales</li>
+                        <li>Peritajes Arbitrales</li>
+                        <li>Valuación Económica de Empresas</li>
+                        <li>Purchase Price Allocation (PPA)</li>
+                    </ul>
+                </a>
 
-                <div class="col-md-4">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-icon">
-                            <i class="bi bi-file-earmark-bar-graph"></i>
-                        </div>
-                        <h3 class="comp-card-title">Gestión Fiscal y Precios de Transferencia</h3>
-                        <p class="comp-card-text">
-                            Planificación, liquidación y revisión para optimizar la carga fiscal con seguridad.
-                            Expertise en Gestión Fiscal y Precios de Transferencia (TP).
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="comp-card h-100 scroll-animate">
-                        <div class="comp-icon">
+                <a class="servico-item" data-reveal>
+                    <div class="servico-item-header">
+                        <div class="servico-item-icon">
                             <i class="bi bi-lightning-charge"></i>
                         </div>
-                        <h3 class="comp-card-title">Consultoría Estratégica (FP&A)</h3>
-                        <p class="comp-card-text">
-                            Proyectos a medida en finanzas, procesos y tecnología. Conectamos estrategia y ejecución,
-                            incluyendo FP&A (Planificación y Análisis Financiero) y Asesoría.
-                        </p>
+                        <h3 class="servico-item-title">Consultoría</h3>
                     </div>
+                    <ul class="servico-item-tags">
+                        <li>Contabilidad y Contraloría</li>
+                        <li>Tributaria</li>
+                        <li>Recursos Humanos</li>
+                    </ul>
+                </a>
+
+                <a class="servico-item" data-reveal>
+                    <div class="servico-item-header">
+                        <div class="servico-item-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <h3 class="servico-item-title">Outsourcing y BPO</h3>
+                    </div>
+                    <ul class="servico-item-tags">
+                        <li>Contabilidad y Gestión de Contraloría</li>
+                        <li>Registro Fiscal</li>
+                        <li>Nómina</li>
+                        <li>Facturación y Finanzas</li>
+                    </ul>
+                </a>
+
+                <a class="servico-item" data-reveal>
+                    <div class="servico-item-header">
+                        <div class="servico-item-icon">
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+                        </div>
+                        <h3 class="servico-item-title">Gestión Tributaria</h3>
+                    </div>
+                    <ul class="servico-item-tags">
+                        <li>Revisión de Impuestos Directos e Indirectos</li>
+                        <li>Transfer Pricing</li>
+                        <li>Asesoría Tributaria PF y PJ</li>
+                    </ul>
+                </a>
+
+                <a class="servico-item" data-reveal>
+                    <div class="servico-item-header">
+                        <div class="servico-item-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3 class="servico-item-title">Recursos Humanos</h3>
+                    </div>
+                    <ul class="servico-item-tags">
+                        <li>Cargos, Carreras y Salarios</li>
+                        <li>Investigación de Clima y Remuneración</li>
+                        <li>Reclutamiento y Selección Especializado</li>
+                    </ul>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EQUIPO ========== -->
+    <section id="socios" class="equipe-section">
+        <div class="container-custom">
+
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Equipo</span>
+                <h2 class="section-title">
+                    Liderazgo con<br />
+                    <span class="title-accent">experiencia y propósito.</span>
+                </h2>
+            </div>
+
+            <div class="equipe-grid">
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Contabilidad y Contraloría</div>
+                    <h4 class="equipe-card-name">Antônio Machado</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Fiscal</div>
+                    <h4 class="equipe-card-name">Clóvis Patah</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Recursos Humanos</div>
+                    <h4 class="equipe-card-name">Enôr Assis</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Peritajes</div>
+                    <h4 class="equipe-card-name">João Carlos Castilho Garcia</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Recursos Humanos</div>
+                    <h4 class="equipe-card-name">Rosana Tessari</h4>
+                    <span class="equipe-card-role">Socia Directora</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Auditoría y Peritajes</div>
+                    <h4 class="equipe-card-name">Rubens Lopes</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Auditoría</div>
+                    <h4 class="equipe-card-name">Vagner Lira</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+
+                <div class="equipe-card" data-reveal>
+                    <div class="equipe-card-dept">Fiscal</div>
+                    <h4 class="equipe-card-name">Wagner Scaglioni</h4>
+                    <span class="equipe-card-role">Socio Director</span>
+                    <a href="mailto:" class="equipe-card-email">
+                        <i class="bi bi-envelope"></i>
+                        Contacto
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <!-- ========== CARRERAS ========== -->
+    <section id="curriculo" class="carreiras-section">
+        <div class="container-custom">
+            <div class="carreiras-wrapper" data-reveal>
+                <div class="carreiras-left">
+                    <span class="section-tag">Carreras</span>
+                    <h2 class="carreiras-title">
+                        Forme parte de<br />
+                        <span class="title-accent">nuestro equipo.</span>
+                    </h2>
+                    <p class="carreiras-desc">
+                        Siempre estamos en búsqueda de nuevos talentos. Invierta en una carrera
+                        que valora la colaboración, el aprendizaje continuo y la exposición a
+                        proyectos estratégicos.
+                    </p>
+                </div>
+                <div class="carreiras-right">
+                    <form action="https://formsubmit.co/cv@mlegate.com" method="POST" enctype="multipart/form-data"
+                        class="carreiras-form">
+                        <input type="hidden" name="_subject" value="📄 Nuevo CV Recibido — MLEGATE" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_autoresponse"
+                            value="¡Hola! Hemos recibido su CV y nos pondremos en contacto en breve. Gracias por su interés en formar parte del equipo MLEGATE." />
 
-    <section id="curriculo">
-        <div class="container d-flex flex-column align-items-center">
-            <div class="curriculo-card text-center scroll-animate">
-                <h1 class="curriculo-title">Únase a Nuestro Equipo</h1>
-                <div class="linha-title"></div>
-
-                <p class="curriculo-desc mt-4">
-                    Siempre estamos buscando talento. Invierta en una carrera que valore la colaboración, el aprendizaje
-                    continuo y la exposición a proyectos estratégicos.
-                </p>
-
-                <form action="https://formsubmit.co/SEU_EMAIL_DE_DESTINO" method="POST" enctype="multipart/form-data"
-                    class="curriculo-form">
-
-                    <input type="text" name="Nombre" placeholder="Su Nombre Completo" required
-                        class="form-control mb-3">
-
-                    <input type="file" name="Anexo" id="file-upload" accept="application/pdf" class="d-none" required>
-
-                    <label for="file-upload" class="btn-curriculo mt-4">
-                        Seleccionar CV (.pdf)
-                    </label>
-
-                    <button type="submit" class="btn-curriculo-submit mt-3">
-                        Enviar Currículum <i class="bi bi-send"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="social-connect" class="scroll-animate">
-        <div class="container text-center mb-5 pb-2">
-            <a href="https://www.linkedin.com/company/mlegate" target="_blank" class="linkedin-link">
-                <button class="linkedin-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                        class="bi bi-linkedin" viewBox="0 0 24 24">
-                        <path
-                            d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z">
-                        </path>
-                    </svg>
-                    <span>LinkedIn</span>
-                </button>
-            </a>
-        </div>
-    </section>
-
-
-
-
-
-
-    <section id="contato2" class="contato-section">
-        <div class="container py-5">
-
-            <div class="text-center text-white scroll-animate">
-                <h1 class="texto1-video-final">
-                    ¿Desea contactar a <span class="txt-span fw-bold">MLEGATE</span>?
-                </h1>
-                <h2 class="texto2-video-final">¿Tiene alguna pregunta o sugerencia?</h2>
-            </div>
-
-            <div class="row justify-content-center mt-4 scroll-animate">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="emailContato" class="form-label text-white emailLabel">Su Correo
-                                Electrónico:</label>
-                            <input type="email" class="form-control" id="emailContato" required />
+                        <div class="form-group">
+                            <label for="carreiraName">Nombre Completo</label>
+                            <input type="text" name="Nombre" id="carreiraName" placeholder="Su nombre" required />
                         </div>
 
-                        <div class="mb-4">
-                            <label for="mensagemContato" class="form-label text-white">Su Mensaje:</label>
-                            <textarea class="form-control" id="mensagemContato" rows="4" required></textarea>
-                        </div>
+                        <input type="file" name="Curriculo" id="file-upload" accept="application/pdf,.docx"
+                            class="d-none" required />
 
-                        <div class="d-flex justify-content-center mt-3">
-                            <button type="submit" class="btn btn-primary btn-videofinal">
-                                Enviar Mensaje <i class="bi bi-send"></i>
-                            </button>
-                        </div>
+                        <label for="file-upload" class="btn-file-upload">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                            <span>Seleccionar CV (.pdf o .docx)</span>
+                        </label>
+                        <span class="file-name-display" id="fileNameDisplay">Ningún archivo seleccionado</span>
 
+                        <button type="submit" class="btn-submit-cv">
+                            Enviar CV
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- ========== CONTACTO ========== -->
+    <section id="contato2" class="contato-section">
+        <div class="container-custom">
+            <div class="contato-wrapper" data-reveal>
+                <div class="contato-left">
+                    <span class="section-tag">Contacto</span>
+                    <h2 class="contato-title">
+                        Hablemos sobre<br />
+                        <span class="title-accent">su próximo paso.</span>
+                    </h2>
+                    <div class="contato-info">
+                        <div class="contato-info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <span>Rua Bela Cintra, 1200, 2º Piso<br />Cerqueira César, São Paulo — SP</span>
+                            </div>
+                        </div>
+                        <div class="contato-info-item">
+                            <i class="bi bi-telephone"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <a href="tel:+551150807500">+55 (11) 5080-7500</a>
+                            </div>
+                        </div>
+                        <div class="contato-info-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <strong>E-Mail</strong>
+                                <a href="mailto:contato@mlegate.com">contato@mlegate.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato-right">
+                    <form action="https://formsubmit.co/Contato@mlegate.com" method="POST" class="contato-form"
+                        id="contatoForm">
+                        <input type="hidden" name="_subject" value="✉️ Nuevo Mensaje de Contacto — MLEGATE" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_autoresponse"
+                            value="¡Hola! Hemos recibido su mensaje y nos pondremos en contacto en breve. Gracias por contactar a MLEGATE." />
 
-    <a id="back-to-top-link" class="Btn back-to-top-btn" aria-label="Volver al inicio" href="#inicio">
-        <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
-            <path
-                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z">
-            </path>
-        </svg>
-        <span class="text">Volver al inicio</span>
-    </a>
+                        <div class="form-group">
+                            <label for="emailContato">Su E-Mail</label>
+                            <input type="email" name="Email" id="emailContato" placeholder="nombre@empresa.com"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagemContato">Su Mensaje</label>
+                            <textarea name="Mensaje" id="mensagemContato" rows="5" placeholder="¿Cómo podemos ayudarle?"
+                                required></textarea>
+                        </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+                        <button type="submit" class="btn-submit-contact">
+                            Enviar Mensaje
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ========== CANAL DE DENUNCIAS ========== -->
+    <section id="denuncia" class="denuncia-section">
+        <div class="container-custom">
+            <div class="denuncia-wrapper" data-reveal>
 
-    <footer class="bg-black text-white">
-        <div class="container text-center mt-3">
-            <h2 class="fiap-txt">
-                © 2025 MLEGATE. Todos los derechos reservados.
-            </h2>
+                <div class="denuncia-left">
+                    <span class="section-tag">Canal de Denuncias</span>
+                    <h2 class="denuncia-title">
+                        Transparencia e<br />
+                        <span class="title-accent">integridad ante todo.</span>
+                    </h2>
+                    <p class="denuncia-desc">
+                        Este canal está destinado a reportar conductas que violen nuestros principios
+                        éticos, políticas internas o la legislación vigente. Las denuncias pueden
+                        realizarse de forma completamente anónima.
+                    </p>
+                    <div class="denuncia-badges">
+                        <div class="denuncia-badge">
+                            <i class="bi bi-incognito"></i>
+                            <span>100% Anónimo</span>
+                        </div>
+                        <div class="denuncia-badge">
+                            <i class="bi bi-lock"></i>
+                            <span>Confidencial</span>
+                        </div>
+                        <div class="denuncia-badge">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Seguro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="denuncia-right">
+                    <form action="https://formsubmit.co/canal-de-denuncias@mlegate.com" method="POST"
+                        class="denuncia-form" id="denunciaForm">
+                        <input type="hidden" name="_subject"
+                            value="🔒 Nueva Denuncia Recibida — Canal Confidencial MLEGATE" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+
+                        <div class="denuncia-form-inner">
+                            <div class="denuncia-anon-notice">
+                                <i class="bi bi-info-circle"></i>
+                                <span>Ningún dato identificador será recopilado en este formulario.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagemDenuncia">Describa la situación</label>
+                                <textarea name="Denuncia" id="mensagemDenuncia" rows="7"
+                                    placeholder="Describa la conducta o situación que desea reportar con el mayor detalle posible..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit-denuncia">
+                                Enviar Denuncia
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL ========== -->
+    <section id="social-connect" class="social-section" data-reveal>
+        <div class="container-custom text-center">
+            <p class="social-label">Siga a MLEGATE</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/mlegate" target="_blank" class="social-link-btn"
+                    aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/mlegate_" target="_blank" class="social-link-btn"
+                    aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COOKIE BANNER ========== -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-inner">
+            <div class="cookie-text">
+                <i class="bi bi-shield-lock"></i>
+                <p>
+                    Utilizamos cookies para mejorar su experiencia. Al continuar, acepta nuestra
+                    <a href="#">Política de Privacidad</a>.
+                </p>
+            </div>
+            <div class="cookie-actions">
+                <button id="btn-reject-cookies" class="cookie-btn cookie-btn-reject">Rechazar</button>
+                <button id="btn-accept-cookies" class="cookie-btn cookie-btn-accept">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== EASTER EGG ========== -->
+    <div id="dev-credits-easter-egg">
+        Sitio web desarrollado por
+        <span class="ee-highlight">Pedro Ruvieri Cavariani</span><br />
+        Construido con <span class="ee-highlight">HTML, CSS</span> y
+        <span class="ee-highlight">JavaScript</span><br>
+        Visita: <span class="ee-highlight">pedrorc.com</span>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer-section">
+        <div class="container-custom">
+            <div class="footer-grid">
+
+                <div class="footer-col footer-brand-col">
+                    <img src="../../images/Misc/LOGO MLE SEM FUNDO.png" alt="MLEGATE Logo" class="footer-logo" />
+                    <p class="footer-desc">
+                        Consultoría full-service en contabilidad y gestión empresarial, combinando experiencia
+                        técnica, innovación y propósito desde 1995.
+                    </p>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>Rua Bela Cintra, 1200, 2º Piso<br />Cerqueira César, SP</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <a href="tel:+551150807500">+55 (11) 5080-7500</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a href="mailto:contato@mlegate.com">contato@mlegate.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5 class="footer-heading">Asociación Global</h5>
+                    <p class="footer-small">Independent member</p>
+                    <a href="https://www.morisonglobal.com/" target="_blank" class="footer-morison-link">
+                        Morison Global
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+
+                    <h5 class="footer-heading mt-4">Reconocimientos</h5>
+                    <div class="footer-awards">
+                        <img src="../../images/premios/SeloRotary.png" alt="Premio Rotary" />
+                        <img src="../../images/premios/SeloLeadersLeague.png" alt="Ranked Firm 2025" />
+                    </div>
+
+                    <p class="footer-disclaimer">
+                        Morison Global es una asociación de firmas profesionales independientes.
+                        Los servicios profesionales son prestados por las firmas miembro individuales.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5 class="footer-heading">Ubicación</h5>
+                    <div class="footer-map">
+                        <iframe width="100%" height="100%" style="border: 0;" loading="lazy" allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=Rua%20Bela%20Cintra%2C%201200%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 MLEGATE. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- ========== BACK TO TOP ========== -->
+    <a id="back-to-top-link" class="back-to-top-btn hidden" aria-label="Volver arriba" href="#inicio">
+        <svg height="20" width="20" viewBox="0 0 512 512" fill="currentColor">
+            <path
+                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/app.js"></script>
+    <script src="../../js/jsRefactor.js"></script>
 </body>
 
 </html>
