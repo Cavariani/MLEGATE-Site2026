@@ -1685,7 +1685,7 @@ a {
 }
 
 .footer-awards img {
-    height: 70px;
+    height: 80px;
     object-fit: contain;
     opacity: 0.8;
     transition: opacity 0.3s ease;
@@ -1694,6 +1694,8 @@ a {
 .footer-awards img:hover {
     opacity: 1;
 }
+
+
 
 .footer-disclaimer {
     font-size: 0.78rem;
