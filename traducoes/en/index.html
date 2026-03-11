@@ -107,10 +107,12 @@
             
             <div class="hero-cta reveal-hero" data-delay="3">
                 <a href="#sobre" class="btn-hero-primary" id="heroEnterBtn">
-                    Explore
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5v14M5 12l7 7 7-7" />
-                    </svg>
+                    <span class="btn-hero-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M12 5v14M5 12l7 7 7-7" />
+                        </svg>
+                    </span>
+                    <span class="btn-hero-label">Explore</span>
                 </a>
                 <!-- <a href="#contato2" class="btn-hero-secondary">
                     Get in Touch
@@ -628,6 +630,69 @@
         </div>
     </section> -->
 
+    <!-- ========== MODAL WHISTLEBLOWER CHANNEL ========== -->
+    <div class="modal fade" id="modalDenuncia" tabindex="-1" aria-labelledby="modalDenunciaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content denuncia-modal-content">
+                <button type="button" class="denuncia-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <div class="denuncia-modal-body">
+                    <div class="denuncia-modal-left">
+                        <span class="section-tag">Whistleblower Channel</span>
+                        <h2 class="denuncia-title">
+                            Transparency and<br />
+                            <span class="title-accent">integrity above all.</span>
+                        </h2>
+                        <p class="denuncia-desc">
+                            This channel is intended for reporting conduct that violates our ethical
+                            principles, internal policies or applicable law. Reports can be made
+                            completely anonymously.
+                        </p>
+                        <div class="denuncia-badges">
+                            <div class="denuncia-badge">
+                                <i class="bi bi-person-fill-slash"></i>
+                                <span>100% Anonymous</span>
+                            </div>
+                            <div class="denuncia-badge">
+                                <i class="bi bi-lock-fill"></i>
+                                <span>Confidential</span>
+                            </div>
+                            <div class="denuncia-badge">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Secure</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="denuncia-modal-right">
+                        <form action="https://formsubmit.co/canal-de-denuncias@mlegate.com" method="POST"
+                            class="denuncia-form" id="denunciaForm">
+                            <input type="hidden" name="_subject" value="🔒 New Report Received — Confidential Channel MLEGATE" />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_template" value="table" />
+                            <div class="denuncia-anon-notice">
+                                <i class="bi bi-info-circle"></i>
+                                <span>No identifying data will be collected in this form.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagemDenuncia">Describe the situation</label>
+                                <textarea name="Report" id="mensagemDenuncia" rows="7"
+                                    placeholder="Describe the conduct or situation you wish to report with as much detail as possible..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit-denuncia">
+                                Submit Report
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ========== SOCIAL ========== -->
     <section id="social-connect" class="social-section" data-reveal>
         <div class="container-custom text-center">
@@ -676,6 +741,12 @@
     <!-- ========== FOOTER ========== -->
     <footer class="footer-section">
         <div class="container-custom">
+            <div class="footer-denuncia-bar">
+                <button class="btn-canal-denuncia" data-bs-toggle="modal" data-bs-target="#modalDenuncia">
+                    <i class="bi bi-shield-lock"></i>
+                    Whistleblower Channel
+                </button>
+            </div>
             <div class="footer-grid">
 
                 <div class="footer-col footer-brand-col">

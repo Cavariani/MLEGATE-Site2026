@@ -354,7 +354,11 @@ a {
 
 .hero-logo-img {
     max-width: min(55vw, 500px);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+}
+
+.hero-cta {
+    margin-top: 4rem;
 }
 
 .hero-tagline {
@@ -378,31 +382,98 @@ a {
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
+    margin-top: 4rem;
 }
 
 .btn-hero-primary {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 14px 32px;
+    padding: 0 20px;
+    height: 62px;
+    width: 62px;
+    gap: 0;
+    overflow: hidden;
     background: var(--color-primary);
     color: white;
     border-radius: 100px;
     border: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(240, 126, 48, 0.3);
-    min-width: 160px;
-    ;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        gap 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+    box-shadow: 0 6px 28px rgba(240, 126, 48, 0.38);
+}
+
+.btn-hero-primary::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 100px;
+    border: 1.5px solid rgba(240, 126, 48, 0.5);
+    animation: heroBtnRing 2.6s ease-out infinite;
+    pointer-events: none;
+}
+
+.btn-hero-primary::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 100px;
+    border: 1.5px solid rgba(240, 126, 48, 0.28);
+    animation: heroBtnRing 2.6s ease-out infinite 0.9s;
+    pointer-events: none;
 }
 
 .btn-hero-primary:hover {
+    width: 172px;
+    gap: 10px;
     background: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(240, 126, 48, 0.35);
+    box-shadow: 0 12px 44px rgba(240, 126, 48, 0.5);
     color: white;
+}
+
+.btn-hero-primary:hover::before,
+.btn-hero-primary:hover::after {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.btn-hero-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-hero-label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition:
+        opacity 0.28s ease 0.22s,
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.16s;
+}
+
+.btn-hero-primary:hover .btn-hero-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@keyframes heroBtnRing {
+    0%   { transform: scale(1);    opacity: 0.65; }
+    60%  { opacity: 0.1; }
+    100% { transform: scale(1.8);  opacity: 0; }
 }
 
 .btn-hero-secondary {
@@ -1471,6 +1542,194 @@ a {
     font-size: 1.1rem;
 }
 
+.btn-canal-denuncia {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 1.5rem;
+    padding: 8px 18px;
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-canal-denuncia:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: rgba(240, 126, 48, 0.05);
+}
+
+.btn-canal-denuncia i {
+    font-size: 0.85rem;
+}
+
+/* ================================
+   MODAL CANAL DE DENÚNCIAS
+================================ */
+.denuncia-modal-content {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.denuncia-modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.denuncia-modal-close:hover {
+    color: var(--color-primary);
+}
+
+.denuncia-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 460px;
+}
+
+.denuncia-modal-left {
+    padding: 3rem 2.5rem;
+    background: var(--color-surface-alt);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.denuncia-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+    margin: 1rem 0 0.8rem;
+}
+
+.denuncia-title .title-accent {
+    color: var(--color-primary);
+}
+
+.denuncia-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+}
+
+.denuncia-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.denuncia-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.denuncia-badge i {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
+.denuncia-modal-right {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.denuncia-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.denuncia-anon-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(240, 126, 48, 0.06);
+    border: 1px solid rgba(240, 126, 48, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.denuncia-anon-notice i {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.btn-submit-denuncia {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-submit-denuncia:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+    .denuncia-modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .denuncia-modal-left {
+        padding: 2rem 1.5rem;
+    }
+
+    .denuncia-modal-right {
+        padding: 2rem 1.5rem;
+    }
+
+    .denuncia-title {
+        font-size: 1.3rem;
+    }
+}
+
 /* ================================
    COOKIE BANNER
 ================================ */
@@ -1598,7 +1857,7 @@ a {
 ================================ */
 .footer-section {
     background: var(--color-secondary-dark);
-    padding: 5rem 0 2rem;
+    padding: 1rem 0 2rem;
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -1718,11 +1977,31 @@ a {
     min-height: 260px;
 }
 
+.footer-denuncia-bar {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+}
+
+.footer-denuncia-bar .btn-canal-denuncia {
+    color: rgba(240, 126, 48, 0.7);
+    border-color: rgba(240, 126, 48, 0.35);
+}
+
+.footer-denuncia-bar .btn-canal-denuncia:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: rgba(240, 126, 48, 0.1);
+}
+
 .footer-bottom {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
 }
 
 .footer-bottom p {
@@ -1817,7 +2096,22 @@ a {
         flex-direction: column;
     }
 
-    .btn-hero-primary,
+    .btn-hero-primary {
+        width: 172px;
+        gap: 10px;
+    }
+
+    .btn-hero-primary::before,
+    .btn-hero-primary::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .btn-hero-label {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
     .btn-hero-secondary {
         width: 100%;
         justify-content: center;
